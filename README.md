@@ -22,6 +22,7 @@ CustomDiscord benötigt ![](https://discord.js.org/favicon.ico)[Discord.JS](http
 Zum Öffnen von CustomDiscord können Sie eine dieser Möglichkeiten benutzen:
 * Rechtsklick auf beliebiger Webseite > Custom Discord
 * Rechtklick auf Extension Icon > Launch
+
 CustomDiscord sollte sich darauf folgend in einem neuen Fenster öffnen.
 
 ## Login
