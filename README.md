@@ -36,6 +36,7 @@ Folgen Sie einfach den folgenden Schritten, um sich einzuloggen:
 6. Discord wird Sie fragen, ob Sie dies wirklich tun möchten. Klicken Sie auf "Yes, do it!".
 7. Klicken Sie nun auf "Click to Reveak Token".
 8. Kopieren Sie die Zeichenfolge und geben Sie diese in CustomDiscord ein.
+
 Sie können hier auch ein Avatar setzen.
 
 **Geben Sie Ihren Token niemals an Dritte weiter!**
