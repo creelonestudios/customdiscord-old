@@ -1,0 +1,15 @@
+.theme-sometheme {
+	--header-primary: #FFFFFF;
+	--header-secondary: #FFFFFF;
+	--text-normal: #000000;
+	--text-muted: #000000;
+	--text-link: #404040;
+	--background-primary: #00b0f4;
+	--background-secondary: #00b0f4;
+	--background-tertiary: #00b0f4;
+	--channel-hover: #00b0f4;
+	--channel-active: #00b0f4;
+	--message-hover: #00b0f4;
+	--textarea-background: #00b0f4;
+	--other: #ff0000;
+}
