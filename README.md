@@ -31,7 +31,7 @@ Folgen Sie einfach den folgenden Schritten, um sich einzuloggen:
 1. Bitte geben Sie **NICHT** Ihren Benutzer-Token ein.
 2. Um einen Token zu erhalten, begeben Sie sich zum [Discord Developer Portal](https://discord.com/developers/applications).
 3. Erstellen Sie dort eine neue Application.
-4. Geben Sie Ihr einen Namen. Dies wird ihr Benutzername sein. Als Team wählen Sie "Personal" aus.
+4. Geben Sie Ihr einen Namen. Dies wird ihr Benutzername sein.
 5. Klicken Sie nun in der Liste links am Bildschirmrand auf "Bot", anschließend auf "Add Bot".
 6. Discord wird Sie fragen, ob Sie dies wirklich tun möchten. Klicken Sie auf "Yes, do it!".
 7. Klicken Sie nun auf "Click to Reveak Token".
