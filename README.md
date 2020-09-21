@@ -34,7 +34,7 @@ Folgen Sie einfach den folgenden Schritten, um sich einzuloggen:
 4. Geben Sie Ihr einen Namen. Dies wird ihr Benutzername sein.
 5. Klicken Sie nun in der Liste links am Bildschirmrand auf "Bot", anschließend auf "Add Bot".
 6. Discord wird Sie fragen, ob Sie dies wirklich tun möchten. Klicken Sie auf "Yes, do it!".
-7. Klicken Sie nun auf "Click to Reveak Token".
+7. Klicken Sie nun auf "Click to Reveal Token".
 8. Kopieren Sie die Zeichenfolge und geben Sie diese in CustomDiscord ein.
 
 Sie können hier auch ein Avatar setzen.
