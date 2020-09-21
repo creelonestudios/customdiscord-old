@@ -26,7 +26,7 @@ function parseMsg(msg) {
 			var desc = this.fields[2].e.value || "Keine Beschreibung";
 			var footer = this.fields[3].e.value || "Kein Footer";
 			var channel = client.channels.cache.get(current_channel);
-			channel.send(embed(title, desc, "a", footer));
+			channel.send(embed(title, desc, "RANDOM", footer));
 		};
 		return;
 	}
