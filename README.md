@@ -66,4 +66,4 @@ Auch dies ist recht einfach:
 Bitte bedenken Sie, dass viele Serverbesitzer dies nicht erlauben, da es sich um einen Botaccount handelt.
 
 ## TODO:
-* Woohoo!
+Moved to [Projects](https://github.com/creelonestudios/customdiscord/projects)
