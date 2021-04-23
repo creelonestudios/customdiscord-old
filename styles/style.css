@@ -46,7 +46,6 @@ textarea {
 	width: 250px;
 	overflow: hidden;
 	background: var(--background-secondary);
-	padding-right: 3pt;
 }
 
 #chat-region {
@@ -67,6 +66,8 @@ textarea {
 #channel-list {
 	flex: 1 1 auto;
 	overflow: hidden scroll;
+	padding-right: 3pt;
+	margin-right: 3pt;
 }
 
 #user-region {
@@ -204,7 +205,11 @@ textarea {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
+}
+
+#channel-list::-webkit-scrollbar {
+	width: 6px;
 }
 
 /* Track */
