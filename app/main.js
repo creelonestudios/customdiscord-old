@@ -334,10 +334,15 @@ function reloadChannelList() {
 		channelsDiv.removeChild(channelsDiv.children[0]);
 	}
 	for(var i = 0; i < channels.length; i++) {
-		if(!channels[i].parent) {
+		if(!channels[i].parent && channels[i].type != "category") {
 			channelsDiv.appendChild(createChannelDiv(channels[i]));
 		}
-	}	
+	}
+	for(var i = 0; i < channels.length; i++) {
+		if(!channels[i].parent && channels[i].type == "category") {
+			channelsDiv.appendChild(createChannelDiv(channels[i]));
+		}
+	}
 }
 
 function updateUserRegion() {
