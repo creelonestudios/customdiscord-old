@@ -61,7 +61,7 @@ Auch dies ist recht einfach:
 ### Falls Sie einem anderen Server beitreten wollen, folgen Sie bitte diesen Schritten:
 1. Schicken Sie den Link an einen Server Admin.
 2. Erklären Sie ihm, dass er den Link öffnen und den Bot authorisieren soll.
-   Wichtig ist, dass Sie ihm sagen, dass der Bot keine Extrarechte benörtigt.
+   Wichtig ist, dass Sie ihm sagen, dass der Bot keine Extrarechte benötigt.
 3. Fertig.
 Bitte bedenken Sie, dass viele Serverbesitzer dies nicht erlauben, da es sich um einen Botaccount handelt.
 
