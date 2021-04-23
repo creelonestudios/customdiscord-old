@@ -1,11 +1,12 @@
+html, body, #client {
+	height: 100%;
+}
+
 body {
+	margin: 0px;
 	background-color: var(--background-primary);
 	color: var(--text-normal);
-	margin: 0px;
 	font-size: 18px;
-	height: 100%;
-	max-height: 100%;
-	overflow: hidden; 
 }
 
 * {
@@ -16,17 +17,21 @@ a, a:visited {
 	color: var(--text-link);
 }
 
+textarea {
+	resize: none;
+	outline: none;
+	overflow: hidden;
+}
+
 #client {
 	display: flex;
-	height: 100%;
-	max-height: 100%;
-	width: 100%;
-	max-width: 100%;
 	overflow: hidden;
 	flex-direction: row;
-	flex-wrap: nowrap;
-	/* align-content: flex-start; */
-	/* justify-content: flex-start; */
+	background: var(--background-primary);
+}
+
+#client > * {
+	flex: 0 0 auto;
 }
 
 #guild-region {
@@ -37,42 +42,48 @@ a, a:visited {
 
 #channel-region {
 	display: flex;
+	flex-direction: column;
 	width: 250px;
+	overflow: hidden;
 	background: var(--background-secondary);
-	/* overflow: hidden; */
-	/* flex-direction: column; */
+	padding-right: 3pt;
 }
 
 #chat-region {
 	display: flex;
-	width: -webkit-fill-available;
-	max-width: -webkit-fill-available;
-	min-width: 10px;
+	overflow: hidden;
+	flex-direction: column;
+	flex: 1 1 auto;
 	background: var(--background-primary);
-	/* overflow: hidden; */
+	padding-right: 3pt;
 }
 
 #member-region {
 	display: flex;
-	height: 100%;
 	width: 250px;
 	background: var(--background-secondary);
 }
 
 #channel-list {
-	overflow-y: scroll;
-	overflow-x: hidden;
+	flex: 1 1 auto;
+	overflow: hidden scroll;
+}
+
+#user-region {
 	display: flex;
-	/* transform: translate(0px, -55px); */ /* fix height issue lol */
-	/* padding-bottom: 25px; */
-	flex-direction: column;
-	min-height: min-content;
+	background: var(--background-secondary-alt);
+	height: 60px;
+}
+
+#chat-history {
+	flex: 1 1 auto;
+	overflow: hidden scroll;
+	padding-right: 3pt;
+	padding-bottom: 24px;
 }
 
 .category {
 	padding: 10px 0px 10px 0px;
-	display: flex;
-	flex-direction: column;
 }
 
 .category-name {
@@ -85,8 +96,10 @@ a, a:visited {
 	text-align: left;
 	padding: 2px 10px 2px 10px;
 	overflow-wrap: anywhere;
-	/* display: block; */
-	display: flex;
+}
+
+.category .channel {
+	display: none;
 }
 
 .channel:hover {
@@ -95,31 +108,111 @@ a, a:visited {
 
 .channel.channel-active {
 	background: var(--channel-active);
-	display: flex;
+	display: block;
 }
 
 .category-showchans .channel {
-	display: flex;
+	display: block;
 }
 
-#chat-history {
-	width: 100%;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	/* padding-bottom: 110px; */
-	position: relative;
+#user-region-avatar {
+	width: 40px;
+	height: 40px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: flex;
+	align-self: center;
+	margin: 0px 10px 0px 10px;
+	overflow: hidden;
+}
+
+#user-region-main {
+	align-self: center;
+	width: 145px;
+	overflow: hidden;
+}
+
+.message {
+	padding: 10px;
+	font-size: 18px;
+}
+
+.message:hover {
+	background: var(--message-hover);
+}
+
+.message-author {
+	font-weight: bold;
+	font-family: Consolas, monospace, Arial;
+}
+
+.message-content {
+	overflow-wrap: anywhere;
+	padding: 2px;
+}
+
+.message-avatar {
+	border-radius: 32px;
+	overflow: hidden;
+}
+
+#loading {
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #7289DA;
+}
+
+#loading div {
+	text-align: center;
+}
+
+#inputbox {
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: column;
+	color: var(--text-normal);
+	background: var(--background-primary);
+	/* min-height: 40px; */
+	/* height: -webkit-fill-available; */
+	/* max-height: 180px; */
+	padding: 0px 10px 0px 10px;
+	/* overflow: auto; */
+}
+
+#inputbox-inner {
+	flex: 0 0 auto;
+	color: var(--text-normal);
+	background: var(--textarea-background);
+	border-radius: 8px;
+	padding: 10px;
+	border-color: transparent;
+	/* min-width:  0px; */
+	/* width: 0px; */
+	min-height: 0px;
+	height: 14px;
+}
+
+#typing {
+	position: flex;
+	font-size: 14px;
+	color: #c0c0c0;
+	padding: 2px;
+	height: 20px;
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-	box-shadow: none; /*inset 0 0 2px grey; */
-	border-radius: 25px;
-	margin: 5px;
+	border-radius: 10px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	margin-right: 5px;
 }
  
 /* Handle */
