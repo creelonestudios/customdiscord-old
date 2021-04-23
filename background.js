@@ -111,6 +111,10 @@ function fixSettings(s) {
 	return s;
 }
 
+function getDiscordJS() {
+	return Discord;
+}
+
 chrome.contextMenus.create({
 	title: "Custom Discord",
 	id: "top",
@@ -128,5 +132,5 @@ chrome.contextMenus.create({
 });
 
 function openApp() {
-	window.open(chrome.extension.getURL("app.html"), "_blank", "menubar=0,width=1200,height=800,toolbar=0");
+	window.open(chrome.extension.getURL("app/app.html"), "_blank", "menubar=0,width=1200,height=800,toolbar=0");
 }

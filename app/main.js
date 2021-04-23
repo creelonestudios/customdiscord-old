@@ -1,3 +1,4 @@
+let bg = chrome.extension.getBackgroundPage();
 let client = new Discord.Client();
 let guilds = [];
 let current_guild = "732633809241243679";
@@ -7,7 +8,6 @@ let addons = [];
 let wl_tags = ["i", "/i", "b", "/b", "text", "/text", "h2", "/h2", "h3", "/h3", "h4", "/h4", "h5", "/h5", "strike", "/strike", "u", "/u", "p", "/p", "code", "/code"];
 let themes = [];
 let typing = false;
-let bg = chrome.extension.getBackgroundPage();
 
 function $(id) {
 	var elem = document.getElementById(id);
@@ -47,7 +47,7 @@ function copyUser() {
 
 function setStatus() {
 	var popup = new JSONPopup({
-		title: "Status ändern",
+		title: "Change Status",
 		submit: "OK",
 		fields: [
 			{type: 1, name: "Name: ", length: -1},
@@ -96,8 +96,8 @@ client.on('ready', () => {
 				title: "Willkommen",
 				submit: "OK",
 				fields: [
-					{type: 0, name: "Du hast auf CustomDiscord gewechselt! Dafür möchten wir dir danken!"},
-					{type: 0, name: "Viel Spaß mit CustomDiscord!"},
+					{type: 0, name: "Du hast auf CustomDiscord gewechselt! DafÃ¼r mÃ¶chten wir dir danken!"},
+					{type: 0, name: "Viel SpaÃŸ mit CustomDiscord!"},
 					{type: 0, name: " "},
 					{type: 0, name: "LG CustomDiscord"}
 				]
@@ -123,7 +123,7 @@ client.on('ready', () => {
 		client.user.setPresence({
 			status: 'online',
 			activity: {
-				name: "Custom Discord",
+				name: "Custom Discord - Open Source!",
 				type: "PLAYING"
 			}
 		});
@@ -188,6 +188,10 @@ client.on('ready', () => {
 });
 
 client.on('message', (message) => {
+	if(!message.author.bot) {
+		var audio = new Audio('discord-notification.mp3');
+		audio.play();
+	}
 	if(message.channel.id == current_channel) {
 		$("typing").innerText = "";
 	}
@@ -249,7 +253,8 @@ client.on('typingStart', (channel, user) => {
 });
 
 function sendMsg() {
-	var channel = client.channels.cache.get(current_channel);
+	$("typing").innerHTML = "";
+	var channel = client.channels.cache.get(current_channel); // uff das war eig. so ez fix xD
 	//if(!channel) channel = client.users.cache.get($("channelid").value); // for DMs
 	/*if(!channel) {
 		$("channelid").value = "Invalid Channel/User ID";
@@ -371,7 +376,7 @@ window.addEventListener("load", () => {
 			window.location.href = "settings";*/
 			/*$("loadingtext").innerText = "Preparing..."
 			
-			da jonas design und ähnliche hasst musste ich das leider entfernen
+			da jonas design und Ã¤hnliche hasst musste ich das leider entfernen
 			
 			LG cfp
 			
@@ -445,6 +450,7 @@ window.addEventListener("load", () => {
 		if(!event.ctrlKey) {
 			$("inputbox-inner").focus();
 		}
+		console.log("keydown on client");
 	});
 	
 	$("inputbox").addEventListener("keydown", function(event) { // to make sure \n isnt at the end
@@ -484,6 +490,7 @@ window.addEventListener("load", () => {
 		PopupManager.setPopup(popup);
 	});
 	$("user-region-settings").title = "Benutzereinstellungen";
+	$("user-region-status").addEventListener("click", setStatus);
 	
 	PopupManager.init();
 	

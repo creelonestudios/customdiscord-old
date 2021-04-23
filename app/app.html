@@ -3,10 +3,10 @@
 <head>
 	<title>Custom Discord</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="styles/themes.css">
-	<link rel="stylesheet" href="styles/style.css">
-	<link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico">
-	<script type="text/javascript" src="discordjs/discord.v12.min.js"></script>
+	<link rel="stylesheet" href="../styles/themes.css">
+	<link rel="stylesheet" href="../styles/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+	<script type="text/javascript" src="../discordjs/discord.v12.min.js"></script>
 	<script type="text/javascript" src="util/popup.js"></script>
 	<script type="text/javascript" src="util/div-creator.js"></script>
 	<script type="text/javascript" src="util/message-parser.js"></script>
@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div id="loading">
-		<div><img src="img/loading.gif"></div>
+		<div><img src="../img/loading.gif"></div>
 		<div>Hold tight.<br><div id="loadingtext">Loading CustomDiscord...</div></div>
 		<p style="display: none;" id="loadingaddon">Loading Addon ERROR...</p>
 	</div>
@@ -31,7 +31,7 @@
 				<div id="user-region-avatar"></div>
 				<div id="user-region-main">
 					<div id="user-region-name" onclick="copyUser()">Username#1234</div>
-					<div id="user-region-status" onclick="setStatus()"></div>
+					<div id="user-region-status"></div>
 				</div>
 				<div id="user-region-settings"><div></div></div>
 			</div>
@@ -70,7 +70,6 @@
 		<input type="text" placeholder="If this message," id="ifmsg">
 		<input type="text" placeholder="Respond with this" id="thenmsg">
 	</div>-->
-	<!-- styleception -->
-	<text id="inputbox-a" style="color: transparent; background: transparent; position: absolute; top: 0px; z-index: -1; overflow-wrap: anywhere; left: 341px; right: 285px; font: 400 13.3333px monospace"></text><!-- is needed to determine the height for the inputbox --> 
+	<text id="inputbox-a" style="color: transparent; background: transparent; position: absolute; top: 0px; z-index: -1; overflow-wrap: anywhere; left: 325px; right: 290px; font: 400 13.3333px monospace"></text><!-- is needed to determine the height for the inputbox --> 
 </body>
 </html>
