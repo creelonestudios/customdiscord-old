@@ -5,7 +5,7 @@ body {
 	font-size: 18px;
 	height: 100%;
 	max-height: 100%;
-	overflow: hidden;
+	overflow: hidden; 
 }
 
 * {
@@ -49,7 +49,7 @@ a, a:visited {
 	max-width: -webkit-fill-available;
 	min-width: 10px;
 	background: var(--background-primary);
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 #member-region {
@@ -63,11 +63,10 @@ a, a:visited {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	display: flex;
-	height: 100%;
-	max-height: 100%;
 	/* transform: translate(0px, -55px); */ /* fix height issue lol */
 	/* padding-bottom: 25px; */
 	flex-direction: column;
+	min-height: min-content;
 }
 
 .category {
@@ -118,10 +117,9 @@ a, a:visited {
 
 /* Track */
 ::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 2px grey; 
-	border-radius: 10px;
-	margin-bottom: 5px;
-	margin-top: 5px;
+	box-shadow: none; /*inset 0 0 2px grey; */
+	border-radius: 25px;
+	margin: 5px;
 }
  
 /* Handle */
