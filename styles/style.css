@@ -10,3 +10,89 @@ body {
 * {
 	border-spacing: 0px;
 }
+
+a, a:visited {
+	color: var(--text-link);
+}
+
+#client {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	/* align-content: flex-start; */
+	/* justify-content: flex-start; */
+}
+
+#guild-region {
+	display: flex;
+	width: 70px;
+	background: var(--background-tertiary);
+}
+
+#channel-region {
+	/* display: flex; */
+	width: 250px;
+	background: var(--background-secondary);
+	/* overflow: hidden; */
+	/* flex-direction: column; */
+}
+
+#chat-region {
+	display: flex;
+	/* width: -webkit-fill-available; */
+	/* max-width: -webkit-fill-available; */
+	min-width: 10px;
+	background: var(--background-primary);
+	overflow: hidden;
+}
+
+#member-region {
+	display: flex;
+	height: 100%;
+	width: 250px;
+	background: var(--background-secondary);
+}
+
+#channel-list {
+	/* overflow-y: auto; */
+	/* overflow-x: hidden; */
+	display: flex;
+	/* transform: translate(0px, -55px); */ /* fix height issue lol */
+	/* padding-bottom: 25px; */
+}
+
+.category {
+	padding: 10px 0px 10px 0px;
+	display: flex;
+	flex-direction: column;
+}
+
+.category-name {
+	cursor: pointer;
+	padding: 2px 10px 2px 10px;
+}
+
+.channel {
+	vertical-align: top;
+	text-align: left;
+	padding: 2px 10px 2px 10px;
+	overflow-wrap: anywhere;
+	display: block;
+	postion: absolute;
+}
+
+.channel:hover {
+	background: var(--interactive-hover);
+}
+
+.channel.channel-active {
+	background: var(--channel-active);
+	display: block;
+}
+
+.category-showchans .channel {
+	display: block;
+}

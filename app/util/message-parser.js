@@ -283,7 +283,7 @@ function unparseMsg(msg, guild) {
 				if(wl_tags.includes(s)) {
 					result += "<" + s + ">";
 				} else {
-					result += "&lt;" + s.replace("<", "lt") + "&gt;";
+					result += "&lt;" + s.replaceAll("<", "lt") + "&gt;";
 				}
 			}
 			i += s.length + 1;

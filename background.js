@@ -33,7 +33,7 @@ client.login(token)
 			//Cookie.set("ver", "1");
 			$("loadingtext").innerText = "Applying changes...";
 			setTimeout(function() {
-				$("loadingtext").innerText = "Sorry for bad login. Jonas doesnt like design and other things ):";
+				$("loadingtext").innerText = "I regret everything. Sry Jonas (:";
 				location.reload();
 			}, 500);
 		};
