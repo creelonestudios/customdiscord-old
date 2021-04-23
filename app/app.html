@@ -20,14 +20,14 @@
 		<div>Hold tight.<br><div id="loadingtext">Loading CustomDiscord...</div></div>
 		<p style="display: none;" id="loadingaddon">Loading Addon ERROR...</p>
 	</div>
-	<div id="popups"></div>
+	<r style="display: none"><div id="popups"></div></r>
 	<div id="client" style="display: none;">
 		<div id="guild-region"></div>
 		<div id="channel-region">
 			<div id="channel-list"></div>
 			
 			
-			<div id="user-region">
+			<div id="user-region" style="display: none">
 				<div id="user-region-avatar"></div>
 				<div id="user-region-main">
 					<div id="user-region-name" onclick="copyUser()">Username#1234</div>
@@ -38,7 +38,7 @@
 		</div>
 		<div id="chat-region">
 			<div id="chat-history"></div>
-			<div id="inputbox">
+			<div id="inputbox" style="display: none">
 				<textarea id="inputbox-inner" placeholder="Send messages to #channel"></textarea>
 				<div id="typing"></div>
 			</div>
@@ -47,16 +47,16 @@
 			
 			<!--<input type="button" id="send" value="Send" onclick="sendMsg()">-->
 		</div>
-		<div id="member-region">
+		<!--<div id="member-region">
 			<div style="margin-left: 10px">
 				<!--<a href="settings" target="_blank">Settings</a><br>-->
-				<b>CustomDiscord Dev</b><br>
+				<b style="display: none">CustomDiscord Dev</b><br>
 				<!--<button onclick="setTheme('theme-dark')">🌙 Switch to Dark Theme</button><br>
 				<button onclick="setTheme('theme-default')">🌞 Switch to Light Theme</button><br>
 				<button onclick="setTheme('')">🚫 Remove Theme</button>
 				<button id="btnstatuschange">Change Status</button>-->
-			</div>
-		</div>
+			<!--</div>
+		</div>-->
 	</div>
 	<!--
 	<div id="block-region">
@@ -70,6 +70,6 @@
 		<input type="text" placeholder="If this message," id="ifmsg">
 		<input type="text" placeholder="Respond with this" id="thenmsg">
 	</div>-->
-	<text id="inputbox-a" style="color: transparent; background: transparent; position: absolute; top: 0px; z-index: -1; overflow-wrap: anywhere; left: 325px; right: 290px; font: 400 13.3333px monospace"></text><!-- is needed to determine the height for the inputbox --> 
+	<!--<text id="inputbox-a" style="color: transparent; background: transparent; position: absolute; top: 0px; z-index: -1; overflow-wrap: anywhere; left: 325px; right: 290px; font: 400 13.3333px monospace"></text><!-- is needed to determine the height for the inputbox --> 
 </body>
 </html>

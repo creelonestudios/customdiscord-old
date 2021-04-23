@@ -376,12 +376,6 @@ window.addEventListener("load", () => {
 			window.location.href = "settings";*/
 			/*$("loadingtext").innerText = "Preparing..."
 			
-			da jonas design und Ã¤hnliche hasst musste ich das leider entfernen
-			
-			LG cfp
-			
-			:rage:
-			
 			setTimeout(function() {
 				var loginpopup = new JSONPopup({
 					title: "Login",

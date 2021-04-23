@@ -104,16 +104,16 @@ function parseMsg(msg) {
 }
 
 function unparseMsg(msg, guild) {
-	/*msg = msg.replace("<script>", "&lt;script&gt;");
-	msg = msg.replace("</script>", "&lt;/script&gt;");
-	msg = msg.replace("<style>", "&lt;style&gt;");
-	msg = msg.replace("</style>", "&lt;/style&gt;");
-	msg = msg.replace("<button>", "&lt;button&gt;");
-	msg = msg.replace("</button>", "&lt;/button&gt;");
-	msg = msg.replace("<input>", "&lt;input&gt;");
-	msg = msg.replace("</input>", "&lt;/input&gt;");
-	msg = msg.replace("<div>", "&lt;div&gt;");
-	msg = msg.replace("</div>", "&lt;/div&gt;");*/
+	/*msg = msg.replaceAll("<script>", "&lt;script&gt;");
+	msg = msg.replaceAll("</script>", "&lt;/script&gt;");
+	msg = msg.replaceAll("<style>", "&lt;style&gt;");
+	msg = msg.replaceAll("</style>", "&lt;/style&gt;");
+	msg = msg.replaceAll("<button>", "&lt;button&gt;");
+	msg = msg.replaceAll("</button>", "&lt;/button&gt;");
+	msg = msg.replaceAll("<input>", "&lt;input&gt;");
+	msg = msg.replaceAll("</input>", "&lt;/input&gt;");
+	msg = msg.replaceAll("<div>", "&lt;div&gt;");
+	msg = msg.replaceAll("</div>", "&lt;/div&gt;");*/
 	var result = "";
 	for(var i = 0; i < msg.length; i++) {
 		var char = msg.charAt(i);

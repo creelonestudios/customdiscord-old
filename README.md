@@ -9,7 +9,7 @@ CustomDiscord benötigt ![](https://discord.js.org/favicon.ico)[Discord.JS](http
 #### Made by:
 @J0NASLP [🌐Website](https://cohalejoja.selfhost.eu) [💬Discord](https://www.discord.gg/UHY559S)
 
-@chaosflo44-plus [🌐Website](https://cfpweb.ddns.net) [💬Discord](https://www.discord.gg/w9B9bqJ)
+@cfpwastaken [🌐Website](https://cfp.gotdns.ch) [💬Discord](https://www.discord.gg/w9B9bqJ)
 
 ## Installation
 1. Gehen Sie zu [chrome://extensions/](chrome://extensions/).
