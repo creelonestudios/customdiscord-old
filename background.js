@@ -131,6 +131,33 @@ chrome.contextMenus.create({
 	onclick: openApp
 });
 
+chrome.runtime.onMessage.addListener(data => {
+	if(data.type === 'notification') {
+		chrome.notifications.create('', {
+										  "title": data.name,
+										  "message": data.content,
+										  "iconUrl": "../img/icon_128.png",
+										  "type": "basic",
+										  "silent": true,
+										  "contextMessage": "CustomDiscord"
+										});
+	} else if(data.type == "popup") {
+		window.open(data.url, "_blank", "menubar=1,width=" + data.width + ",height=" + data.height + ",toolbar:1")
+		/*chrome.windows.create({
+			url: data.url,
+			type: "normal",
+			width: data.width,
+			height: data.height
+		}, function(win) {
+			//console.log(win)
+		});*/
+	}
+});
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+	openApp();
+});
+
 function openApp() {
 	window.open(chrome.extension.getURL("app/app.html"), "_blank", "menubar=0,width=1200,height=800,toolbar=0");
 }
