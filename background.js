@@ -131,6 +131,19 @@ chrome.contextMenus.create({
 	onclick: openApp
 });
 
+chrome.runtime.onMessage.addListener(data => {
+	if(data.type === 'notification') {
+		chrome.notifications.create('', {
+										  "title": data.name,
+										  "message": data.content,
+										  "iconUrl": "../img/icon_128.png",
+										  "type": "basic",
+										  "silent": true,
+										  "contextMessage": "CustomDiscord"
+										});
+	}
+});
+
 function openApp() {
 	window.open(chrome.extension.getURL("app/app.html"), "_blank", "menubar=0,width=1200,height=800,toolbar=0");
 }

@@ -133,6 +133,29 @@ textarea {
 	overflow: hidden;
 }
 
+#user-region-settings {
+	position: absolute;
+	margin: 15px 0px 0px 215px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+#user-region-settings:hover {
+	background-color: var(--interactive-hover);
+}
+
+#user-region-settings div {
+	background-image: url("../img/gear.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 20px;
+	height: 20px;
+	margin: 5px;
+}
+
 .message {
 	padding: 10px;
 	font-size: 18px;
@@ -143,6 +166,12 @@ textarea {
 }
 
 .message-author {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.message-author-name {
 	font-weight: bold;
 	font-family: Consolas, monospace, Arial;
 }
@@ -152,9 +181,12 @@ textarea {
 	padding: 2px;
 }
 
-.message-avatar {
+.message-author-avatar {
 	border-radius: 32px;
 	overflow: hidden;
+	width: 64px;
+	height: 64px;
+	display: flex;
 }
 
 #loading {
@@ -212,6 +244,57 @@ textarea {
 	width: 6px;
 }
 
+code {
+	background-color: #222222;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	font-family: Consolas, monospace, Arial;
+	padding: 1px;
+	font-size: 16px;
+}
+
+.cb {
+	background-color: #333336;
+	color: gray;
+	border: 1px solid #121212;
+	padding: 5px;
+	/*margin-top: 4px;*/
+	display: block;
+}
+
+.quote {
+	border-left: 3px solid #909090;
+	padding-left: 10px;
+	margin-left: 3px;
+	/*display: inline-block;*/
+}
+
+.mention {
+	background-color: #7289da40;
+	border: 1px solid transparent;
+	display: inline-block;
+	color: #7289DA;
+	border-radius: 3px;
+}
+
+.mention:hover {
+	background-color: #7289daff;
+	color: white;
+}
+
+#popups {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: fixed;
+	z-index: 1;
+	display: none;
+}
+
+#popups.darken {
+	background: #000000c0;
+}
+
 /* Track */
 ::-webkit-scrollbar-track {
 	border-radius: 10px;
@@ -234,4 +317,107 @@ textarea {
 
 ::-webkit-scrollbar-thumb:active {
 	background: #5a73b6;
+}
+
+.popup {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border-radius: 5px;
+	background-color: var(--background-primary);
+	overflow: hidden;
+	transform: translate(-50%, -50%);
+	border: 1px solid var(--background-tertiary);
+}
+
+.popup-title {
+	color: var(--text-normal);
+	text-align: center;
+	padding: 20px;
+	font-weight: bold;
+	font-family: Consolas, monospace, Arial;
+	overflow: hidden;
+	background-color: var(--background-secondary);
+}
+
+.popup-content {
+	padding: 15px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	overflow-wrap: anywhere;
+	background-color: var(--background-primary);
+	margin: 2px;
+}
+
+.popup-json-field {
+	padding: 10px;
+}
+
+.popup-json-field-desc {
+	
+}
+
+.popup-json-item {
+	display: block;
+}
+
+.popup-json-item[type=text] {
+	width: 200px;
+}
+
+.popup-json-item[type=number] {
+	width: 100px;
+}
+
+.popup-json-field text {
+	padding-right: 5px;
+}
+
+.popup-json-field select, .popup-json-field input {
+	outline: none;
+}
+
+.popup-json-addbutton {
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 2px;
+	font-weight: bold;
+	padding: 0px;
+	text-align: center;
+	border-color: transparent;
+	margin-top: 2px;
+	font-size: 16px;
+	outline: none;
+}
+
+.popup-json-addbutton:active {
+	background-color: #b0b0b0;
+}
+
+.popup-json-submit {
+	padding: 10px 15px 10px 15px;
+	min-width: 60px;
+	min-height: 30px;
+	margin: 10px;
+	background: #7289da;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	outline: none;
+	cursor: pointer;
+}
+
+.popup-json-submit:hover {
+	background: #677bc4;
+}
+
+.popup-json-submit:active {
+	background: #5b6eae;
+}
+
+.badge .bot {
+	background-color: #7289DA;
+	border-radius: 10px;
+	
 }

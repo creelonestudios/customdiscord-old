@@ -2,7 +2,8 @@
   "permissions": [
     "activeTab",
 	"storage",
-	"contextMenus"
+	"contextMenus",
+	"notifications"
   ],
   "browser_action": {
 	"default_title": "CustomDiscord",
