@@ -24,7 +24,12 @@ function parseMsg(msg) {
 			PopupManager.closePopup();
 			var title = this.fields[1].e.value || "Kein Titel";
 			var desc = this.fields[2].e.value || "Keine Beschreibung";
-			var footer = this.fields[3].e.value || "Kein Footer";
+			var footer = this.fields[3].e.value;
+			if(!footer) {
+				footer = "Kein Footer | CustomDiscord";
+			} else {
+				footer = footer + " | CustomDiscord";
+			}
 			var channel = client.channels.cache.get(current_channel);
 			channel.send(embed(title, desc, "RANDOM", footer));
 		};

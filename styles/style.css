@@ -416,6 +416,21 @@ code {
 	background: #5b6eae;
 }
 
+.embed {
+	
+}
+
+.embed-img {
+	max-width: 300px;
+	max-height: 300px;
+}
+
+.embed-errtxt {
+	color: red;
+	font-family: Consolas, monospace, Arial;
+	font-size: 14px;
+}
+
 .badge .bot {
 	background-color: #7289DA;
 	border-radius: 10px;

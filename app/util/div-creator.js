@@ -62,6 +62,7 @@ function createMessageDiv(message) {
 	var content;
 	var avatar;
 	var embeds = [];
+	var attachments = [];
 	if(typeof message == "string") {
 		authortag = "[Verified] CustomDiscord System";
 		author = "System";
@@ -74,6 +75,7 @@ function createMessageDiv(message) {
 		content = unparseMsg(message.content, message.guild);
 		avatar = message.author.displayAvatarURL();
 		embeds = message.embeds;
+		attachments = message.attachments.array();
 	}
 	var div = document.createElement("div");
 	var author_div = document.createElement("div");
@@ -96,8 +98,13 @@ function createMessageDiv(message) {
 	name_div.innerText = author;
 	name_div.title = authortag;
 	content_div.innerHTML = content;
+	console.log(message)
 	for(var i = 0; i < embeds.length; i++) {
 		embeds_div.appendChild(createEmbedDiv(embeds[i]));
+	}
+	console.log(attachments);
+	for(var i = 0; i < attachments.length; i++) {
+		embeds_div.appendChild(createAttachmentDiv(attachments[i]));
 	}
 	return div;
 }
@@ -112,4 +119,29 @@ function createEmbedDiv(embed) {
 	}
 	console.log(embed);
 	return div;
+}
+
+function createAttachmentDiv(a) {
+	if(!a) return;
+	var div = document.createElement("div");
+	if(isImageExt(a.name)) {
+		if(a.width > 5000 || a.height > 5000) {
+			var text = document.createElement("text");
+			var url = a.url.replaceAll(">", "&gt;").replaceAll("<", "&lt;");
+			text.className = "embed-errtxt";
+			text.innerHTML = "Refused to image due to it being too big.<br>"+ url;
+			div.appendChild(text);
+		} else {
+			var img = document.createElement("img");
+			img.className = "embed-img";
+			img.src = a.url;
+			div.appendChild(img);
+		}
+	} 
+	console.log(a);
+	return div;
+}
+
+function isImageExt(f) {
+	return f.endsWith(".png") || f.endsWith(".jpg") || f.endsWith(".jpeg") || f.endsWith(".webp");
 }
