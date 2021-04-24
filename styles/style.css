@@ -416,6 +416,11 @@ code {
 	background: #5b6eae;
 }
 
+.popup-image {
+	max-width: 512px;
+	max-height: 768px;
+}
+
 .embed {
 	
 }
@@ -429,6 +434,10 @@ code {
 	color: red;
 	font-family: Consolas, monospace, Arial;
 	font-size: 14px;
+}
+
+.attachment {
+	cursor: pointer;
 }
 
 .badge .bot {

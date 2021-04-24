@@ -124,17 +124,26 @@ function createEmbedDiv(embed) {
 function createAttachmentDiv(a) {
 	if(!a) return;
 	var div = document.createElement("div");
+	var handler = () => { 
+		var popup = new Popup(a.name, 600, 800, true);
+		var img = document.createElement("img");
+		img.src = a.url;
+		img.className = "popup-image";
+		popup.content.appendChild(img);
+		PopupManager.setPopup(popup);
+	}
 	if(isImageExt(a.name)) {
-		if(a.width > 5000 || a.height > 5000) {
+		if(a.width > 1920 || a.height > 1080) {
 			var text = document.createElement("text");
-			var url = a.url.replaceAll(">", "&gt;").replaceAll("<", "&lt;");
-			text.className = "embed-errtxt";
-			text.innerHTML = "Refused to image due to it being too big.<br>"+ url;
+			text.className = "embed-errtxt attachment";
+			text.innerHTML = "Refused to load image due to it being too big.<br>Click to view";
+			text.addEventListener("click", handler);
 			div.appendChild(text);
 		} else {
 			var img = document.createElement("img");
-			img.className = "embed-img";
+			img.className = "embed-img attachment";
 			img.src = a.url;
+			img.addEventListener("click", handler);
 			div.appendChild(img);
 		}
 	} 

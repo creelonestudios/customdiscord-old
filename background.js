@@ -141,7 +141,21 @@ chrome.runtime.onMessage.addListener(data => {
 										  "silent": true,
 										  "contextMessage": "CustomDiscord"
 										});
+	} else if(data.type == "popup") {
+		window.open(data.url, "_blank", "menubar=1,width=" + data.width + ",height=" + data.height + ",toolbar:1")
+		/*chrome.windows.create({
+			url: data.url,
+			type: "normal",
+			width: data.width,
+			height: data.height
+		}, function(win) {
+			//console.log(win)
+		});*/
 	}
+});
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+	openApp();
 });
 
 function openApp() {
