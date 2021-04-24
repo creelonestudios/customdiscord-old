@@ -425,9 +425,14 @@ code {
 	border: none;
 	outline: none;
 	background: transparent;
-	color: var(--text-muted);
+	color: #808080;
 	padding: 10px;
 	cursor: pointer;
+}
+
+.popup-image-button:hover, .popup-image-button:active {
+	color: #a0a0a0;
+	text-decoration: underline;
 }
 
 .embed {
