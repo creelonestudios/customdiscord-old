@@ -65,7 +65,7 @@ function createMessageDiv(message) {
 		authortag = "[Verified] CustomDiscord System";
 		author = "System";
 		content = unparseMsg(message);
-		avatar = "./img/icon_256.png";
+		avatar = "../img/icon_256.png";
 	} else {
 		authortag = author = message.author.tag;
 		author = message.author.tag;
@@ -74,21 +74,23 @@ function createMessageDiv(message) {
 		avatar = message.author.displayAvatarURL();
 	}
 	var div = document.createElement("div");
-	var div1 = document.createElement("div");
-	var div2 = document.createElement("div");
-	var img3 = document.createElement("img");
-	div.appendChild(img3);
-	div.appendChild(div1);
-	div.appendChild(div2);
+	var author_div = document.createElement("div");
+	var avatar_div = document.createElement("img");
+	var name_div = document.createElement("div");
+	var content_div = document.createElement("div");
+	div.appendChild(author_div);
+	div.appendChild(content_div);
+	author_div.appendChild(avatar_div);
+	author_div.appendChild(name_div);
 	div.className = "message";
-	div1.className = "message-author";
-	div2.className = "message-content";
-	img3.className = "message-avatar";
-	div1.innerText = author;
-	div1.title = authortag;
-	div2.innerHTML = content;
-	img3.src = avatar;
-	img3.width = img3.height ="64";
-	img3.title = authortag;
+	author_div.className = "message-author";
+	avatar_div.className = "message-author-avatar";
+	name_div.className = "message-author-name";
+	content_div.className = "message-content";
+	avatar_div.src = avatar;
+	avatar_div.title = authortag;
+	name_div.innerText = author;
+	name_div.title = authortag;
+	content_div.innerHTML = content;
 	return div;
 }
