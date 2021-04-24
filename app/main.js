@@ -191,6 +191,9 @@ client.on('message', (message) => {
 	if(!message.author.bot) {
 		var audio = new Audio('discord-notification.mp3');
 		audio.play();
+		
+		// TODO                                                            I need to fucking sleep
+		chrome.runtime.sendMessage('', { type: 'notification', name: message.author.username, avatar: /* message.author.displayAvatarURL() */ '../img/icon_128.png', content: message.content});
 	}
 	if(message.channel.id == current_channel) {
 		$("typing").innerText = "";
