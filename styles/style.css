@@ -421,6 +421,15 @@ code {
 	max-height: 768px;
 }
 
+.popup-image-button {
+	border: none;
+	outline: none;
+	background: transparent;
+	color: var(--text-muted);
+	padding: 10px;
+	cursor: pointer;
+}
+
 .embed {
 	
 }

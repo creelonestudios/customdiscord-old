@@ -127,9 +127,18 @@ function createAttachmentDiv(a) {
 	var handler = () => { 
 		var popup = new Popup(a.name, 600, 800, true);
 		var img = document.createElement("img");
+		var input = document.createElement("input");
 		img.src = a.url;
 		img.className = "popup-image";
+		img.style.display = "block";
+		input.type = "button";
+		input.className = "popup-image-button";
+		input.value = "Open Original";
+		input.addEventListener("click", () => {
+			window.open(a.url, "_blank");
+		});
 		popup.content.appendChild(img);
+		popup.content.appendChild(input);
 		PopupManager.setPopup(popup);
 	}
 	if(isImageExt(a.name)) {
