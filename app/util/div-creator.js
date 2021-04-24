@@ -61,6 +61,8 @@ function createMessageDiv(message) {
 	var author;
 	var content;
 	var avatar;
+	var embeds = [];
+	var attachments = [];
 	if(typeof message == "string") {
 		authortag = "[Verified] CustomDiscord System";
 		author = "System";
@@ -72,14 +74,18 @@ function createMessageDiv(message) {
 		if(message.member && message.member.nickname) author = message.member.nickname; 
 		content = unparseMsg(message.content, message.guild);
 		avatar = message.author.displayAvatarURL();
+		embeds = message.embeds;
+		attachments = message.attachments.array();
 	}
 	var div = document.createElement("div");
 	var author_div = document.createElement("div");
 	var avatar_div = document.createElement("img");
 	var name_div = document.createElement("div");
 	var content_div = document.createElement("div");
+	var embeds_div = document.createElement("div");
 	div.appendChild(author_div);
 	div.appendChild(content_div);
+	div.appendChild(embeds_div);
 	author_div.appendChild(avatar_div);
 	author_div.appendChild(name_div);
 	div.className = "message";
@@ -92,5 +98,59 @@ function createMessageDiv(message) {
 	name_div.innerText = author;
 	name_div.title = authortag;
 	content_div.innerHTML = content;
+	console.log(message)
+	for(var i = 0; i < embeds.length; i++) {
+		embeds_div.appendChild(createEmbedDiv(embeds[i]));
+	}
+	console.log(attachments);
+	for(var i = 0; i < attachments.length; i++) {
+		embeds_div.appendChild(createAttachmentDiv(attachments[i]));
+	}
 	return div;
+}
+
+function createEmbedDiv(embed) {
+	if(!embed) return;
+	var div = document.createElement("div");
+	if(embed.type == "rich") {
+		div.innerHTML = "author: " + embed.author + "<br>color:" + embed.color + " / " + embed.hexColor + "<br>desc: " + embed.description + "<br>fiels: " + embed.fields + "<br>footer: " + embed.footer + "<br>title: " + embed.title;
+	} else {
+		div.innerText = "Embeds in dev...";
+	}
+	console.log(embed);
+	return div;
+}
+
+function createAttachmentDiv(a) {
+	if(!a) return;
+	var div = document.createElement("div");
+	var handler = () => { 
+		var popup = new Popup(a.name, 600, 800, true);
+		var img = document.createElement("img");
+		img.src = a.url;
+		img.className = "popup-image";
+		popup.content.appendChild(img);
+		PopupManager.setPopup(popup);
+	}
+	if(isImageExt(a.name)) {
+		if(a.width > 1920 || a.height > 1080) {
+			var text = document.createElement("text");
+			text.className = "embed-errtxt attachment";
+			text.innerHTML = "Refused to load image due to it being too big.<br>Click to view";
+			text.addEventListener("click", handler);
+			div.appendChild(text);
+		} else {
+			var img = document.createElement("img");
+			img.className = "embed-img attachment";
+			img.src = a.url;
+			img.addEventListener("click", handler);
+			div.appendChild(img);
+		}
+	} 
+	console.log(a);
+	return div;
+}
+
+function isImageExt(f) {
+	return f.endsWith(".png") || f.endsWith(".jpg") || f.endsWith(".jpeg") || f.endsWith(".webp");
 }
