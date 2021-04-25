@@ -26,12 +26,19 @@ pause >nul
 goto ask
 
 :pull
-call pull.bat
+git pull
 pause >nul
 goto ask
 
 :push
-call push.bat
+git add .
+git pull
+:ask
+cls
+set /p "title=title: "
+if "%title%." EQU "." goto ask
+git commit -m "%title%"
+git push
 pause >nul
 goto ask
 
@@ -50,7 +57,17 @@ echo Merge :: Are you sure you want to merge main into ext and website? (y/n)
 set "ans=n"
 set /p "ans=> "
 if %ans% EQU n goto ask
-call mergemain.bat
+git push
+echo Merging with ext
+git switch ext
+git pull
+git merge main
+git push
+echo Merging with website
+git switch website
+git pull
+git merge main
+git push
 pause >nul
 goto ask
 
