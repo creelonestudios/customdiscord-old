@@ -234,4 +234,21 @@ window.addEventListener("load", () => {
 	
 	setTheme(bg.getSetting("theme") || "theme-default");
 });
-// #RoadTo500Lines
+
+function onLoaded() {
+	PopupManager.setPopup(new JSONPopup({
+		title: "Popup-Titel",
+		submit: "CLICK ME",
+		fields: [
+			{type: 0, name: "Description"},
+			{type: 1, name: "String", length: -1},
+			{type: 2, name: "Number", min: 0, max: 10},
+			{type: 3, name: "Boolean"},
+			{type: 1, name: "List (String)", length: -1, list: {length: 2, max: 5}},
+			{type: 2, name: "List (Number)", min: 0, max: 10, list: {length: 2, max: 5}},
+			{type: 3, name: "List (Boolean)", list: {length: 3, names: ["1", "2", "3"]}},
+			{type: 3, name: "Radio", list: {length: 4, names: ["A", "B", "C"], radio: true}}
+		]
+	}));
+	console.log("Loaded CustomDC!");
+}
