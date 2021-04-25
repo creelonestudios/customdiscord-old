@@ -11,13 +11,12 @@
   },
   "background": {
     "persistent": true,
-    "scripts": ["background.js"]
+    "scripts": ["background/main.js", "background/listeners.js"]
   },
   "manifest_version": 2,
   "name": "Custom Discord",
   "version": "1.0",
   "web_accessible_resources": [
-	"index.html",
 	"styles/themes.css",
 	"styles/style.css"
   ],

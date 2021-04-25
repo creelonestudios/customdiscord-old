@@ -98,11 +98,11 @@ function createMessageDiv(message) {
 	name_div.innerText = author;
 	name_div.title = authortag;
 	content_div.innerHTML = content;
-	console.log(message)
+	//console.log(message)
 	for(var i = 0; i < embeds.length; i++) {
 		embeds_div.appendChild(createEmbedDiv(embeds[i]));
 	}
-	console.log(attachments);
+	//console.log(attachments);
 	for(var i = 0; i < attachments.length; i++) {
 		embeds_div.appendChild(createAttachmentDiv(attachments[i]));
 	}
@@ -117,7 +117,7 @@ function createEmbedDiv(embed) {
 	} else {
 		div.innerText = "Embeds in dev...";
 	}
-	console.log(embed);
+	//console.log(embed);
 	return div;
 }
 
@@ -155,8 +155,13 @@ function createAttachmentDiv(a) {
 			img.addEventListener("click", handler);
 			div.appendChild(img);
 		}
-	} 
-	console.log(a);
+	} else {
+		var text = document.createElement("text");
+		text.className = "embed-errtxt attachment";
+		text.innerHTML = "Unknown Attachment Type: " + a.name;
+		div.appendChild(text);
+	}
+	//console.log(a);
 	return div;
 }
 

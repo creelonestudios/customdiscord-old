@@ -80,3 +80,9 @@ function setTheme(theme) {
 	document.getElementsByTagName("html")[0].className = theme;
 	//Cookie.set("theme", theme, {max_age: "infinite", path: "/"}); ----------------------------------------------------------------------------------------------------- !!!
 }
+
+function $(id) {
+	var elem = document.getElementById(id);
+	if(!elem) elem = document.body;
+	return elem;
+}

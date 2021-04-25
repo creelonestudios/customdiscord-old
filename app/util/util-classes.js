@@ -2,6 +2,7 @@ class Guild {
 	#id; #categories;
 	
 	constructor(g) {
+		console.log("NEW GUILD");
 		this.#id = g.id;
 		this.current = 0;
 		this.#categories = getCategories(g);
@@ -35,6 +36,7 @@ class Category {
 	#id; #channels; #e;
 	
 	constructor(c) {
+		console.log("NEW CAT");
 		this.#id = c.id;
 		this.current = 0;
 		this.#channels = [];
@@ -71,6 +73,7 @@ class Channel {
 	#id; #messages; #e;
 	
 	constructor(c) {
+		console.log("NEW CHAN");
 		this.#id = c.id;
 		this.#messages;
 		this.#e = getChannelDiv(c);
@@ -102,6 +105,7 @@ class Message {
 	#id; #e;
 	
 	constructor(m) {
+		console.log("NEW MSG");
 		this.#id = m.id;
 		this.#e = getMessageDiv(m);
 	}

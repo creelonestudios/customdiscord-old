@@ -9,16 +9,6 @@ let wl_tags = ["i", "/i", "b", "/b", "text", "/text", "h2", "/h2", "h3", "/h3", 
 let themes = [];
 let typing = false;
 
-function $(id) {
-	var elem = document.getElementById(id);
-	if(!elem) elem = document.body;
-	return elem;
-}
-
-function copyUser() {
-	copyToClipboard($("user-region-name").innerText);
-}
-
 /*function setStatus() {
 	var popup = new JSONPopup({
 		title: "Status",
@@ -246,7 +236,7 @@ client.on("presenceUpdate", () => {
 })
 
 client.on('typingStart', (channel, user) => {
-	if(channel.id == current_channel) {
+	if(channel.id == current_channel && user.id != ) {
 		var author;
 		author = user.tag;
 		if(user && user.nickname) author = user.nickname; 
