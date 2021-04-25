@@ -123,13 +123,6 @@ client.on('ready', () => {
 			var script = document.createElement("script");
 			script.src = addonnames[i];
 			document.getElementsByTagName("head")[0].appendChild(script);
-			/*for(var i = 0; i < addons.length; i++) {
-				if(!addonnames[i].name) {
-					alert("Invalid Addon \"" + addonnames[i] + "\": \"name\" not included");
-				} else {
-					$("loadingaddon").value = "Loading Addon " + addonsnames;
-				}
-			}*/
 		}
 		
 		// init themes
@@ -139,32 +132,10 @@ client.on('ready', () => {
 			link.src = themes[i];
 			document.getElementsByTagName("head")[0].appendChild(link);
 		}
-		
-		/*$("setstatus").addEventListener("click", function(event) {
-			client.user.setPresence({activity: {name: statustext.value, type: "PLAYING"}});
+
+		$("user-region-name").addEventListener("click", function(event) {
+			copyUser();
 		});
-		
-		$("setwatchingstatus").addEventListener("click", function(event) {
-			client.user.setPresence({activity: {name: statustext.value, type: "WATCHING"}});
-		});
-		
-		$("setstreamingstatus").addEventListener("click", function(event) {
-			client.user.setPresence({activity: {name: statustext.value, type: "STREAMING", url: "https://www.twitch.tv/" + streamurl.value}});
-		});
-		
-		$("setlisteningstatus").addEventListener("click", function(event) {
-			client.user.setPresence({activity: {name: statustext.value, type: "LISTENING"}});
-		});
-		
-		$("blockuser").addEventListener("click", function(event) {
-			blockedusers.push($("userid").value);
-			$("userid").value = "";
-		});
-		
-		$("blockuser").addEventListener("click", function(event) {
-			blockedusers.splice(blockedusers.indexOf($("userid").value), 1);
-			$("userid").value = "";
-		});*/
 		
 		var loading = document.getElementById("loading");
 		loading.style = "display: none;";
@@ -370,43 +341,6 @@ window.addEventListener("load", () => {
 	var token = bg.getToken();
 	client.login(token)
 		.catch(() => {
-			/*alert("Invalid Token!");
-			window.location.href = "settings";*/
-			/*$("loadingtext").innerText = "Preparing..."
-			
-			setTimeout(function() {
-				var loginpopup = new JSONPopup({
-					title: "Login",
-					submit: "Login",
-					width: "100%",
-					height: "100%",
-					fields: [
-						{type: 0, name: "Welcome to CustomDiscord."},
-						{type: 1, name: "Enter your Token here: ", length: -1}
-					]
-				});
-				PopupManager.setPopup(loginpopup);
-				loginpopup.submit = function() {
-					PopupManager.closePopup();
-					$("loadingtext").innerText = "Applying Token...";
-					console.log(this.fields[1].value);
-					var token = this.fields[1].value;
-					//var token = "NzMzNjgzNDAwMDY1Njc5Mzkw.XxcMmw._TGuo7UmQ-RJ4bs0ldlQt5_RDt8";
-					Cookie.set("token", token, {max_age: "infinite", path: "/"});
-					
-					setTimeout(function() {
-						$("loadingtext").innerText = "Applying Default Settings...";
-						
-						Cookie.set("ver", "1", {max_age: "infinite", path: "/"});
-						Cookie.set("theme", "theme-dark", {max_age: "infinite", path: "/"}); // DEBUG just to not burn my eyes
-						Cookie.set("new", "1", {max_age: "infinite", path: "/"});
-						Cookie.set("ver", "1");
-						setTimeout(function() {
-							location.reload();
-						}, 500);
-					}, 500);
-				};
-			}, 500);*/
 			$("loadingtext").innerText = "Preparing...";
 			var loginpopup = new JSONPopup({
 				title: "Login",
@@ -423,7 +357,6 @@ window.addEventListener("load", () => {
 				PopupManager.closePopup();
 				console.log(this.fields[1].e.value);
 				var token = this.fields[1].e.value;
-				//var token = "NzMzNjgzNDAwMDY1Njc5Mzkw.XxcMmw._TGuo7UmQ-RJ4bs0ldlQt5_RDt8";
 				//Cookie.set("token", token, {max_age: "infinite", path: "/"});
 				//Cookie.set("ver", "1", {max_age: "infinite", path: "/"});
 				//Cookie.set("theme", "theme-dark", {max_age: "infinite", path: "/"}); // DEBUG just to not burn my eyes
@@ -432,7 +365,6 @@ window.addEventListener("load", () => {
 				bg.setToken(token);
 				$("loadingtext").innerText = "Applying changes...";
 				setTimeout(function() {
-					$("loadingtext").innerText = "Sorry for bad login. Jonas doesnt like design and other things ):";
 					location.reload();
 				}, 500);
 			};
@@ -488,4 +420,4 @@ window.addEventListener("load", () => {
 	
 	setTheme(bg.getSetting("theme") || "theme-default");
 });
-// #RoadTo800Lines
+// #RoadTo500Lines
