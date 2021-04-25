@@ -1,8 +1,6 @@
 var token;
-var settings;
+var clientWindow;
 
-loadSettings();
-loadLocal("token");
 
 /*var client = new Discord.Client();
 
@@ -41,44 +39,6 @@ client.login(token)
 		console.error("O_o Client couldnt login.", e);
 	});
 */
-
-chrome.storage.onChanged.addListener(function(changes, areaName) {
-	if(areaName == "sync" && changes.settings) {
-		settings = fixSettings(changes.settings.newValue);
-	} else if(changes.token) {
-		token = changes.token.newValue;
-	} else {
-		// local settings
-	}
-});
-
-function loadSettings() {
-	chrome.storage.sync.get("settings", function(res) {
-		settings = fixSettings(res.settings);
-	});
-}
-
-function updateSettings() {
-	chrome.storage.sync.set({settings: settings}, function() {
-		//console.log("Updated value:", kv);
-	});
-}
-
-function loadLocal(key) {
-	chrome.storage.local.get(key, function(res) {
-		if(res.token) {
-			token = res.token;
-		}
-	});
-}
-
-function updateLocal(key, value) {
-	var kv = {};
-	kv[key] = value;
-	chrome.storage.local.set(kv, function() {
-		//console.log("Updated value:", kv);
-	});
-}
 
 function getToken() {
 	return token;
@@ -131,33 +91,10 @@ chrome.contextMenus.create({
 	onclick: openApp
 });
 
-chrome.runtime.onMessage.addListener(data => {
-	if(data.type === 'notification') {
-		chrome.notifications.create('', {
-										  "title": data.name,
-										  "message": data.content,
-										  "iconUrl": "../img/icon_128.png",
-										  "type": "basic",
-										  "silent": true,
-										  "contextMessage": "CustomDiscord"
-										});
-	} else if(data.type == "popup") {
-		window.open(data.url, "_blank", "menubar=1,width=" + data.width + ",height=" + data.height + ",toolbar:1")
-		/*chrome.windows.create({
-			url: data.url,
-			type: "normal",
-			width: data.width,
-			height: data.height
-		}, function(win) {
-			//console.log(win)
-		});*/
-	}
-});
-
-chrome.browserAction.onClicked.addListener(function(tab) {
-	openApp();
-});
-
 function openApp() {
-	window.open(chrome.extension.getURL("app/app.html"), "_blank", "menubar=0,width=1200,height=800,toolbar=0");
+	if(!clientWindow || clientWindow.closed) {
+		clientWindow = window.open(chrome.extension.getURL("app/app.html"), "_blank", "menubar=0,width=1200,height=800,toolbar=0");
+	} else {
+		clientWindow.focus();
+	}
 }
