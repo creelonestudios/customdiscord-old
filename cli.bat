@@ -3,26 +3,18 @@ goto ask
 
 :ask
 cls
+git status
+echo.
+echo --------------------------------
 echo What to do?
-echo status ^| pull ^| push ^| switch ^| merge
+echo pull ^| push ^| switch ^| merge
 echo.
 set "ans=none"
 set /p "ans=> "
-if %ans% EQU status goto status
 if %ans% EQU pull goto pull
 if %ans% EQU push goto push
 if %ans% EQU switch goto switch
 if %ans% EQU merge goto merge
-goto invalid
-
-:invalid
-echo Invalid.
-pause >nul
-goto ask
-
-:status
-git status
-pause >nul
 goto ask
 
 :pull
