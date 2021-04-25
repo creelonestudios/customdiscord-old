@@ -1,13 +1,13 @@
 {
   "permissions": [
     "activeTab",
-	"storage",
-	"contextMenus",
-	"notifications"
+    "storage",
+    "contextMenus",
+    "notifications"
   ],
   "browser_action": {
-	"default_title": "CustomDiscord",
-	"default_icon": "img/icon_256.png"
+    "default_title": "CustomDiscord",
+    "default_icon": "img/icon_256.png"
   },
   "background": {
     "persistent": true,
@@ -17,15 +17,16 @@
   "name": "Custom Discord",
   "version": "1.0",
   "web_accessible_resources": [
-	"styles/themes.css",
-	"styles/style.css"
+    "index.html",
+    "styles/themes.css",
+    "styles/style.css"
   ],
   "description": "",
   "icons": {
     "16": "img/icon_16.png",
-	"32": "img/icon_32.png",
+	  "32": "img/icon_32.png",
     "48": "img/icon_48.png",
     "128": "img/icon_128.png",
-	"256": "img/icon_256.png"
+	  "256": "img/icon_256.png"
   }
 }
