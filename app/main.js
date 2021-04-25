@@ -207,7 +207,7 @@ client.on("presenceUpdate", () => {
 })
 
 client.on('typingStart', (channel, user) => {
-	if(channel.id == current_channel && user.id != ) {
+	if(channel.id == current_channel && user.id != client.user.id) {
 		var author;
 		author = user.tag;
 		if(user && user.nickname) author = user.nickname; 
