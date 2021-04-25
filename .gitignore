@@ -2,6 +2,7 @@
 .zip
 .tar.gz
 .rar
+.bat
 
 # Annoying files that actually shouldn't appear but who cares
 .DS_Store
