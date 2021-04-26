@@ -1,11 +1,12 @@
-let guilds = [];
-let current_guild = "732633809241243679";
-let blockedusers = [];
-let addonnames = [];
-let addons = [];
-let wl_tags = ["i", "/i", "b", "/b", "text", "/text", "h2", "/h2", "h3", "/h3", "h4", "/h4", "h5", "/h5", "strike", "/strike", "u", "/u", "p", "/p", "code", "/code"];
-let themes = [];
-let typing = false;
+var guilds = [];
+var current_guild = "732633809241243679";
+var blockedusers = [];
+var addonnames = [];
+var addons = [];
+var wl_tags = ["i", "/i", "b", "/b", "text", "/text", "h2", "/h2", "h3", "/h3", "h4", "/h4", "h5", "/h5", "strike", "/strike", "u", "/u", "p", "/p", "code", "/code"];
+var themes = [];
+var typing = false;
+var loadDone = false;
 
 /*function setStatus() {
 	var popup = new JSONPopup({
@@ -236,6 +237,7 @@ window.addEventListener("load", () => {
 });
 
 function onLoaded() {
+	loadDone = true;
 	PopupManager.setPopup(new JSONPopup({
 		title: "Popup-Titel",
 		submit: "CLICK ME",
@@ -253,6 +255,7 @@ function onLoaded() {
 	console.log("Loaded CustomDC!");
 }
 
+<<<<<<< HEAD
 function errorPopup(message) {
 	var popup = new Popup("Error", 50, 50, true);
 
@@ -265,3 +268,29 @@ function errorPopup(message) {
 
 	console.error(message);
 }
+=======
+function loginDialogue() {
+	$("loadingtext").innerText = "Preparing...";
+	var loginpopup = new JSONPopup({
+		title: "Login",
+		submit: "Login",
+		width: "100%",
+		height: "100%",
+		fields: [
+			{type: 0, name: "Welcome to CustomDiscord."},
+			{type: 1, name: "Enter your Token here: ", length: -1}
+		]
+	});
+	PopupManager.setPopup(loginpopup);
+	loginpopup.submit = function() {
+		PopupManager.closePopup();
+		console.log(this.fields[1].e.value);
+		var token = this.fields[1].e.value;
+		$("loadingtext").innerText = "Applying changes...";
+		setTimeout(function() {
+			$("loadingtext").innerText = "I regret everything. Sry Jonas (:";
+			location.reload();
+		}, 500);
+	};
+}
+>>>>>>> 457b41c55b95e9f36dea8bdcbede0ecf1539d29a
