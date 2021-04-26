@@ -252,3 +252,28 @@ function onLoaded() {
 	}));
 	console.log("Loaded CustomDC!");
 }
+
+function loginDialogue() {
+	$("loadingtext").innerText = "Preparing...";
+	var loginpopup = new JSONPopup({
+		title: "Login",
+		submit: "Login",
+		width: "100%",
+		height: "100%",
+		fields: [
+			{type: 0, name: "Welcome to CustomDiscord."},
+			{type: 1, name: "Enter your Token here: ", length: -1}
+		]
+	});
+	PopupManager.setPopup(loginpopup);
+	loginpopup.submit = function() {
+		PopupManager.closePopup();
+		console.log(this.fields[1].e.value);
+		var token = this.fields[1].e.value;
+		$("loadingtext").innerText = "Applying changes...";
+		setTimeout(function() {
+			$("loadingtext").innerText = "I regret everything. Sry Jonas (:";
+			location.reload();
+		}, 500);
+	};
+}
