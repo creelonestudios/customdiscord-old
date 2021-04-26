@@ -178,7 +178,7 @@ window.addEventListener("load", () => {
 		} else {
 			var channel = client.channels.cache.get(current_channel);
 			if(channel.type == "text") {
-				channel.startTyping();
+				//channel.startTyping();
 			}
 		}
 	});

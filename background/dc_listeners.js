@@ -42,14 +42,20 @@ client.on('ready', () => {
 });
 
 client.on('message', (message) => {
-	return; // DEBUG
-	if(!message.author.bot) {
-		var audio = new Audio('discord-notification.mp3');
+	if(message.author.id != client.user.id) {
+		var audio = new Audio('../sounds/discord-notification.mp3');
 		audio.play();
 		
-		// TODO                                                            I need to fucking sleep
-		chrome.runtime.sendMessage('', { type: 'notification', name: message.author.username, avatar: /* message.author.displayAvatarURL() */ '../img/icon_128.png', content: message.content});
+		chrome.notifications.create('', {
+			  "title": message.author.username,
+			  "message": message.content,
+			  "iconUrl": "../img/icon_128.png",
+			  "type": "basic",
+			  "silent": true,
+			  "contextMessage": "CustomDiscord"
+			});
 	}
+	return; // DEBUG
 	if(message.channel.id == current_channel) {
 		$("typing").innerText = "";
 	}
@@ -101,11 +107,11 @@ client.on("presenceUpdate", () => {
 })
 
 client.on('typingStart', (channel, user) => {
-	if(channel.id == current_channel && user.id != client.user.id) {
+	/*if(channel.id == current_channel && user.id != client.user.id) {
 		var author;
 		author = user.tag;
 		if(user && user.nickname) author = user.nickname; 
 		//console.log(user.username + " schreibt");
 		//$("typing").innerHTML = "<b>" + author + "</b> is typing...";
-	}
+	}*/
 });

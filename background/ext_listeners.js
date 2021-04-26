@@ -42,16 +42,10 @@ function updateLocal(key, value) {
 	});
 }
 
+// deprecated. since 2021-04-26 19:08
 chrome.runtime.onMessage.addListener(data => {
 	if(data.type === 'notification') {
-		chrome.notifications.create('', {
-			  "title": data.name,
-			  "message": data.content,
-			  "iconUrl": "../img/icon_128.png",
-			  "type": "basic",
-			  "silent": true,
-			  "contextMessage": "CustomDiscord"
-			});
+		// moved
 	} else if(data.type == "popup") {
 		window.open(data.url, "_blank", "menubar=1,width=" + data.width + ",height=" + data.height + ",toolbar:1")
 		/*chrome.windows.create({
