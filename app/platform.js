@@ -6,8 +6,11 @@ window.addEventListener("DOMContentLoaded", () => {
 	if(!client.user) {
 		loginDialogue(token => {
 			console.log("Login Dialogue returned token:", token);
-			bg.setToken(token);
-			bg.login();
+			if(token) {
+				bg.setToken(token);
+				bg.login();
+			}
+			// reopen loginDialogue
 		});
 	} else {
 		onLoaded();

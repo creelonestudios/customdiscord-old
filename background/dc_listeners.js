@@ -27,7 +27,7 @@ client.on('ready', () => {
 		}*/
 		
 		if(clientWindow && !clientWindow.loadDone) {
-			client.onLoaded();
+			clientWindow.onLoaded();
 		}
 	} catch(error) {
 		//alert("Error while loading:\n" + error);

@@ -252,6 +252,11 @@ function onLoaded() {
 			{type: 3, name: "Radio", list: {length: 4, names: ["A", "B", "C"], radio: true}}
 		]
 	}));
+	var loading = document.getElementById("loading");
+	loading.style = "display: none;";
+	$("client").style = "";
+	switchChannel("732633809241243683");
+	updateUserRegion();
 	console.log("Loaded CustomDC!");
 }
 
@@ -284,11 +289,7 @@ function loginDialogue(callback) {
 		PopupManager.closePopup();
 		console.log(this.fields[1].e.value);
 		var token = this.fields[1].e.value;
-		if(typeof callback == "function") callback();
+		if(typeof callback == "function") callback(token);
 		$("loadingtext").innerText = "Applying changes...";
-		setTimeout(function() {
-			$("loadingtext").innerText = "I regret everything. Sry Jonas (:";
-			location.reload();
-		}, 500);
 	};
 }
