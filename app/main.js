@@ -255,7 +255,6 @@ function onLoaded() {
 	console.log("Loaded CustomDC!");
 }
 
-<<<<<<< HEAD
 function errorPopup(message) {
 	var popup = new Popup("Error", 50, 50, true);
 
@@ -268,7 +267,6 @@ function errorPopup(message) {
 
 	console.error(message);
 }
-=======
 function loginDialogue() {
 	$("loadingtext").innerText = "Preparing...";
 	var loginpopup = new JSONPopup({
@@ -293,4 +291,3 @@ function loginDialogue() {
 		}, 500);
 	};
 }
->>>>>>> 457b41c55b95e9f36dea8bdcbede0ecf1539d29a
