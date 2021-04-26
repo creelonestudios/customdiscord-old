@@ -77,7 +77,7 @@ function sendMsg() {
 	}*/
 	if($("inputbox-inner").value && channel) channel.send(parseMsg($("inputbox-inner").value)).catch(error => {
 		if(error.message == "Missing Permissions")  {
-			errorPopup("Missing Permissions");
+			alert("You don't have permissions to write in this channel!");
 		}
 	});
 	for(var i = 0; i < addons.length; i++) {
@@ -253,6 +253,7 @@ function onLoaded() {
 		]
 	}));
 	console.log("Loaded CustomDC!");
+<<<<<<< HEAD
 }
 
 function errorPopup(message) {
@@ -291,3 +292,6 @@ function loginDialogue() {
 		}, 500);
 	};
 }
+=======
+}
+>>>>>>> parent of dd4bfb7 (Error Popup)

@@ -43,18 +43,14 @@ function updateLocal(key, value) {
 
 chrome.runtime.onMessage.addListener(data => {
 	if(data.type === 'notification') {
-		try {
-			chrome.notifications.create('', {
-											"title": data.name,
-											"message": data.content,
-											"iconUrl": "../img/icon_128.png",
-											"type": "basic",
-											"silent": true,
-											"contextMessage": "CustomDiscord"
-											});
-		} catch(e) {
-			clientWindow.errorPopup("Error sending windows notification: " + e);
-		}
+		chrome.notifications.create('', {
+										  "title": data.name,
+										  "message": data.content,
+										  "iconUrl": "../img/icon_128.png",
+										  "type": "basic",
+										  "silent": true,
+										  "contextMessage": "CustomDiscord"
+										});
 	} else if(data.type == "popup") {
 		window.open(data.url, "_blank", "menubar=1,width=" + data.width + ",height=" + data.height + ",toolbar:1")
 		/*chrome.windows.create({
