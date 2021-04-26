@@ -76,7 +76,7 @@ function sendMsg() {
 	}*/
 	if($("inputbox-inner").value && channel) channel.send(parseMsg($("inputbox-inner").value)).catch(error => {
 		if(error.message == "Missing Permissions")  {
-			alert("You don't have permissions to write in this channel!");
+			errorPopup("Missing Permissions");
 		}
 	});
 	for(var i = 0; i < addons.length; i++) {
@@ -251,4 +251,17 @@ function onLoaded() {
 		]
 	}));
 	console.log("Loaded CustomDC!");
+}
+
+function errorPopup(message) {
+	var popup = new Popup("Error", 50, 50, true);
+
+	var error_p = document.createElement("p");
+	error_p.innerHTML = message;
+	popup.content.appendChild(error_p);
+	// TODO add OK button to close
+
+	PopupManager.setPopup(popup);
+
+	console.error(message);
 }

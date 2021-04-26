@@ -80,16 +80,21 @@ client.on('ready', () => {
 	} catch(error) {
 		alert("Error while loading:\n" + error);
 		console.log(error);
+		errorPopup("Error loading: " + error);
 	}
 });
 
 client.on('message', (message) => {
 	if(!message.author.bot) {
-		var audio = new Audio('discord-notification.mp3');
-		audio.play();
-		
-		// TODO                                                            I need to fucking sleep
-		chrome.runtime.sendMessage('', { type: 'notification', name: message.author.username, avatar: /* message.author.displayAvatarURL() */ '../img/icon_128.png', content: message.content});
+		try {
+			var audio = new Audio('discord-notification.mp3');
+			audio.play();
+			
+			// TODO                                                            I need to fucking sleep
+			chrome.runtime.sendMessage('', { type: 'notification', name: message.author.username, avatar: /* message.author.displayAvatarURL() */ '../img/icon_128.png', content: message.content});
+		} catch(e) {
+			errorPopup("Error sending notification: " + e);
+		}
 	}
 	if(message.channel.id == current_channel) {
 		$("typing").innerText = "";
