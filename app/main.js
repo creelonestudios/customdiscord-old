@@ -267,7 +267,7 @@ function errorPopup(message) {
 
 	console.error(message);
 }
-function loginDialogue() {
+function loginDialogue(callback) {
 	$("loadingtext").innerText = "Preparing...";
 	var loginpopup = new JSONPopup({
 		title: "Login",
@@ -284,6 +284,7 @@ function loginDialogue() {
 		PopupManager.closePopup();
 		console.log(this.fields[1].e.value);
 		var token = this.fields[1].e.value;
+		if(typeof callback == "function") callback();
 		$("loadingtext").innerText = "Applying changes...";
 		setTimeout(function() {
 			$("loadingtext").innerText = "I regret everything. Sry Jonas (:";
