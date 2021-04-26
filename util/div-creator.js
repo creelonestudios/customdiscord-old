@@ -20,7 +20,7 @@ function createChannelDiv(channel) {
 		div.appendChild(div1);
 		div.className = "channel";
 		div1.className = "channel-name";
-		if(channel.id == current_channel) div.className = "channel channel-active"
+		//if(channel.id == current_channel) div.className = "channel channel-active"
 		if(channel.type == "text") {
 			div1.innerText = "# " + channel.name;
 			div.addEventListener("click", () => {
@@ -64,7 +64,7 @@ function createMessageDiv(message) {
 		author = "System";
 		content = unparseMsg(message);
 		avatar = "../img/icon_256.png";
-	} else {
+	} else if(message.author) {
 		authortag = author = message.author.tag;
 		author = message.author.tag;
 		if(message.member && message.member.nickname) author = message.member.nickname; 
@@ -72,7 +72,7 @@ function createMessageDiv(message) {
 		avatar = message.author.displayAvatarURL();
 		embeds = message.embeds;
 		attachments = message.attachments.array();
-	}
+	} else return; // error
 	var div = document.createElement("div");
 	var author_div = document.createElement("div");
 	var avatar_div = document.createElement("img");

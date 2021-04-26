@@ -26,6 +26,16 @@ client.on('ready', () => {
 			document.getElementsByTagName("head")[0].appendChild(link);
 		}*/
 		
+		var cache = new ClientCache();
+		//cache.guilds = [];
+		//cache.current_guild = -1;
+		/*var guilds = client.guilds.cache.array();
+		if(guilds.length > 0) cache.current_guild = guilds[0].id;
+		for(var i = 0; i < guilds.length; i++) {
+			cache.guilds.push(new Guild(guilds[i]));
+		}*/
+		console.log(cache);
+		
 		if(clientWindow && !clientWindow.loadDone) {
 			clientWindow.onLoaded();
 		}
