@@ -11,12 +11,8 @@ function createChannelDiv(channel) {
 			div.appendChild(createChannelDiv(chans[i]));
 		}
 		div.addEventListener("click", event => {
-			if(event.target.className.includes("category")) {
-				if(event.target.classList.contains("categoy")) {
-					event.target.classList.toggle("category-showchannels");
-				} else {
-					event.target.parentElement.classList.toggle("category-showchans");
-				}
+			if(event.target.classList.contains("category-name")) {
+				event.target.parentElement.classList.toggle("category-showchans");
 			}
 		});
 	} else {
