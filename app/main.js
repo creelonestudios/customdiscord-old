@@ -86,14 +86,14 @@ function sendMsg() {
 	$("inputbox-inner").value = "";
 }
 
-function switchChannel(id) {
+function loadMessageHistory() {
 	$("typing").innerText = "";
-	var channel = client.channels.cache.get(id);
+	var guild = cache.getGuild(cache.current);
+	var channel = client.channels.cache.get(guild.current);
 	var guild = channel.guild;
 	if(!channel) return;
 	if(channel.type == "text" || channel.type == "voice") {
 		console.log(channel.permissionsFor(guild.me).toArray());
-		current_channel = channel.id;
 		while($("chat-history").children.length > 0) {
 			$("chat-history").removeChild($("chat-history").children[0]);
 		}
@@ -154,6 +154,7 @@ function reloadChannelList() {
 	var channelsDiv = $("channel-list");
 	var guild = cache.getGuild(cache.current);
 	console.log(guild);
+	while(channelsDiv.firstChild) channelsDiv.removeChild(channelsDiv.lastChild);
 	channelsDiv.appendChild(guild.channellist);
 }
 
@@ -178,7 +179,7 @@ window.addEventListener("load", () => {
 			typing = false;
 			return;
 		} else {
-			var channel = client.channels.cache.get(current_channel);
+			var channel = client.channels.cache.get(cache.currentChannel.id);
 			if(channel.type == "text") {
 				//channel.startTyping();
 			}
@@ -257,7 +258,7 @@ function onLoaded() {
 	var loading = document.getElementById("loading");
 	loading.style = "display: none;";
 	$("client").style = "";
-	switchChannel("732633809241243683");
+	loadMessageHistory();
 	updateUserRegion();
 	console.log("Loaded CustomDC!");
 }

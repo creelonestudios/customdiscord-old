@@ -36,6 +36,11 @@ class ClientCache {
 		this.guilds.get(v).validate();
 	}
 	
+	get currentChannel() {
+		var guild = cache.getGuild(cache.current);
+		return this.getChannel(guild.current);
+	}
+	
 	getGuild(id) {
 		var g = this.guilds.get(id);
 		//console.log(id, g);
@@ -146,6 +151,8 @@ class Guild {
 			this.#e.top = document.createElement("div");
 			this.#e.top.addEventListener("click", () => {
 				this.#cache.current = this.#id;
+				reloadChannelList();
+				loadMessageHistory();
 			});
 			this.#e.top.appendChild(this.#e.icon);
 		}
@@ -242,13 +249,15 @@ class Channel {
 	}
 	
 	validate() {
-		this.#e = document.createElement("div");
+		if(!this.#e) this.#e = document.createElement("div");
+		while(this.#e.firstChild) this.#e.removeChild(this.#e.lastChild);
 		var channel = client.channels.cache.get(this.#id);
 		var callback = () => {
 			this.#cache.getGuild(channel.guild.id).current = this.#id;
 			this.validate();
 			this.#cache.getGuild(channel.guild.id).validate();
 			console.log("Switched channel to", this.#id, this.#cache.getGuild(channel.guild.id).current);
+			loadMessageHistory();
 		}
 		if(channel.type == "category") {
 			var div1 = document.createElement("div");

@@ -111,3 +111,15 @@ function openApp() {
 		clientWindow.focus();
 	}
 }
+
+function isAppOpen() {
+	return clientWindow && !clientWindow.closed;
+}
+
+// this is just here due platform dependent issues
+function loadMessageHistory() {
+	if(isAppOpen()) clientWindow.loadMessageHistory();
+}
+function reloadChannelList() {
+	if(isAppOpen()) clientWindow.reloadChannelList();
+}
