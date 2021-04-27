@@ -92,6 +92,7 @@ function getSalt() {
 	// Random salt. doesnt have a meaning
 }
 
+// Thanks to @MetaTron & @Jorgeblom on StackOverflow https://stackoverflow.com/questions/18279141/javascript-string-encryption-and-decryption
 function encrypt(salt, text) {
 	const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
 	const byteHex = (n) => ("0" + Number(n).toString(16)).substr(-2);
