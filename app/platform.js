@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		loginDialogue(token => {
 			console.log("Login Dialogue returned token:", token);
 			if(token) {
-				bg.setToken(encrypt(getSalt(), token));
+				bg.setToken(token);
 				bg.login();
 			}
 			// reopen loginDialogue
