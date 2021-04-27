@@ -33,7 +33,7 @@ function createChannelDiv(channel) {
 					title: "VoiceChannels in CustomDiscord",
 					submit: "Understood!",
 					fields: [
-						{type: 0, name: "Hey! You can't talk in voice channels right now! Neither can you listen to them!"},
+						{type: 0, name: "Hey! You can't talk in voice channels right now!"},
 						{type: 0, name: "Discord.JS WebAPI can't encode or stream voice yet. :("}
 					]
 				});
@@ -45,33 +45,6 @@ function createChannelDiv(channel) {
 					switchChannel(channel.id);
 				});
 			}
-		} else if(channel.type == "rules") {
-			div1.innerText = "📜" + channel.name;
-			div.addEventListener("click", () => {
-				switchChannel(channel.id);
-			});
-		} else if(channel.type == "news") {
-			div1.innerText = "📢" + channel.name;
-			div.addEventListener("click", () => {
-				switchChannel(channel.id);
-			});
-		} else if(channel.type == "stage") {
-			div1.innerText = "🎤" + channel.name;
-			var popup = new JSONPopup({
-				title: "StageChannels in CustomDiscord",
-				submit: "Understood!",
-				fields: [
-					{type: 0, name: "Hey! You can't talk in stage channels right now! Neither can you listen to them!"},
-					{type: 0, name: "Discord.JS WebAPI can't encode or stream voice yet. :("}
-				]
-			});
-			PopupManager.setPopup(popup);
-			popup.submit = function() {
-				PopupManager.closePopup();
-			}
-			div.addEventListener("click", () => {
-				switchChannel(channel.id);
-			});
 		} else {
 			div1.innerText = "? " + channel.name;
 		}
