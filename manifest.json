@@ -11,7 +11,7 @@
   },
   "background": {
     "persistent": true,
-    "scripts": ["discordjs/discord.12.1.1.min.js", "util/util-classes.js", "util/util-functions.js", "background/main.js", "background/ext_listeners.js", "background/dc_listeners.js"]
+    "scripts": ["discordjs/discord.12.1.1.min.js", "util/util-classes.js", "background/main.js", "background/ext_listeners.js", "background/dc_listeners.js"]
   },
   "manifest_version": 2,
   "name": "Custom Discord",

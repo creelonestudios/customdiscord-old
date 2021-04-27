@@ -44,7 +44,7 @@ client.on('ready', () => {
 		console.error(error);
 		if(clientWindow) {
 			loginDialogue(token => {
-				setToken(encrypt(getSalt(), token));
+				setToken(token);
 				login();
 			});
 		}

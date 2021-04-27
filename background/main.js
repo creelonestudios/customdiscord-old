@@ -5,7 +5,7 @@ var cache;
 var loaded = false;
 
 function login() {
-	client.login(decrypt(getSalt(), token))
+	client.login(token)
 	.catch((e) => {
 		/*$("loadingtext").innerText = "Preparing...";
 		var loginpopup = new JSONPopup({
@@ -51,7 +51,7 @@ function load() {
 
 function setToken(t) {
 	token = t;
-	updateLocal("token", encrypt(getSalt(), t));
+	updateLocal("token", t);
 }
 
 function getSettings() {
