@@ -86,7 +86,7 @@ class Guild {
 		this.#e = document.createElement("div");
 		this.#e.className = "guild";
 		var img = document.createElement("img");
-		img.src = guild.iconURL();
+		img.src = guild.iconURL() || "../img/icon_256.png";
 		this.#e.appendChild(img);
 		this.#e.addEventListener("click", () => {
 			this.#cache.current = this.#id;
