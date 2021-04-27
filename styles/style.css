@@ -214,7 +214,6 @@ textarea {
 .message-content {
 	overflow-wrap: anywhere;
 	padding: 2px;
-	display: flex;
 }
 
 .message-author-avatar {
