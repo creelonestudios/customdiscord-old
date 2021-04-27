@@ -200,11 +200,14 @@ textarea {
 .message-author-name {
 	font-weight: bold;
 	font-family: Consolas, monospace, Arial;
+	margin-top: -45px;
+	margin-left: 70px;
 }
 
 .message-content {
 	overflow-wrap: anywhere;
 	padding: 2px;
+	margin-top: 30px;
 }
 
 .message-author-avatar {
