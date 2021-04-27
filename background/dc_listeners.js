@@ -26,7 +26,7 @@ client.on('ready', () => {
 			document.getElementsByTagName("head")[0].appendChild(link);
 		}*/
 		
-		var cache = new ClientCache();
+		cache = new ClientCache();
 		//cache.guilds = [];
 		//cache.current_guild = -1;
 		/*var guilds = client.guilds.cache.array();

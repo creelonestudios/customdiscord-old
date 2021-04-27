@@ -12,6 +12,8 @@ class ClientCache {
 		for(var i = 0; i < rawC.length; i++) {
 			this.#channels.set(rawC[i].id, new Channel(rawC[i], this));
 		}
+		this.current = "";
+		if(this.#guilds.size > 0) this.current = this.#guilds.values().next().value.id;
 	}
 	
 	get guilds() {
@@ -22,8 +24,34 @@ class ClientCache {
 		return this.#channels;
 	}
 	
-	getChannelsOfGuild(id) {
-		var guild = client.guilds.cache.get(id);
+	getGuild(id) {
+		var g = this.guilds.get(id);
+		console.log(id, g);
+		if(!g) {
+			var raw = client.guilds.cache.get(id);
+			if(!raw) return;
+			g = new Guild(raw, this);
+			this.#guilds.set(id, g);
+		}
+		console.log(id, g);
+		return g;
+	}
+	
+	getChannel(id) {
+		var c = this.channels.get(id);
+		if(!c) {
+			var raw = client.guilds.cache.get(id);
+			if(!raw) return;
+			c = new Channel(raw, this);
+			this.#channels.set(id, c);
+		}
+		return c;
+	}
+	
+	getChannelsOfGuild(g) {
+		var guild = g;
+		if(typeof g != "object") guild = client.guilds.cache.get(g);
+		console.log(guild);
 		var raw = guild.channels.cache.array();
 		var chans = [];
 		for(var i = 0; i < raw.length; i++) {
@@ -34,6 +62,7 @@ class ClientCache {
 			}
 			chans.push(chan);
 		}
+		return chans;
 	}
 	
 }
@@ -54,17 +83,20 @@ class Guild {
 	
 	validate() {
 		this.#e = document.createElement("div");
-		var g = client.guilds.cache.get(this.#id);
-		var channels = this.channels;
+		var guild = client.guilds.cache.get(this.#id);
+		var channels = guild.channels.cache.array();
+		var topChans = [];
 		for(var i = 0; i < channels.length; i++) {
-			if(!channels[i].parent && channels[i].type != "category") {
-				this.#e.appendChild(channels[i].e);
+			if(!channels[i].parent) {
+				topChans.push(channels[i]);
 			}
 		}
-		for(var i = 0; i < channels.length; i++) {
-			if(!channels[i].parent && channels[i].type == "category") {
-				this.#e.appendChild(channels[i].e);
-			}
+		console.log("before", topChans);
+		topChans = topChans.sort((e1, e2) => (e1.rawPosition < e2.rawPosition) ? -1 : ((e1.rawPosition > e2.rawPosition) ? 1 : 0));
+		console.log("after", topChans);
+		for(var i = 0; i < topChans.length; i++) {
+			var c = cache.getChannel(topChans[i].id);
+			this.#e.appendChild(c.e);
 		}
 	}
 	
@@ -132,7 +164,7 @@ class Channel {
 		this.#type = c.type;
 		this.#id = c.id;
 		this.#messages;
-		this.#e = createChannelDiv(c);
+		this.#e;
 		this.#cache = cache;
 	}
 	
@@ -141,6 +173,65 @@ class Channel {
 		for(var i = 0; i < msgs.length; i++) {
 			if(msgs[i].id == id) {
 				return msgs[i];
+			}
+		}
+	}
+	
+	fetchMessages(count) {
+		// fetch and validate msgs
+	}
+	
+	validate() {
+		this.#e = document.createElement("div");
+		var channel = client.channels.cache.get(this.#id);
+		if(channel.type == "category") {
+			var div1 = document.createElement("div");
+			this.#e.className = "category";
+			div1.className = "category-name";
+			this.#e.appendChild(div1);
+			div1.innerText = "-- " + channel.name.toUpperCase() + " --";
+			var chans = channel.children.array();
+			for(var i = 0; i < chans.length; i++) {
+				var e = this.#cache.getChannel(chans[i].id).e;
+				this.#e.appendChild(e);
+			}
+			this.#e.addEventListener("click", event => {
+				if(event.target.classList.contains("category-name")) {
+					event.target.parentElement.classList.toggle("category-showchans");
+				}
+			});
+		} else {
+			var div1 = document.createElement("div");
+			this.#e.appendChild(div1);
+			this.#e.className = "channel";
+			div1.className = "channel-name";
+			//if(channel.id == current_channel) div.className = "channel channel-active"
+			if(channel.type == "text") {
+				div1.innerText = "# " + channel.name;
+				this.#e.addEventListener("click", () => {
+					switchChannel(channel.id);
+				});
+			} else if(channel.type == "voice") {
+				div1.innerText = "🔊" + channel.name;
+				div1.onclick = function() {
+					var popup = new JSONPopup({
+						title: "VoiceChannels in CustomDiscord",
+						submit: "Understood!",
+						fields: [
+							{type: 0, name: "Hey! You can't talk in voice channels right now!"},
+							{type: 0, name: "Discord.JS WebAPI can't encode or stream voice yet. :("}
+						]
+					});
+					PopupManager.setPopup(popup);
+					popup.submit = function() {
+						PopupManager.closePopup();
+					}
+					this.#e.addEventListener("click", () => {
+						switchChannel(channel.id);
+					});
+				}
+			} else {
+				div1.innerText = "? " + channel.name;
 			}
 		}
 	}
@@ -154,6 +245,7 @@ class Channel {
 	}
 	
 	get e() {
+		if(!this.#e) this.validate();
 		return this.#e;
 	}
 }

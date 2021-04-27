@@ -1,6 +1,7 @@
 var token;
 var clientWindow;
 var client = new Discord.Client();
+var cache;
 var loaded = false;
 
 function login() {
@@ -81,6 +82,10 @@ function getDiscordJS() {
 
 function getDCJSClient() {
 	return client;
+}
+
+function getCache() {
+	return cache || new ClientCache();
 }
 
 chrome.contextMenus.create({
