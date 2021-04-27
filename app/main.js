@@ -127,6 +127,7 @@ function switchChannel(id) {
 		if(!guild) {
 			$("inputbox-inner").placeholder = "Guild error.";
 			$("inputbox-inner").disabled = true;
+			errorPopup("Guild error: not guild"); // speech 100
 		} else if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
 			$("inputbox-inner").placeholder = "Send messages to #" + channel.name;
 			$("inputbox-inner").disabled = false;
@@ -262,7 +263,7 @@ function onLoaded() {
 }
 
 function errorPopup(message) {
-	var popup = new Popup("Error", 50, 50, true);
+	var popup = new Popup("Error", 500, 500, true);
 
 	var error_p = document.createElement("p");
 	error_p.innerHTML = message;
