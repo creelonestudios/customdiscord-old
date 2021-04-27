@@ -127,7 +127,7 @@ function switchChannel(id) {
 		if(!guild) {
 			$("inputbox-inner").placeholder = "Guild error.";
 			$("inputbox-inner").disabled = true;
-			errorPopup("Guild error: not guild"); // speech 100%
+			errorPopup("Guild error: not guild"); // speech 100
 		} else if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
 			$("inputbox-inner").placeholder = "Send messages to #" + channel.name;
 			$("inputbox-inner").disabled = false;
