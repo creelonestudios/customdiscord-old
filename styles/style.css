@@ -206,11 +206,15 @@ textarea {
 .message-author-name {
 	font-weight: bold;
 	font-family: Consolas, monospace, Arial;
+	display: flex;
+	align-self: center;
+	padding-left: 10px;
 }
 
 .message-content {
 	overflow-wrap: anywhere;
 	padding: 2px;
+	display: flex;
 }
 
 .message-author-avatar {
