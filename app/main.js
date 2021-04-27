@@ -117,11 +117,10 @@ function loadMessageHistory() {
 				$("chat-history").appendChild(createMessageDiv("You can't view this channel!"));
 			}
 		}
-		reloadGuildList();
-		reloadChannelList();
+		/*
 		for(var i = 0; i < addons.length; i++) {
 			if(addons[i].onchannelswitched) addons[i].onchannelswitched();
-		}
+		}*/
 		$("inputbox-inner").focus();
 		if(!guild) {
 			$("inputbox-inner").placeholder = "Guild error.";
@@ -257,6 +256,8 @@ function onLoaded() {
 	var loading = document.getElementById("loading");
 	loading.style = "display: none;";
 	$("client").style = "";
+	reloadGuildList();
+	reloadChannelList();
 	loadMessageHistory();
 	updateUserRegion();
 	console.log("Loaded CustomDC!");
