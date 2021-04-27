@@ -99,7 +99,7 @@ textarea {
 	cursor: pointer;
 }
 
-.guild:hover {
+.guild:hover, .guild.guild-active:hover {
 	background: rgba(255, 255, 255, 0.2);
 	border-radius: 15px;
 }
@@ -107,6 +107,11 @@ textarea {
 .guild img {
 	width: 50px;
 	height: 50px;
+}
+
+.guild.guild-active {
+	background: var(--channel-active);
+	border-radius: 15px;
 }
 
 .category {
@@ -119,6 +124,7 @@ textarea {
 }
 
 .channel {
+	cursor: pointer;
 	vertical-align: top;
 	text-align: left;
 	padding: 2px 10px 2px 10px;
