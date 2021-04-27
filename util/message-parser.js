@@ -7,6 +7,7 @@ function parseMsg(msg) {
 	else if(msg.startsWith("/unflip ") || msg == "/unflip") { start = 8; suffix = " ┬─┬ ノ( ゜-゜ノ)" }
 	else if(msg.startsWith("/doubleflip ") || msg == "/doubleflip") { start = 12; suffix = " ┻━┻彡 ヽ(ಠ益ಠ)ノ彡┻━┻" }
 	else if(msg.startsWith("/me ") && msg.length > 4) { start = 4; result += "_"; suffix = "_"; }
+	else if(msg.startsWith("/error ") && msg.length > 7) { msg = msg.slice(7); errorPopup("Manually triggered error: " + msg); return;}
 	
 	else if(msg.startsWith("/embed")) {
 		var embedpopup = new JSONPopup({

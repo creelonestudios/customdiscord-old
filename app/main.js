@@ -262,7 +262,7 @@ function onLoaded() {
 }
 
 function errorPopup(message) {
-	var popup = new Popup("Error", 50, 50, true);
+	var popup = new Popup("Error", 500, 500, true);
 
 	var error_p = document.createElement("p");
 	error_p.innerHTML = message;
