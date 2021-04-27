@@ -1,5 +1,4 @@
 var guilds = [];
-var current_guild = "732633809241243679";
 var blockedusers = [];
 var addonnames = [];
 var addons = [];
@@ -64,7 +63,7 @@ function setStatus() {
 
 function sendMsg() {
 	$("typing").innerHTML = "";
-	var channel = client.channels.cache.get(current_channel); // uff das war eig. so ez fix xD
+	var channel = client.channels.cache.get(cache.currentChannel.id); // uff das war eig. so ez fix xD
 	//if(!channel) channel = client.users.cache.get($("channelid").value); // for DMs
 	/*if(!channel) {
 		$("channelid").value = "Invalid Channel/User ID";
