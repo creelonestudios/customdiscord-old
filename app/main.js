@@ -118,6 +118,7 @@ function switchChannel(id) {
 				$("chat-history").appendChild(createMessageDiv("You can't view this channel!"));
 			}
 		}
+		reloadGuildList();
 		reloadChannelList();
 		for(var i = 0; i < addons.length; i++) {
 			if(addons[i].onchannelswitched) addons[i].onchannelswitched();
@@ -136,11 +137,23 @@ function switchChannel(id) {
 	}
 }
 
+function reloadGuildList() {
+	var guildsDiv = $("guild-list");
+	var guilds = cache.guilds.values();
+	var guild = guilds.next();
+	while(!guild.done) {
+		console.log(guild);
+		guild.value.validate();
+		guildsDiv.appendChild(guild.value.e);
+		guild = guilds.next();
+	}
+}
+
 function reloadChannelList() {
 	var channelsDiv = $("channel-list");
 	var guild = cache.getGuild(cache.current);
 	console.log(guild);
-	channelsDiv.appendChild(guild.e);
+	channelsDiv.appendChild(guild.channellist);
 }
 
 function updateUserRegion() {

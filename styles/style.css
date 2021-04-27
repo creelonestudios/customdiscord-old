@@ -38,6 +38,7 @@ textarea {
 	display: flex;
 	width: 70px;
 	background: var(--background-tertiary);
+	padding: 5px 0px 5px 0px;
 }
 
 #channel-region {
@@ -63,6 +64,12 @@ textarea {
 	background: var(--background-secondary);
 }
 
+#guild-list {
+	overflow: hidden scroll;
+	display: flex;
+	flex-direction: column;
+}
+
 #channel-list {
 	flex: 1 1 auto;
 	overflow: hidden scroll;
@@ -81,6 +88,25 @@ textarea {
 	overflow: hidden scroll;
 	padding-right: 3pt;
 	padding-bottom: 24px;
+}
+
+.guild {
+	border-radius: 25px;
+	display: flex;
+	margin: 5px 10px 5px 10px;
+	overflow: hidden;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.guild:hover {
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 15px;
+}
+
+.guild img {
+	width: 50px;
+	height: 50px;
 }
 
 .category {
@@ -238,6 +264,10 @@ textarea {
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
+}
+
+#guild-list::-webkit-scrollbar {
+	width: 0px;
 }
 
 #channel-list::-webkit-scrollbar {

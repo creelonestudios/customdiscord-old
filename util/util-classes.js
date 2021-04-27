@@ -68,7 +68,7 @@ class ClientCache {
 }
 
 class Guild {
-	#id; #e; #cache;
+	#id; #e; #channellist; #cache;
 	
 	constructor(g, cache) {
 		console.log("NEW GUILD");
@@ -82,7 +82,19 @@ class Guild {
 	}
 	
 	validate() {
+		var guild = client.guilds.cache.get(this.id);
 		this.#e = document.createElement("div");
+		this.#e.className = "guild";
+		var img = document.createElement("img");
+		img.src = guild.iconURL();
+		this.#e.appendChild(img);
+		this.#e.addEventListener("click", () => {
+			this.#cache.current = this.#id;
+		});
+	}
+	
+	validateChannellist() {
+		this.#channellist = document.createElement("div");
 		var guild = client.guilds.cache.get(this.#id);
 		var channels = guild.channels.cache.array();
 		var topChans = [];
@@ -96,7 +108,7 @@ class Guild {
 		console.log("after", topChans);
 		for(var i = 0; i < topChans.length; i++) {
 			var c = cache.getChannel(topChans[i].id);
-			this.#e.appendChild(c.e);
+			this.#channellist.appendChild(c.e);
 		}
 	}
 	
@@ -116,6 +128,11 @@ class Guild {
 	get e() {
 		if(!this.#e) this.validate();
 		return this.#e;
+	}
+	
+	get channellist() {
+		if(!this.#channellist) this.validateChannellist();
+		return this.#channellist;
 	}
 }
 
