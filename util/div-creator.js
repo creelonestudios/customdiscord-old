@@ -156,6 +156,7 @@ function createAttachmentDiv(a) {
 		text.className = "embed-errtxt attachment";
 		text.innerHTML = "Unknown Attachment Type: " + a.name;
 		div.appendChild(text);
+		errorPopup("Unknown Attachment Type sent: " + a.name);
 	}
 	//console.log(a);
 	return div;
