@@ -47,14 +47,24 @@ function setStatus() {
 	PopupManager.setPopup(popup);
 	popup.submit = function() {
 		PopupManager.closePopup();
-		client.user.setPresence({
-			status: this.fields[3].e.value,
-			activity: {
-				name: this.fields[0].e.value,
-				type: this.fields[1].e.value,
-				url: this.fields[2].e.value
-			}
-		});
+		if(this.fields[1].e.value == "STREAMING") {
+			client.user.setPresence({
+				status: this.fields[3].e.value,
+				activity: {
+					name: this.fields[0].e.value,
+					type: this.fields[1].e.value,
+					url: this.fields[2].e.value
+				}
+			});
+		} else {
+			client.user.setPresence({
+				status: this.fields[3].e.value,
+				activity: {
+					name: this.fields[0].e.value,
+					type: this.fields[1].e.value
+				}
+			});
+		}
 		setTimeout(function() {
 			updateUserRegion();
 		}, 100);
@@ -233,6 +243,7 @@ window.addEventListener("load", () => {
 	$("user-region-status").addEventListener("click", setStatus);
 	
 	PopupManager.init();
+	updateUserRegion();
 	
 	setTheme(bg.getSetting("theme") || "theme-default");
 });
