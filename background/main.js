@@ -116,6 +116,18 @@ function isAppOpen() {
 	return clientWindow && !clientWindow.closed;
 }
 
+// TESTING //
+console.log("Creating WebSocket...");
+var ws = new WebSocket("wss://cohalejoja.selfhost.eu:25560/", "json")
+ws.onopen = (event) => {
+	console.log("WebSocket connected!");
+	ws.send("Here's some text that the server is urgently awaiting!");
+};
+ws.onmessage = (event) => {
+	console.log("[SERVER]", event.data);
+}
+// TESTING //
+
 // this is just here due platform dependent issues
 function loadMessageHistory() {
 	if(isAppOpen()) clientWindow.loadMessageHistory();
