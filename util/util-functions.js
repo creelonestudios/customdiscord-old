@@ -87,7 +87,6 @@ function setTheme(theme) {
 
 function $(id) {
 	var elem = document.getElementById(id);
-	if(!elem) elem = document.body;
 	return elem;
 }
 

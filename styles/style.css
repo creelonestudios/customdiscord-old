@@ -286,9 +286,11 @@ textarea {
 	border-radius: 8px;
 	padding: 10px;
 	border-color: transparent;
-	min-height: 0px;
+	min-height: 14px;
 	/* height: 14px; */
 	font: 400 13.3333px Arial;
+	overflow-wrap: anywhere;
+	overflow: hidden;
 }
 
 /* width */
