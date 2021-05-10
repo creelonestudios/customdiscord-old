@@ -378,8 +378,8 @@ code {
 		transform: translate(-50%,-50%) scale(0);
 	}
 	to {
-		max-height: 9999px;
-		max-width: 9999px;
+		filter: brightness(1);
+		transform: translate(-50%,-50%) scale(1);
 	}
 }
 
