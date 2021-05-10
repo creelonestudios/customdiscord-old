@@ -21,7 +21,7 @@ function getChannelByName(name, guildid) {
 }
 
 function getUserByName(name, guildid) {
-	guildid = guildid || current_guild;
+	guildid = guildid || cache.current;
 	var guild = client.guilds.cache.get(guildid);
 	if(guild) {
 		var members = guild.members.cache.array();
@@ -40,7 +40,7 @@ function getUserByName(name, guildid) {
 }
 
 function getRoleByName(name, guildid) {
-	guildid = guildid || current_guild;
+	guildid = guildid || cache.current;
 	var guild = client.guilds.cache.get(guildid);
 	if(!guild) return;
 	var roles = guild.roles.cache.array();
