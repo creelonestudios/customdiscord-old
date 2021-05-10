@@ -271,6 +271,26 @@ textarea {
 	height: 20px;
 }
 
+#previewbox {
+	display: flex;
+	flex: 0 1 auto;
+	color: var(--text-normal);
+	background: var(--background-primary);
+	padding: 10px 10px 10px 10px;
+}
+
+#previewbox-inner {
+	flex: 0 0 auto;
+	color: var(--text-normal);
+	background: var(--textarea-background);
+	border-radius: 8px;
+	padding: 10px;
+	border-color: transparent;
+	min-height: 0px;
+	/* height: 14px; */
+	font: 400 13.3333px Arial;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;

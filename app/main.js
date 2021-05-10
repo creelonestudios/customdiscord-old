@@ -215,8 +215,17 @@ window.addEventListener("load", () => {
 	  	if(event.keyCode === 13 && !event.shiftKey) {
 	   		sendMsg();
 		}
-		$("inputbox-a").innerText = "#" + $("inputbox-inner").value + "#";
+		var msg = $("inputbox-inner").value;
+		$("inputbox-a").innerText = "#" + msg + "#";
 		$("inputbox-inner").style.height = $("inputbox-a").clientHeight + 5;
+		
+		// msg preview
+		if(msg.trim()) {
+			$("previewbox-inner").innerHTML = unparseMsg(parseMsg(msg));
+			$("previewbox").style.display = "block";
+		} else {
+			$("previewbox").style.display = "none";
+		}
 	});
 	
 	$("btnstatuschange").addEventListener("click", function(event) {
