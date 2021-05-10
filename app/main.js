@@ -209,7 +209,7 @@ window.addEventListener("load", () => {
 	});
 	
 	$("inputbox").addEventListener("keyup", function(event) {
-		var msg = $("inputbox-inner").value;
+		var msg = $("inputbox-inner").innerText;
 	  	if(event.keyCode === 13 && !event.shiftKey) {
 			if(msg.startsWith("/embed")) {
 				var embedpopup = new JSONPopup({
@@ -249,8 +249,8 @@ window.addEventListener("load", () => {
 		//$("inputbox-inner").style.height = $("inputbox-a").clientHeight + 5;
 		
 		// msg preview
-		if(msg.trim() && (/`|\*|~|_|<|>/.test(msg) || msg.startsWith("/"))) {
-			$("previewbox-inner").innerHTML = unparseMsg(parseMsg(msg), cache.getGuild(cache.current));
+		if(msg.trim() && (/`|\*|~|_|<|>|@|#|:/.test(msg) || msg.startsWith("/"))) {
+			$("previewbox-inner").innerHTML = unparseMsg(parseMsg(msg), client.guilds.cache.get(cache.current));
 			$("previewbox").style.display = "block";
 		} else {
 			$("previewbox").style.display = "none";
@@ -296,7 +296,7 @@ window.addEventListener("load", () => {
 
 function onLoaded() {
 	loadDone = true;
-	PopupManager.setPopup(new JSONPopup({
+	/*PopupManager.setPopup(new JSONPopup({
 		title: "Popup-Titel",
 		submit: "CLICK ME",
 		fields: [
@@ -309,7 +309,7 @@ function onLoaded() {
 			{type: 3, name: "List (Boolean)", list: {length: 3, names: ["1", "2", "3"]}},
 			{type: 3, name: "Radio", list: {length: 4, names: ["A", "B", "C"], radio: true}}
 		]
-	}));
+	}));*/
 	var loading = document.getElementById("loading");
 	loading.style = "display: none;";
 	$("client").style = "";

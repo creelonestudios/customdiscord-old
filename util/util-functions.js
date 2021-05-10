@@ -51,8 +51,7 @@ function getRoleByName(name, guildid) {
 }
 
 function getEmojiByName(name, guildid) {
-	console.warn("USING DEPRECATED FUNCTION");
-	/*guildid = guildid || current_guild;
+	guildid = guildid || cache.current;
 	var guild = client.guilds.cache.get(guildid);
 	if(guild) {
 		var emojis = guild.emojis.cache.array();
@@ -63,7 +62,7 @@ function getEmojiByName(name, guildid) {
 	var emojis = client.emojis.cache.array();
 	for(var i = 0; i < emojis.length; i++) {
 		if(emojis[i].name == name) return emojis[i];
-	}*/
+	}
 }
 
 function embed(title, desc, color, footer) {
