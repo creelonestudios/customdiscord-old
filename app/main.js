@@ -240,6 +240,13 @@ window.addEventListener("load", () => {
 		PopupManager.setPopup(popup);
 	});
 	$("user-region-settings").title = "Benutzereinstellungen";
+	$("user-region-name").addEventListener("click", () => {
+		const name = $("user-region-name").innerText;
+		copyToClipboard(name);
+		setTimeout(() => {
+			$("user-region-name").innerText = name;
+		}, 1500);
+	});
 	$("user-region-status").addEventListener("click", setStatus);
 	
 	PopupManager.init();
