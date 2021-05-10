@@ -1,4 +1,5 @@
 function parseMsg(msg) {
+	if(!msg) return "";
 	var result = "";
 	var suffix = "";
 	var start = 0;
@@ -110,6 +111,7 @@ function parseMsg(msg) {
 }
 
 function unparseMsg(msg, guild) {
+	if(!msg || !guild) return "";
 	/*msg = msg.replaceAll("<script>", "&lt;script&gt;");
 	msg = msg.replaceAll("</script>", "&lt;/script&gt;");
 	msg = msg.replaceAll("<style>", "&lt;style&gt;");
