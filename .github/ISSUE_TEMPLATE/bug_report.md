@@ -2,7 +2,7 @@
 name: Bug report
 about: Reporte uns einen Bug damit wir ihn smashen können *smash*
 title: "[BUG]"
-labels: ''
+labels: bug
 assignees: ''
 
 ---
@@ -23,7 +23,7 @@ Beschreibe was passieren sollte.
 Füge hier am besten Screenshots hinzu damit wir den Bug besser verstehen können.
 
 **Desktop (Bitte die folgenden Infos ausfüllen):**
- - OS: [e.g. Windows]
+ - OS: [e.g. Windows 10]
  - Browser [e.g. Chrome, Edge]
  - Version [e.g. 1.0]
 
