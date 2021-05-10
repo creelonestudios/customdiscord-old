@@ -243,6 +243,7 @@ window.addEventListener("load", () => {
 	$("user-region-name").addEventListener("click", () => {
 		const name = $("user-region-name").innerText;
 		copyToClipboard(name);
+		$("user-region-name").innerText = "Copied!";
 		setTimeout(() => {
 			$("user-region-name").innerText = name;
 		}, 1500);
