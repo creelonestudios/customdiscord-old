@@ -249,7 +249,7 @@ window.addEventListener("load", () => {
 		//$("inputbox-inner").style.height = $("inputbox-a").clientHeight + 5;
 		
 		// msg preview
-		if(msg.trim()) {
+		if(msg.trim() && (/`|\*|~|_|<|>/.test(msg) || msg.startsWith("/"))) {
 			$("previewbox-inner").innerHTML = unparseMsg(parseMsg(msg), cache.getGuild(cache.current));
 			$("previewbox").style.display = "block";
 		} else {
