@@ -257,10 +257,12 @@ textarea {
 	border-radius: 8px;
 	padding: 10px;
 	border-color: transparent;
-	/* min-width:  0px; */
-	/* width: 0px; */
-	min-height: 0px;
-	height: 14px;
+	min-height: 14px;
+	max-height: 250px;
+	font: 400 13.3333px Arial;
+	outline: none;
+	overflow-wrap: anywhere;
+	overflow: hidden scroll;
 }
 
 #typing {
@@ -276,7 +278,7 @@ textarea {
 	flex: 0 1 auto;
 	color: var(--text-normal);
 	background: var(--background-primary);
-	padding: 10px 10px 10px 10px;
+	padding: 0px 10px 10px 10px;
 }
 
 #previewbox-inner {
@@ -287,10 +289,10 @@ textarea {
 	padding: 10px;
 	border-color: transparent;
 	min-height: 14px;
-	/* height: 14px; */
-	font: 400 13.3333px Arial;
+	max-height: 250px;
+	font-size: 13.3333px;
 	overflow-wrap: anywhere;
-	overflow: hidden;
+	overflow: hidden scroll;
 }
 
 /* width */

@@ -47,7 +47,7 @@ function getRoleByName(name, guildid) {
 	var roles = guild.roles.cache.array();
 	for(var i = 0; i < roles.length; i++) {
 		if(roles[i].name == name) return roles[i];
-	}*/
+	}
 }
 
 function getEmojiByName(name, guildid) {

@@ -84,15 +84,14 @@ function sendMsg() {
 		$("inputbox-inner").value = "";
 		return;
 	}*/
-	if($("inputbox-inner").value && channel) channel.send(parseMsg($("inputbox-inner").value)).catch(error => {
+	if($("inputbox-inner").innerText && channel) channel.send(parseMsg($("inputbox-inner").innerText)).catch(error => {
 		if(error.message == "Missing Permissions")  {
 			errorPopup("Missing Permissions");
 		}
 	});
 	for(var i = 0; i < addons.length; i++) {
-		if(addons[i].onmsg) addons[i].onmsg($("inputbox-inner").value);
+		if(addons[i].onmsg) addons[i].onmsg($("inputbox-inner").innerText);
 	}
-	$("inputbox-inner").value = "";
 }
 
 function loadMessageHistory() {
@@ -238,13 +237,14 @@ window.addEventListener("load", () => {
 					channel.send(embed(title, desc, "RANDOM", footer));
 				};
 				return;
-			} else if(
-				msg.startsWith("/error ") && msg.length > 7) { msg = msg.slice(7); errorPopup("Manually triggered error: " + msg);
+			} else if(msg.startsWith("/error ") && msg.length > 7) {
+				msg = msg.slice(7); errorPopup("Manually triggered error: " + msg);
 			} else {
 				sendMsg();
 			}
+			$("inputbox-inner").innerText = "";
 		}
-		msg = $("inputbox-inner").value;
+		msg = $("inputbox-inner").innerText;
 		//$("inputbox-a").innerText = "#" + msg + "#";
 		//$("inputbox-inner").style.height = $("inputbox-a").clientHeight + 5;
 		
