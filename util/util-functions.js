@@ -22,8 +22,7 @@ function getChannelByName(name, guildid) {
 }
 
 function getUserByName(name, guildid) {
-	console.warn("USING DEPRECATED FUNCTION");
-	/*guildid = guildid || current_guild;
+	guildid = guildid || cache.current;
 	var guild = client.guilds.cache.get(guildid);
 	if(guild) {
 		var members = guild.members.cache.array();
@@ -38,12 +37,11 @@ function getUserByName(name, guildid) {
 	var users = client.users.cache.array();
 	for(var i = 0; i < users.length; i++) {
 		if(users[i].username == name || users[i].tag == name) return users[i];
-	}*/
+	}
 }
 
 function getRoleByName(name, guildid) {
-	console.warn("USING DEPRECATED FUNCTION");
-	/*guildid = guildid || current_guild;
+	guildid = guildid || cache.current;
 	var guild = client.guilds.cache.get(guildid);
 	if(!guild) return;
 	var roles = guild.roles.cache.array();

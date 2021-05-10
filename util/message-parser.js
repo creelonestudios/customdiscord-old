@@ -18,7 +18,7 @@ function parseMsg(msg) {
 				if(char1 != "\n") s += char1;
 			}
 			if(char == "#") {
-				var channel = cache.getChannel(s);
+				var channel = cache.searchChannel(s);
 				if(channel && channel.type == "text") {
 					result += "<#" + channel.id + ">";
 				} else result += "#" + s;
