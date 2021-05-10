@@ -368,19 +368,6 @@ code {
 	overflow: hidden;
 	transform: translate(-50%, -50%);
 	border: 1px solid var(--background-tertiary);
-	animation-name: popIn;
-	animation-duration: 2s;
-}
-
-@keyframes popIn {
-	from {
-		max-height: 1px;
-		max-width: 1px;
-	}
-	to {
-		max-height: 9999px;
-		max-width: 9999px;
-	}
 }
 
 .popup-title {
