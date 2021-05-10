@@ -22,7 +22,7 @@
 		<p style="display: none;" id="loadingaddon">Loading Addon ERROR...</p>
 	</div>
 	<div id="popups"></div>
-	<div id="client" style="display: none;">
+	<div id="client" style="display: none;" tabindex="0">
 		<div id="guild-region">
 			<div id="guild-list"></div>
 		</div>
@@ -45,8 +45,9 @@
 				<div id="previewbox-inner">aaa</div>
 			</div>
 			<div id="inputbox">
-				<div id="inputbox-inner" placeholder="Send messages to #channel" contenteditable="true"></div>
+				<div id="inputbox-inner" contenteditable="true"></div>
 				<div id="typing"></div>
+				<div id="inputbox-placeholder">Send messages to #channel</div>
 			</div>
 			
 			<!--<input type="checkbox" id="autoswitch">Autoswitch<br>-->

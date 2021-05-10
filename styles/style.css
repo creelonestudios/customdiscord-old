@@ -259,10 +259,18 @@ textarea {
 	border-color: transparent;
 	min-height: 14px;
 	max-height: 250px;
-	font: 400 13.3333px Arial;
+	font: 400 13.3333px Consolas;
 	outline: none;
 	overflow-wrap: anywhere;
 	overflow: hidden scroll;
+}
+
+#inputbox-placeholder {
+	position: absolute;
+	color: var(--text-muted);
+	font: 400 13.3333px Consolas;
+	padding: 10px;
+	pointer-events: none; 
 }
 
 #typing {

@@ -132,14 +132,14 @@ function loadMessageHistory() {
 		}*/
 		$("inputbox-inner").focus();
 		if(!guild) {
-			$("inputbox-inner").placeholder = "Guild error.";
+			$("inputbox-placeholder").innerText = "Guild error.";
 			$("inputbox-inner").disabled = true;
 			errorPopup("Guild error: not guild"); // speech 100
 		} else if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-			$("inputbox-inner").placeholder = "Send messages to #" + channel.name;
+			$("inputbox-placeholder").innerText = "Send messages to #" + channel.name;
 			$("inputbox-inner").disabled = false;
 		} else {
-			$("inputbox-inner").placeholder = "You don't have permissions to write in this channel.";
+			$("inputbox-placeholder").innerText = "You don't have permissions to write in this channel.";
 			$("inputbox-inner").disabled = true;
 		}
 	}
@@ -198,11 +198,19 @@ window.addEventListener("load", () => {
 	$("client").addEventListener("keydown", (event) => {
 		if(!event.ctrlKey) {
 			$("inputbox-inner").focus();
+			// thx to Andy Raddaz on Stackoverflow: https://stackoverflow.com/questions/511088/use-javascript-to-place-cursor-at-end-of-text-in-text-input-element
+			if(typeof $("inputbox-inner").selectionStart == "number") {
+				$("inputbox-inner").selectionStart = $("inputbox-inner").selectionEnd = $("inputbox-inner").value.length;
+			} else if(typeof $("inputbox-inner").createTextRange != "undefined") {           
+				var range = $("inputbox-inner").createTextRange();
+				range.collapse(false);
+				range.select();
+			}
 		}
 		console.log("keydown on client");
 	});
 	
-	$("inputbox").addEventListener("keydown", function(event) { // to make sure \n isnt at the end
+	$("inputbox-inner").addEventListener("keydown", function(event) { // to make sure \n isnt at the end
 	  	if(event.keyCode === 13 && !event.shiftKey) {
 			event.preventDefault();
 		}
@@ -249,10 +257,16 @@ window.addEventListener("load", () => {
 		//$("inputbox-inner").style.height = $("inputbox-a").clientHeight + 5;
 		
 		// msg preview
-		if(msg.trim() && (/`|\*|~|_|<|>|@|#|:/.test(msg) || msg.startsWith("/"))) {
-			$("previewbox-inner").innerHTML = unparseMsg(parseMsg(msg), client.guilds.cache.get(cache.current));
-			$("previewbox").style.display = "block";
+		if(msg.trim()) {
+			$("inputbox-placeholder").style.display = "none";
+			if(/`|\*|~|_|<|>|@|#|:/.test(msg) || msg.startsWith("/")) {
+				$("previewbox-inner").innerHTML = unparseMsg(parseMsg(msg), client.guilds.cache.get(cache.current));
+				$("previewbox").style.display = "block";
+			} else {
+				$("previewbox").style.display = "none";
+			}
 		} else {
+			$("inputbox-placeholder").style.display = "block";
 			$("previewbox").style.display = "none";
 		}
 	});
