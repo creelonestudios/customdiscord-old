@@ -11,13 +11,14 @@ function copyToClipboard(str) {
 }
 
 function getChannelByName(name, guildid) {
-	guildid = guildid || current_guild;
+	console.warn("USING DEPRECATED FUNCTION");
+	/*guildid = guildid || current_guild;
 	var guild = client.guilds.cache.get(guildid);
 	if(!guild) return;
 	var channels = guild.channels.cache.array();
 	for(var i = 0; i < channels.length; i++) {
 		if(channels[i].name == name) return channels[i];
-	}
+	}*/
 }
 
 function getUserByName(name, guildid) {
@@ -50,7 +51,8 @@ function getRoleByName(name, guildid) {
 }
 
 function getEmojiByName(name, guildid) {
-	guildid = guildid || current_guild;
+	console.warn("USING DEPRECATED FUNCTION");
+	/*guildid = guildid || current_guild;
 	var guild = client.guilds.cache.get(guildid);
 	if(guild) {
 		var emojis = guild.emojis.cache.array();
@@ -61,7 +63,7 @@ function getEmojiByName(name, guildid) {
 	var emojis = client.emojis.cache.array();
 	for(var i = 0; i < emojis.length; i++) {
 		if(emojis[i].name == name) return emojis[i];
-	}
+	}*/
 }
 
 function embed(title, desc, color, footer) {
@@ -83,7 +85,6 @@ function setTheme(theme) {
 
 function $(id) {
 	var elem = document.getElementById(id);
-	if(!elem) elem = document.body;
 	return elem;
 }
 

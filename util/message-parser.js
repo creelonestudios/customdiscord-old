@@ -1,4 +1,5 @@
 function parseMsg(msg) {
+	if(!msg) return "";
 	var result = "";
 	var suffix = "";
 	var start = 0;
@@ -7,35 +8,6 @@ function parseMsg(msg) {
 	else if(msg.startsWith("/unflip ") || msg == "/unflip") { start = 8; suffix = " ┬─┬ ノ( ゜-゜ノ)" }
 	else if(msg.startsWith("/doubleflip ") || msg == "/doubleflip") { start = 12; suffix = " ┻━┻彡 ヽ(ಠ益ಠ)ノ彡┻━┻" }
 	else if(msg.startsWith("/me ") && msg.length > 4) { start = 4; result += "_"; suffix = "_"; }
-	else if(msg.startsWith("/error ") && msg.length > 7) { msg = msg.slice(7); errorPopup("Manually triggered error: " + msg); return;}
-	
-	else if(msg.startsWith("/embed")) {
-		var embedpopup = new JSONPopup({
-			title: "Embed erstellen",
-			submit: "Senden",
-			fields: [
-				{type: 0, name: "Erstelle dein Embed."},
-				{type: 1, name: "Titel: ", length: -1},
-				{type: 1, name: "Beschreibung: ", length: -1},
-				{type: 1, name: "Footer", length: -1}
-			]
-		});
-		PopupManager.setPopup(embedpopup);
-		embedpopup.submit = function() {
-			PopupManager.closePopup();
-			var title = this.fields[1].e.value || "Kein Titel";
-			var desc = this.fields[2].e.value || "Keine Beschreibung";
-			var footer = this.fields[3].e.value;
-			if(!footer) {
-				footer = "Kein Footer | CustomDiscord";
-			} else {
-				footer = footer + " | CustomDiscord";
-			}
-			var channel = client.channels.cache.get(current_channel);
-			channel.send(embed(title, desc, "RANDOM", footer));
-		};
-		return;
-	}
 	for(var i = start; i < msg.length; i++) {
 		var char = msg.charAt(i);
 		if(char == "#" || char == "@") {
@@ -110,6 +82,7 @@ function parseMsg(msg) {
 }
 
 function unparseMsg(msg, guild) {
+	if(!msg || !guild) return "";
 	/*msg = msg.replaceAll("<script>", "&lt;script&gt;");
 	msg = msg.replaceAll("</script>", "&lt;/script&gt;");
 	msg = msg.replaceAll("<style>", "&lt;style&gt;");

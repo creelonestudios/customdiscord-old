@@ -84,15 +84,14 @@ function sendMsg() {
 		$("inputbox-inner").value = "";
 		return;
 	}*/
-	if($("inputbox-inner").value && channel) channel.send(parseMsg($("inputbox-inner").value)).catch(error => {
+	if($("inputbox-inner").innerText && channel) channel.send(parseMsg($("inputbox-inner").innerText)).catch(error => {
 		if(error.message == "Missing Permissions")  {
 			errorPopup("Missing Permissions");
 		}
 	});
 	for(var i = 0; i < addons.length; i++) {
-		if(addons[i].onmsg) addons[i].onmsg($("inputbox-inner").value);
+		if(addons[i].onmsg) addons[i].onmsg($("inputbox-inner").innerText);
 	}
-	$("inputbox-inner").value = "";
 }
 
 function loadMessageHistory() {
@@ -207,21 +206,60 @@ window.addEventListener("load", () => {
 	  	if(event.keyCode === 13 && !event.shiftKey) {
 			event.preventDefault();
 		}
-		$("inputbox-a").innerText = "#" + $("inputbox-inner").value + "#";
-		$("inputbox-inner").style.height = $("inputbox-a").clientHeight + 5;
 	});
 	
 	$("inputbox").addEventListener("keyup", function(event) {
+		var msg = $("inputbox-inner").value;
 	  	if(event.keyCode === 13 && !event.shiftKey) {
-	   		sendMsg();
+			if(msg.startsWith("/embed")) {
+				var embedpopup = new JSONPopup({
+					title: "Embed erstellen",
+					submit: "Senden",
+					fields: [
+						{type: 0, name: "Erstelle dein Embed."},
+						{type: 1, name: "Titel: ", length: -1},
+						{type: 1, name: "Beschreibung: ", length: -1},
+						{type: 1, name: "Footer", length: -1}
+					]
+				});
+				PopupManager.setPopup(embedpopup);
+				embedpopup.submit = function() {
+					PopupManager.closePopup();
+					var title = this.fields[1].e.value || "Kein Titel";
+					var desc = this.fields[2].e.value || "Keine Beschreibung";
+					var footer = this.fields[3].e.value;
+					if(!footer) {
+						footer = "Kein Footer | CustomDiscord";
+					} else {
+						footer = footer + " | CustomDiscord";
+					}
+					var channel = client.channels.cache.get(current_channel);
+					channel.send(embed(title, desc, "RANDOM", footer));
+				};
+				return;
+			} else if(msg.startsWith("/error ") && msg.length > 7) {
+				msg = msg.slice(7); errorPopup("Manually triggered error: " + msg);
+			} else {
+				sendMsg();
+			}
+			$("inputbox-inner").innerText = "";
 		}
-		$("inputbox-a").innerText = "#" + $("inputbox-inner").value + "#";
-		$("inputbox-inner").style.height = $("inputbox-a").clientHeight + 5;
+		msg = $("inputbox-inner").innerText;
+		//$("inputbox-a").innerText = "#" + msg + "#";
+		//$("inputbox-inner").style.height = $("inputbox-a").clientHeight + 5;
+		
+		// msg preview
+		if(msg.trim() && (/`|\*|~|_|<|>/.test(msg) || msg.startsWith("/"))) {
+			$("previewbox-inner").innerHTML = unparseMsg(parseMsg(msg), cache.getGuild(cache.current));
+			$("previewbox").style.display = "block";
+		} else {
+			$("previewbox").style.display = "none";
+		}
 	});
 	
-	$("btnstatuschange").addEventListener("click", function(event) {
+	/*$("btnstatuschange").addEventListener("click", function(event) {
 		//setStatus();
-	});
+	});*/
 	
 	$("user-region-settings").addEventListener("click", event => {
 		var popup = new JSONPopup({

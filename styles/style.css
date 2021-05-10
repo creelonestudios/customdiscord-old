@@ -257,10 +257,12 @@ textarea {
 	border-radius: 8px;
 	padding: 10px;
 	border-color: transparent;
-	/* min-width:  0px; */
-	/* width: 0px; */
-	min-height: 0px;
-	height: 14px;
+	min-height: 14px;
+	max-height: 250px;
+	font: 400 13.3333px Arial;
+	outline: none;
+	overflow-wrap: anywhere;
+	overflow: hidden scroll;
 }
 
 #typing {
@@ -269,6 +271,28 @@ textarea {
 	color: #c0c0c0;
 	padding: 2px;
 	height: 20px;
+}
+
+#previewbox {
+	display: flex;
+	flex: 0 1 auto;
+	color: var(--text-normal);
+	background: var(--background-primary);
+	padding: 0px 10px 10px 10px;
+}
+
+#previewbox-inner {
+	flex: 0 0 auto;
+	color: var(--text-normal);
+	background: var(--textarea-background);
+	border-radius: 8px;
+	padding: 10px;
+	border-color: transparent;
+	min-height: 14px;
+	max-height: 250px;
+	font-size: 13.3333px;
+	overflow-wrap: anywhere;
+	overflow: hidden scroll;
 }
 
 /* width */
