@@ -77,6 +77,15 @@ class ClientCache {
 		return chans;
 	}
 	
+	searchChannel(name) {
+		var channels = client.channels.cache.array();
+		for(var i = 0; i < channels.length; i++) {
+			if(channels[i].name == name) {
+				return channels[i];
+			}
+		}
+	}
+	
 }
 
 class Guild {
