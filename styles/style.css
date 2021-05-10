@@ -374,8 +374,8 @@ code {
 
 @keyframes popIn {
 	from {
-		max-height: 1px;
-		max-width: 1px;
+		filter: brightness(0);
+		transform: translate(-50%,-50%) scale(0);
 	}
 	to {
 		max-height: 9999px;
