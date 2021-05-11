@@ -151,10 +151,33 @@ function createAttachmentDiv(a) {
 			img.addEventListener("click", handler);
 			div.appendChild(img);
 		}
+	} else if(isVideoExt(a.name)) {
+		if(a.width > 1920 || a.height > 1080) {
+			var text = document.createElement("text");
+			text.className = "embed-errtxt attachment";
+			text.innerHTML = "Refused to load video due to it being too big.";
+			div.appendChild(text);
+		} else {
+			var video = document.createElement("video");
+			video.className = "embed-video attachment";
+			video.src = a.url;
+			video.controls = "true";
+			div.appendChild(video);
+		}
+	} else if(isAudioExt(a.name)) {
+		var audio = document.createElement("audio");
+		audio.className = "embed-audio attachment";
+		audio.src = a.url;
+		audio.controls = "true";
+		div.appendChild(audio);
 	} else {
+		// var text = document.createElement("text");
+		// text.className = "embed-errtxt attachment";
+		// text.innerHTML = "Unknown Attachment Type: " + a.name;
+		// div.appendChild(text);
 		var text = document.createElement("text");
 		text.className = "embed-errtxt attachment";
-		text.innerHTML = "Unknown Attachment Type: " + a.name;
+		text.innerText = "Unknown Attachment Type: " + a.name + " - " + a.url;
 		div.appendChild(text);
 	}
 	//console.log(a);
@@ -162,5 +185,13 @@ function createAttachmentDiv(a) {
 }
 
 function isImageExt(f) {
-	return f.endsWith(".png") || f.endsWith(".jpg") || f.endsWith(".jpeg") || f.endsWith(".webp");
+	return f.endsWith(".png") || f.endsWith(".jpg") || f.endsWith(".jpeg") || f.endsWith(".webp") || f.endsWith(".svg") || f.endsWith(".gif") || f.endsWith(".tif") || f.endsWith(".tiff") || f.endsWith(".eps") || f.endsWith(".bmp");
+}
+
+function isVideoExt(f) {
+	return f.endsWith(".mp4") || f.endsWith(".mov") || f.endsWith(".webm") || f.endsWith(".mkv");
+}
+
+function isAudioExt(f) {
+	return f.endsWith(".mp3") || f.endsWith(".ogg") || f.endsWith(".wav") || f.endsWith(".3gp");
 }
