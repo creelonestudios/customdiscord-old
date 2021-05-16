@@ -4,7 +4,7 @@ Das ist CustomDiscord! Wir (Creelone) arbeiten momentan an diesem Projekt.
 Dies ist eine Chrome-Extension.
 Sie funktioniert sogar im neuen Edge!
 
-CustomDiscord benötigt ![](https://discord.js.org/favicon.ico)[Discord.JS](https://github.com/discordjs/discord.js/tree/webpack).
+CustomDiscord benötigt <img src="https://discord.js.org/favicon.ico" alt="" width="24"/> [Discord.JS](https://github.com/discordjs/discord.js/tree/webpack).
 
 #### Made by:
 @J0NASLP [🌐Website](https://cohalejoja.selfhost.eu) [💬Discord](https://www.discord.gg/UHY559S)
@@ -22,6 +22,7 @@ CustomDiscord benötigt ![](https://discord.js.org/favicon.ico)[Discord.JS](http
 Zum Öffnen von CustomDiscord können Sie eine dieser Möglichkeiten benutzen:
 * Rechtsklick auf beliebiger Webseite > Custom Discord
 * Rechtklick auf Extension Icon > Launch
+* Linksklick auf Extension Icon
 
 CustomDiscord sollte sich darauf folgend in einem neuen Fenster öffnen.
 
@@ -32,7 +33,7 @@ Folgen Sie einfach den folgenden Schritten, um sich einzuloggen:
 2. Um einen Token zu erhalten, begeben Sie sich zum [Discord Developer Portal](https://discord.com/developers/applications).
 3. Erstellen Sie dort eine neue Application.
 4. Geben Sie Ihr einen Namen. Dies wird ihr Benutzername sein.
-5. Klicken Sie nun in der Liste links am Bildschirmrand auf "Bot", anschließend auf "Add Bot".
+5. Klicken Sie nun in der Liste am linken Bildschirmrand auf "Bot", anschließend auf "Add Bot".
 6. Discord wird Sie fragen, ob Sie dies wirklich tun möchten. Klicken Sie auf "Yes, do it!".
 7. Klicken Sie nun auf "Click to Reveal Token".
 8. Kopieren Sie die Zeichenfolge und geben Sie diese in CustomDiscord ein.
