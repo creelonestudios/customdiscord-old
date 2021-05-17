@@ -120,23 +120,6 @@ function createEmbedDiv(embed) {
 function createAttachmentDiv(a) {
 	if(!a) return;
 	var div = document.createElement("div");
-	var handler = () => { 
-		var popup = new Popup(a.name, 600, 800, true);
-		var img = document.createElement("img");
-		var input = document.createElement("input");
-		img.src = a.url;
-		img.className = "popup-image";
-		img.style.display = "block";
-		input.type = "button";
-		input.className = "popup-image-button";
-		input.value = "Open Original";
-		input.addEventListener("click", () => {
-			window.open(a.url, "_blank");
-		});
-		popup.content.appendChild(img);
-		popup.content.appendChild(input);
-		PopupManager.setPopup(popup);
-	}
 	if(isImageExt(a.name)) {
 		if(a.width > 1920 || a.height > 1080) {
 			var text = document.createElement("text");
@@ -148,14 +131,47 @@ function createAttachmentDiv(a) {
 			var img = document.createElement("img");
 			img.className = "embed-img attachment";
 			img.src = a.url;
-			img.addEventListener("click", handler);
+			img.addEventListener("click", () => { 
+				var popup = new Popup(a.name, 600, 800, true);
+				var img = document.createElement("img");
+				var input = document.createElement("input");
+				img.src = a.url;
+				img.className = "popup-image";
+				img.style.display = "block";
+				input.type = "button";
+				input.className = "popup-image-button";
+				input.value = "Open Original";
+				input.addEventListener("click", () => {
+					window.open(a.url, "_blank");
+				});
+				popup.content.appendChild(img);
+				popup.content.appendChild(input);
+				PopupManager.setPopup(popup);
+			});
 			div.appendChild(img);
 		}
 	} else if(isVideoExt(a.name)) {
 		if(a.width > 1920 || a.height > 1080) {
 			var text = document.createElement("text");
 			text.className = "embed-errtxt attachment";
-			text.innerHTML = "Refused to load video due to it being too big.";
+			text.innerHTML = "Refused to load video due to it being too big.<br>Click to view";
+			text.addEventListener("click", () => { 
+				var popup = new Popup(a.name, 600, 800, true);
+				var video = document.createElement("video");
+				var input = document.createElement("input");
+				video.src = a.url;
+				video.className = "popup-image";
+				video.style.display = "block";
+				input.type = "button";
+				input.className = "popup-image-button";
+				input.value = "Open Original";
+				input.addEventListener("click", () => {
+					window.open(a.url, "_blank");
+				});
+				popup.content.appendChild(img);
+				popup.content.appendChild(input);
+				PopupManager.setPopup(popup);
+			});
 			div.appendChild(text);
 		} else {
 			var video = document.createElement("video");
