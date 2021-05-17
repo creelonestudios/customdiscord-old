@@ -177,7 +177,7 @@ function createAttachmentDiv(a) {
 		// div.appendChild(text);
 		var text = document.createElement("text");
 		text.className = "embed-errtxt attachment";
-		text.innerText = "Unknown Attachment Type: " + a.name + " - " + a.url;
+		text.innerText = "Unknown Attachment Type: " + a.name + "\n" + a.url;
 		div.appendChild(text);
 	}
 	//console.log(a);
