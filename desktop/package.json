@@ -1,20 +1,73 @@
 {
-  "name": "CustomDiscord",
+  "name": "desktop",
+  "productName": "CustomDiscord",
   "version": "1.0.0",
-  "description": "The Desktop Client for CustomDiscord",
-  "main": "main.js",
+  "description": "Desktop App for CustomDiscord",
+  "main": "src/index.js",
   "scripts": {
-    "start": "electron .",
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=icons/mac/icon.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager . --overwrite --asar --platform=win32 --arch=ia32 --icon=icons/win/icon.ico --prune=true --out=release-builds --version-string.CreeloneStudios=CE --version-string.FileDescription=CE --version-string.ProductName=\"CustomDiscord\"",
-    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=icons/linux/icon.png --prune=true --out=release-builds",
-    "build": "cmd /c echo Building for Mac... && npm run package-mac && echo Building for Windows... && npm run package-win && echo Building for Linux... && npm run package-linux"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "build-installer": "electron-builder"
   },
-  "author": "Creelone Studios",
-  "license": "Modified MIT",
-  "dependencies": {},
+  "build": {
+    "appId": "desktop",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icons/win/icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "icons/win/icon.ico",
+      "uninstallerIcon": "icons/win/icon.ico",
+      "uninstallDisplayName": "CustomDiscord Desktop",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "keywords": [],
+  "author": {
+    "name": "Creelone Studios",
+    "email": "creelone.studios@gmail.com"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "desktop"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
   "devDependencies": {
-    "electron-packager": "^12.0.2",
-    "electron": "^12.0.7"
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "12.0.7",
+    "electron-builder": "^22.10.5"
   }
 }
