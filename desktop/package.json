@@ -1,0 +1,20 @@
+{
+  "name": "CustomDiscord",
+  "version": "1.0.0",
+  "description": "The Desktop Client for CustomDiscord",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --asar --platform=win32 --arch=ia32 --icon=icons/win/icon.ico --prune=true --out=release-builds --version-string.CreeloneStudios=CE --version-string.FileDescription=CE --version-string.ProductName=\"CustomDiscord\"",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=icons/linux/icon.png --prune=true --out=release-builds",
+    "build": "cmd /c echo Building for Mac... && npm run package-mac && echo Building for Windows... && npm run package-win && echo Building for Linux... && npm run package-linux"
+  },
+  "author": "Creelone Studios",
+  "license": "Modified MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "electron-packager": "^12.0.2",
+    "electron": "^12.0.7"
+  }
+}
