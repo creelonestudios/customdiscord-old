@@ -185,7 +185,7 @@ function createAttachmentDiv(a) {
 }
 
 function isImageExt(f) {
-	return f.endsWith(".png") || f.endsWith(".jpg") || f.endsWith(".jpeg") || f.endsWith(".webp") || f.endsWith(".svg") || f.endsWith(".gif") || f.endsWith(".tif") || f.endsWith(".tiff") || f.endsWith(".eps") || f.endsWith(".bmp");
+	return f.endsWith(".png") || f.endsWith(".jpg") || f.endsWith(".jpeg") || f.endsWith(".webp") || f.endsWith(".svg") || f.endsWith(".gif") || f.endsWith(".tif") || f.endsWith(".tiff") || f.endsWith(".bmp");
 }
 
 function isVideoExt(f) {
