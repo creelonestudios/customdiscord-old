@@ -278,7 +278,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	});*/
 	
 	$("user-region-settings").addEventListener("click", event => {
-		var popup = new JSONPopup({
+		/*var popup = new JSONPopup({
 			title: "Settings",
 			submit: "Save",
 			fields: [
@@ -291,7 +291,9 @@ window.addEventListener("DOMContentLoaded", () => {
 			bg.setSetting("theme", popup.fields[2].e.value);
 			setTheme(popup.fields[2].e.value);
 		}
-		PopupManager.setPopup(popup);
+		PopupManager.setPopup(popup);*/
+		statemanager.state = "settings";
+		console.log("lolp");
 	});
 	$("user-region-settings").title = "Benutzereinstellungen";
 	$("user-region-name").addEventListener("click", () => {
