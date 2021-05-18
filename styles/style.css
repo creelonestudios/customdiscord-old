@@ -9,6 +9,22 @@ body {
 	font-size: 18px;
 }
 
+body.state-load #loading {
+	display: block;
+}
+
+body.state-main #client {
+	display: flex;
+}
+
+body.state-settings #settings {
+	display: flex;
+}
+
+body[state="yolo"] {
+	background: red;
+}
+
 * {
 	border-spacing: 0px;
 }
@@ -24,7 +40,7 @@ textarea {
 }
 
 #client {
-	display: flex;
+	display: none;
 	overflow: hidden;
 	flex-direction: row;
 	background: var(--background-primary);
@@ -231,6 +247,7 @@ textarea {
   	left: 50%;
 	transform: translate(-50%, -50%);
 	color: #7289DA;
+	display: none;
 }
 
 #loading div {

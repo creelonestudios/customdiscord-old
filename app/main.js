@@ -6,6 +6,7 @@ var wl_tags = ["i", "/i", "b", "/b", "text", "/text", "h2", "/h2", "h3", "/h3", 
 var themes = [];
 var typing = false;
 var loadDone = false;
+var statemanager;
 
 /*function setStatus() {
 	var popup = new JSONPopup({
@@ -180,7 +181,8 @@ function updateUserRegion() {
 	$("user-region-status").innerText = prefix + "\u00A0" + status.replaceAll(" ", "\u00A0"); // replaces spaces with no-break-spaces
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
+	statemanager = new StateManager();
 	$("inputbox-inner").addEventListener('keydown', function (e){
 		if($("inputbox-inner").value == "") {
 			typing = false;
@@ -324,9 +326,7 @@ function onLoaded() {
 			{type: 3, name: "Radio", list: {length: 4, names: ["A", "B", "C"], radio: true}}
 		]
 	}));*/
-	var loading = document.getElementById("loading");
-	loading.style = "display: none;";
-	$("client").style = "";
+	statemanager.state = "main";
 	reloadGuildList();
 	reloadChannelList();
 	loadMessageHistory();

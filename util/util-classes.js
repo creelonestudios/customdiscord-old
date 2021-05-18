@@ -351,3 +351,32 @@ class Message {
 		return this.#e;
 	}
 }
+
+class StateManager {
+	#states = ["load", "main", "settings"];
+	#state = 0;
+	
+	constructor() {
+		document.body.className = "state-load";
+	}
+	
+	set state(s) {
+		if(!isNaN(s)) {
+			s = Number(s);
+			if(s >= 0 && s < this.#states.length) {
+				this.#state = s;
+			}
+		} else if(this.#states.includes(s)) {
+			this.#state = this.#states.indexOf(s);
+		}
+		document.body.className = "state-" + this.getStateName();
+	}
+	
+	get state() {
+		return this.#state;
+	}
+	
+	getStateName() {
+		return this.#states[this.state];
+	}
+}
