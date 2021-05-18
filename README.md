@@ -5,12 +5,11 @@ Das ist CustomDiscord! Wir (Creelone) arbeiten momentan an diesem Projekt.
 Dies ist eine Chrome-Extension.
 Sie funktioniert sogar im neuen Edge!
 
-<!--CustomDiscord benötigt <img src="https://discord.js.org/favicon.ico" alt="" width="24"/> [Discord.JS](https://github.com/discordjs/discord.js/tree/webpack).-->
-CustomDiscord benutzt [Discord.JS](https://github.com/discordjs/discord.js/tree/webpack) <!-- not sure how the conventions are for images -->
+CustomDiscord benötigt <img src="https://discord.js.org/favicon.ico" alt="" width="24"/> [Discord.JS](https://github.com/discordjs/discord.js/tree/webpack).
 
 ## Made by
 
-@J0NASLP [🌐Website](https://cohalejoja.selfhost.eu) [💬Discord](https://www.discord.gg/UHY559S)
+@j0code [🌐Website](https://cohalejoja.selfhost.eu) [💬Discord](https://www.discord.gg/UHY559S)
 
 @cfpwastaken [🌐Website](https://cfp.gotdns.ch) [💬Discord](https://www.discord.gg/w9B9bqJ)
 
