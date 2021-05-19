@@ -254,6 +254,10 @@ textarea {
 	text-align: center;
 }
 
+#settings {
+	display: none;
+}
+
 #inputbox {
 	display: flex;
 	flex: 0 1 auto;
