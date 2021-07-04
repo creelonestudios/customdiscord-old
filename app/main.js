@@ -165,6 +165,52 @@ function reloadChannelList() {
 	channelsDiv.appendChild(guild.channellist);
 }
 
+function reloadMemberList() {
+	var memberDiv = $("memberlist");
+	var guildId = cache.getGuild(cache.current).id;
+	var guild = client.guilds.cache.get(guildId);
+	var online = guild.members.cache.filter(m => m.presence.status === "online");
+	while(memberDiv.firstChild) memberDiv.removeChild(memberDiv.lastChild);
+
+	var onlineRole = document.createElement("div");
+	onlineRole.classList.add("role");
+
+	var onlineRoleName = document.createElement("span");
+	onlineRoleName.classList.add("rolename");
+	onlineRoleName.innerText = "online";
+	onlineRole.appendChild(onlineRoleName);
+	
+	for (let value of online) {
+		console.log("Adding " + value[1].user.tag);
+		var user = value[1].user;
+		
+		var rolemember = document.createElement("div");
+		rolemember.classList.add("rolemember");
+		onlineRole.appendChild(rolemember);
+		var messageauthor = document.createElement("div");
+		messageauthor.classList.add("message-author");
+		rolemember.appendChild(messageauthor);
+		var avatar = document.createElement("img");
+		avatar.classList.add("message-author-avatar");
+		avatar.classList.add("role-avatar");
+		avatar.src = user.displayAvatarURL();
+		messageauthor.appendChild(avatar);
+		var username = document.createElement("div");
+		username.classList.add("message-author-name");
+		username.classList.add("role-username");
+		username.innerText = user.tag;
+		messageauthor.appendChild(username);
+		var rolestatus = document.createElement("div");
+		rolestatus.classList.add("role-status"); // user.presence.status for online status
+		rolestatus.innerText = user.presence.activities[0].name;
+		messageauthor.appendChild(rolestatus);
+		
+		// var user.displayAvatarURL());
+	}
+
+	memberDiv.appendChild(onlineRole);
+}
+
 function updateUserRegion() {
 	$("user-region-name").innerText = client.user.tag;
 	$("user-region-avatar").style.backgroundImage = "url('" + client.user.displayAvatarURL() + "')";
