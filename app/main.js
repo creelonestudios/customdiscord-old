@@ -206,9 +206,9 @@ function reloadMemberList() {
 				
 				var username = document.createElement("div");
 				username.classList.add("member-username");
-				username.innerText = user.tag;
-				if(guild.owner.user.tag === user.tag) {
-					username.innerHTML = username.innerText + "<img class='crown' src='../img/crown.svg'>"; // TODO: Replace crown with discord crown to prevent faking
+				username.innerText = guild.member(user).displayName;
+				if(guild.owner.user.tag === user.tag) { // TODO: Add option for displaying discrim after username (requires settings)
+					username.innerHTML = escapeHTML(username.innerText) + "<img class='crown' src='../img/crown.svg'>";
 				}
 				memberInfo.appendChild(username);
 				var rolestatus = document.createElement("div");
