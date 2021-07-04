@@ -171,7 +171,7 @@ function reloadMemberList() {
 	var guild = client.guilds.cache.get(guildId);
 	while(memberDiv.firstChild) memberDiv.removeChild(memberDiv.lastChild);
 
-	var status = ["online", "offline", "idle", "dnd"];
+	var status = ["online", "idle", "dnd", "offline"];
 
 	for(s in status) {
 		var users = guild.members.cache.filter(m => m.presence.status === status[s]);
@@ -208,7 +208,7 @@ function reloadMemberList() {
 				username.classList.add("member-username");
 				username.innerText = user.tag;
 				if(guild.owner.user.tag === user.tag) {
-					username.innerText = user.tag + " 👑"; // TODO: Replace crown with discord crown to prevent faking
+					username.innerHTML = username.innerText + "<img class='crown' src='../img/crown.svg'>"; // TODO: Replace crown with discord crown to prevent faking
 				}
 				memberInfo.appendChild(username);
 				var rolestatus = document.createElement("div");

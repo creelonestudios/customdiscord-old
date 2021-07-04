@@ -594,3 +594,9 @@ code {
 	overflow: hidden;
 	font-size: 14px;
 }
+
+.crown {
+	width: 20px;
+	margin-left: 5px;
+	vertical-align: middle; /* I have never heard of this property before */
+}
