@@ -174,8 +174,8 @@ function reloadMemberList() {
 	var status = ["online", "offline", "idle", "dnd"];
 
 	for(s in status) {
-		var online = guild.members.cache.filter(m => m.presence.status === status[s]);
-		if(online.size !== 0) {
+		var users = guild.members.cache.filter(m => m.presence.status === status[s]);
+		if(users.size !== 0) {
 			var role = document.createElement("div");
 			role.classList.add("role");
 
@@ -184,7 +184,7 @@ function reloadMemberList() {
 			roleName.innerText = status[s];
 			role.appendChild(roleName);
 			
-			for (let value of online) {
+			for (let value of users) {
 				console.log("Adding " + value[1].user.tag);
 				console.log(value[1]);
 				var user = value[1].user;
@@ -207,6 +207,9 @@ function reloadMemberList() {
 				username.classList.add("message-author-name");
 				username.classList.add("role-username");
 				username.innerText = user.tag;
+				if(guild.owner.user.tag === user.tag) {
+					username.innerText = user.tag + " 👑"; // TODO: Replace crown with discord crown to prevent faking
+				}
 				messageauthor.appendChild(username);
 				var rolestatus = document.createElement("div");
 				rolestatus.classList.add("role-status"); // user.presence.status for online status
