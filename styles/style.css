@@ -529,6 +529,11 @@ code {
 	max-height: 300px;
 }
 
+.embed-video {
+	max-width: 600px;
+	max-height: 600px;
+}
+
 .embed-errtxt {
 	color: red;
 	font-family: Consolas, monospace, Arial;

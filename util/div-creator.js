@@ -120,23 +120,6 @@ function createEmbedDiv(embed) {
 function createAttachmentDiv(a) {
 	if(!a) return;
 	var div = document.createElement("div");
-	var handler = () => { 
-		var popup = new Popup(a.name, 600, 800, true);
-		var img = document.createElement("img");
-		var input = document.createElement("input");
-		img.src = a.url;
-		img.className = "popup-image";
-		img.style.display = "block";
-		input.type = "button";
-		input.className = "popup-image-button";
-		input.value = "Open Original";
-		input.addEventListener("click", () => {
-			window.open(a.url, "_blank");
-		});
-		popup.content.appendChild(img);
-		popup.content.appendChild(input);
-		PopupManager.setPopup(popup);
-	}
 	if(isImageExt(a.name)) {
 		if(a.width > 1920 || a.height > 1080) {
 			var text = document.createElement("text");
@@ -148,13 +131,69 @@ function createAttachmentDiv(a) {
 			var img = document.createElement("img");
 			img.className = "embed-img attachment";
 			img.src = a.url;
-			img.addEventListener("click", handler);
+			img.addEventListener("click", () => { 
+				var popup = new Popup(a.name, 600, 800, true);
+				var img = document.createElement("img");
+				var input = document.createElement("input");
+				img.src = a.url;
+				img.className = "popup-image";
+				img.style.display = "block";
+				input.type = "button";
+				input.className = "popup-image-button";
+				input.value = "Open Original";
+				input.addEventListener("click", () => {
+					window.open(a.url, "_blank");
+				});
+				popup.content.appendChild(img);
+				popup.content.appendChild(input);
+				PopupManager.setPopup(popup);
+			});
 			div.appendChild(img);
 		}
+	} else if(isVideoExt(a.name)) {
+		if(a.width > 1920 || a.height > 1080) {
+			var text = document.createElement("text");
+			text.className = "embed-errtxt attachment";
+			text.innerHTML = "Refused to load video due to it being too big.<br>Click to view";
+			text.addEventListener("click", () => { 
+				var popup = new Popup(a.name, 600, 800, true);
+				var video = document.createElement("video");
+				var input = document.createElement("input");
+				video.src = a.url;
+				video.className = "popup-image";
+				video.style.display = "block";
+				input.type = "button";
+				input.className = "popup-image-button";
+				input.value = "Open Original";
+				input.addEventListener("click", () => {
+					window.open(a.url, "_blank");
+				});
+				popup.content.appendChild(img);
+				popup.content.appendChild(input);
+				PopupManager.setPopup(popup);
+			});
+			div.appendChild(text);
+		} else {
+			var video = document.createElement("video");
+			video.className = "embed-video attachment";
+			video.src = a.url;
+			video.controls = "true";
+			div.appendChild(video);
+		}
+	} else if(isAudioExt(a.name)) {
+		var audio = document.createElement("audio");
+		audio.className = "embed-audio attachment";
+		audio.src = a.url;
+		audio.controls = "true";
+		div.appendChild(audio);
 	} else {
+		// var text = document.createElement("text");
+		// text.className = "embed-errtxt attachment";
+		// text.innerHTML = "Unknown Attachment Type: " + a.name;
+		// div.appendChild(text);
 		var text = document.createElement("text");
 		text.className = "embed-errtxt attachment";
-		text.innerHTML = "Unknown Attachment Type: " + a.name;
+		text.innerText = "Unknown Attachment Type: " + a.name + "\n" + a.url;
 		div.appendChild(text);
 	}
 	//console.log(a);
@@ -162,5 +201,13 @@ function createAttachmentDiv(a) {
 }
 
 function isImageExt(f) {
-	return f.endsWith(".png") || f.endsWith(".jpg") || f.endsWith(".jpeg") || f.endsWith(".webp");
+	return f.endsWith(".png") || f.endsWith(".jpg") || f.endsWith(".jpeg") || f.endsWith(".webp") || f.endsWith(".svg") || f.endsWith(".gif") || f.endsWith(".tif") || f.endsWith(".tiff") || f.endsWith(".bmp");
+}
+
+function isVideoExt(f) {
+	return f.endsWith(".mp4") || f.endsWith(".mov") || f.endsWith(".webm") || f.endsWith(".mkv");
+}
+
+function isAudioExt(f) {
+	return f.endsWith(".mp3") || f.endsWith(".ogg") || f.endsWith(".wav") || f.endsWith(".3gp");
 }
