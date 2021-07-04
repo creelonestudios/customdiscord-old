@@ -195,22 +195,22 @@ function reloadMemberList() {
 					rolemember.style.filter = "grayscale(100%)";
 				}
 				role.appendChild(rolemember);
-				var messageauthor = document.createElement("div");
-				messageauthor.classList.add("message-author");
-				rolemember.appendChild(messageauthor);
 				var avatar = document.createElement("img");
-				avatar.classList.add("message-author-avatar");
-				avatar.classList.add("role-avatar");
+				avatar.classList.add("member-avatar");
 				avatar.src = user.displayAvatarURL();
-				messageauthor.appendChild(avatar);
+				rolemember.appendChild(avatar);
+
+				var memberInfo = document.createElement("div");
+				memberInfo.classList.add("member-info");
+				rolemember.appendChild(memberInfo);
+				
 				var username = document.createElement("div");
-				username.classList.add("message-author-name");
-				username.classList.add("role-username");
+				username.classList.add("member-username");
 				username.innerText = user.tag;
 				if(guild.owner.user.tag === user.tag) {
 					username.innerText = user.tag + " 👑"; // TODO: Replace crown with discord crown to prevent faking
 				}
-				messageauthor.appendChild(username);
+				memberInfo.appendChild(username);
 				var rolestatus = document.createElement("div");
 				rolestatus.classList.add("role-status"); // user.presence.status for online status
 				if(user.presence.activities[0]) {
@@ -218,7 +218,7 @@ function reloadMemberList() {
 				} else {
 					rolestatus.innerText = "";
 				}
-				messageauthor.appendChild(rolestatus);
+				memberInfo.appendChild(rolestatus);
 				
 				// var user.displayAvatarURL());
 			}
