@@ -42,8 +42,9 @@ Folgen Sie einfach den folgenden Schritten, um sich einzuloggen:
 4. Geben Sie Ihr einen Namen. Dies wird ihr Benutzername sein.
 5. Klicken Sie nun in der Liste am linken Bildschirmrand auf "Bot", anschließend auf "Add Bot".
 6. Discord wird Sie fragen, ob Sie dies wirklich tun möchten. Klicken Sie auf "Yes, do it!".
-7. Klicken Sie nun auf "Click to Reveal Token".
-8. Kopieren Sie die Zeichenfolge und geben Sie diese in CustomDiscord ein.
+7. **WICHTIG!** Discord hat Intents enforced das heißt du musst leider PRESENCE INTENT und SERVER MEMBERS INTENT an machen. Dies limitiert dich jedoch auf 100 server. Wir arbeiten an einem Fix!
+8. Klicken Sie nun auf "Click to Reveal Token".
+9. Kopieren Sie die Zeichenfolge und geben Sie diese in CustomDiscord ein.
 
 Sie können hier auch ein Avatar setzen.
 
