@@ -212,7 +212,7 @@ function reloadMemberList() {
 				}
 				memberInfo.appendChild(username);
 				var rolestatus = document.createElement("div");
-				rolestatus.classList.add("role-status"); // user.presence.status for online status
+				rolestatus.classList.add("member-status"); // user.presence.status for online status
 				if(user.presence.activities[0]) {
 					rolestatus.innerText = user.presence.activities[0].name;
 				} else {
