@@ -565,7 +565,7 @@ code {
 }
 
 .role {
-    padding: 10px 0px 10px 0px
+    padding: 0px 0px 10px 0px
 }
 
 .rolename {
@@ -603,17 +603,36 @@ code {
 }
 
 .member-username {
-<<<<<<< HEAD
-    overflow: hidden;
-    font-size: 14px;
-=======
 	overflow: hidden;
 	font-size: 14px;
 }
 
+#member-region.minimized {
+    width: 65px;
+}
+
+#member-region.minimized .member-info, #member-region.minimized .rolename {
+    display: none;
+}
+
+#memberlist-controls {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+#memberlist-controls div {
+    height: 20px;
+    width: 20px;
+    margin: 0px 1px 0px 1px;
+}
+
+#memberlist-controls div:hover {
+    background: var(--message-hover); /* change later */
+}
+
 .crown {
-	width: 20px;
+	width: 15px;
 	margin-left: 5px;
 	vertical-align: middle; /* I have never heard of this property before */
->>>>>>> 495d363281692275c5a30f0029f4501ff08373e2
 }

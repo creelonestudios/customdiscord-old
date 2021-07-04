@@ -406,6 +406,17 @@ function onLoaded() {
 	loadMessageHistory();
 	updateUserRegion();
 	reloadMemberList();
+	
+	var b0 = $("memberlist-controls-popout");
+	var b1 = $("memberlist-controls-minimize");
+	if(b0 && b1) {
+		b0.addEventListener("click", () => alert("Coming soon™️"));
+		b1.addEventListener("click", () => {
+			var reg = $("member-region")
+			reg.classList.toggle("minimized");
+		});
+	}
+	
 	console.log("Loaded CustomDC!");
 }
 
