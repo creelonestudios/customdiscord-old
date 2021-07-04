@@ -37,14 +37,14 @@ CustomDiscord wird Sie beim ersten Öffnen nach einem Token fragen.
 Folgen Sie einfach den folgenden Schritten, um sich einzuloggen:
 
 1. Bitte geben Sie **NICHT** Ihren Benutzer-Token ein.
-2. Um einen Token zu erhalten, begeben Sie sich zum [Discord Developer Portal](https://discord.com/developers/applications).
+2. Um einen Token zu erhalten, begeben Sie sich zum [Discord Developer Portal](https://discord.com/developers).
 3. Erstellen Sie dort eine neue Application.
 4. Geben Sie Ihr einen Namen. Dies wird ihr Benutzername sein.
 5. Klicken Sie nun in der Liste am linken Bildschirmrand auf "Bot", anschließend auf "Add Bot".
 6. Discord wird Sie fragen, ob Sie dies wirklich tun möchten. Klicken Sie auf "Yes, do it!".
-7. **WICHTIG!** Discord hat Intents enforced das heißt du musst leider PRESENCE INTENT und SERVER MEMBERS INTENT an machen. Dies limitiert dich jedoch auf 100 server. Wir arbeiten an einem Fix!
-8. Klicken Sie nun auf "Click to Reveal Token".
-9. Kopieren Sie die Zeichenfolge und geben Sie diese in CustomDiscord ein.
+7. **WICHTIG!** Discord hat Intents enforced das heißt du musst leider "PRESENCE INTENT" und "SERVER MEMBERS INTENT" unter "Privileged Gateway Intents" an machen. Dies limitiert dich jedoch auf 100 server. Wir arbeiten an einem Fix!
+8. Klicken Sie nun auf "Copy" bei "TOKEN".
+9. Fügen sie dies bei CustomDiscord wieder ein.
 
 Sie können hier auch ein Avatar setzen.
 
@@ -58,7 +58,7 @@ Natürlich können Sie sich auch mit vorhandenen Bot Accounts einloggen.
 Discord Bots können Servern nicht via Einladungslink beitreten.
 Auch dies ist recht einfach:
 
-1. Begeben Sie sich zum [Discord Developer Portal](https://discord.com/developers/applications).
+1. Begeben Sie sich zum [Discord Developer Portal](https://discord.com/developers).
 2. Wählen Sie ihren Account aus.
 3. Klicken Sie diesmal in der Liste links auf "OAuth2".
 4. Haken Sie bitte unter "Scopes" "bot" ab und ändern Sie nichts Anderes.
