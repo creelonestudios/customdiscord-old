@@ -580,6 +580,11 @@ code {
     display: flex;
     flex-direction: row;
     padding: 5px;
+    border-radius: 5px;
+}
+
+.rolemember:hover {
+    background: var(--message-hover); /* change later */
 }
 
 .member-avatar {
