@@ -564,22 +564,33 @@ code {
 	display: block;
 }
 
-.role-username {
-	margin-bottom: 20px;
-	overflow: hidden;
+.rolemember {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
 }
 
-.role-status {
-	display: flex;
-	/* align-self: center; */
-	padding-top: 20px;
-	/* padding-right: 50%; */
-	padding-left: 55px;
-	font-size: 17px;
-	padding-bottom: 10px;
-	float: left;
-	position: absolute; /* sry sry sry i couldnt find way without i swear */
+.member-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding-left: 10px;
+    justify-content: center;
+}
+
+.member-status {
 	overflow: hidden;
-	width: 120px;
-	height: 17px;
+	font-size: 12px;
+	color: var(--text-muted)
+}
+
+.member-username {
+	overflow: hidden;
+	font-size: 14px;
 }
