@@ -67,6 +67,7 @@ function setStatus() {
 		}
 		setTimeout(function() {
 			updateUserRegion();
+			reloadMemberList();
 		}, 100);
 	};
 }
@@ -171,7 +172,7 @@ function reloadMemberList() {
 	var guild = client.guilds.cache.get(guildId);
 	while(memberDiv.firstChild) memberDiv.removeChild(memberDiv.lastChild);
 
-	var status = ["online", "offline", "idle", "dnd"];
+	var status = ["online", "idle", "dnd", "offline"];
 
 	for(s in status) {
 		var users = guild.members.cache.filter(m => m.presence.status === status[s]);
@@ -206,15 +207,23 @@ function reloadMemberList() {
 				
 				var username = document.createElement("div");
 				username.classList.add("member-username");
-				username.innerText = user.tag;
-				if(guild.owner.user.tag === user.tag) {
-					username.innerText = user.tag + " 👑"; // TODO: Replace crown with discord crown to prevent faking
+				username.innerText = guild.member(user).displayName;
+				if(guild.owner.user.tag === user.tag) { // TODO: Add option for displaying discrim after username (requires settings)
+					username.innerHTML = escapeHTML(username.innerText) + "<img class='crown' src='../img/crown.svg'>";
 				}
 				memberInfo.appendChild(username);
 				var rolestatus = document.createElement("div");
 				rolestatus.classList.add("member-status"); // user.presence.status for online status
 				if(user.presence.activities[0]) {
-					rolestatus.innerText = user.presence.activities[0].name;
+					// rolestatus.innerText = user.presence.activities[0].name;
+
+					var status = user.presence.activities[0].name;
+					var prefix = "\u2753"; // question mark
+					if(user.presence.activities[0].type == "PLAYING") prefix = "\u{1F3AE}"; // game controller
+					if(user.presence.activities[0].type == "WATCHING") prefix = "\u{1F5A5}"; // monitor
+					if(user.presence.activities[0].type == "LISTENING") prefix = "\u{1F3A7}"; // headphones
+					if(user.presence.activities[0].type == "STREAMING") prefix = "\u{1F3A5}"; // video camera
+					rolestatus.innerText = prefix + " " + status;
 				} else {
 					rolestatus.innerText = "";
 				}

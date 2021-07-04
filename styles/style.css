@@ -605,6 +605,17 @@ code {
 }
 
 .member-username {
+<<<<<<< HEAD
     overflow: hidden;
     font-size: 14px;
+=======
+	overflow: hidden;
+	font-size: 14px;
+}
+
+.crown {
+	width: 20px;
+	margin-left: 5px;
+	vertical-align: middle; /* I have never heard of this property before */
+>>>>>>> 495d363281692275c5a30f0029f4501ff08373e2
 }

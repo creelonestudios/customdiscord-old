@@ -125,3 +125,7 @@ client.on('typingStart', (channel, user) => {
 		//$("typing").innerHTML = "<b>" + author + "</b> is typing...";
 	}*/
 });
+
+client.on('presenceUpdate', (oldMember, newMember) => {
+	reloadMemberList(); // I KNOW THIS IS NOT A GOOD WAY TO RELOAD EVERYTHING PUT IT WILL COME IN NEXT PR
+});
