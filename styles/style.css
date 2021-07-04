@@ -556,10 +556,12 @@ code {
 }
 
 .rolename {
-	margin-top: 10px;
+	margin-top: 20px;
+	margin-bottom: 5px;
 	color: #8E908A;
 	text-transform: uppercase;
 	font-size: 14px;
+	display: block;
 }
 
 .role-username {
