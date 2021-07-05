@@ -212,11 +212,15 @@ function reloadMemberList() {
 				username.innerText = guild.member(user).displayName;
 				if(guild.owner.user.tag === user.tag) { // TODO: Add option for displaying discrim after username (requires settings)
 					username.innerHTML = escapeHTML(username.innerText) + "<img class='crown' src='../img/crown.svg'>";
+					if(user.bot) {
+						username.innerHTML = username.innerText + ' <span class="botBadge">BOT</span>';
+					}
+				} else {
+					if(user.bot) {
+						username.innerHTML = escapeHTML(username.innerText) + ' <span class="botBadge">BOT</span>';
+					}
 				}
-				console.log(user.bot);
-				if(user.bot) {
-					username.innerHTML = username.innerText + ' <span class="botBadge">BOT</span>';
-				}
+				
 				memberInfo.appendChild(username);
 				var rolestatus = document.createElement("div");
 				rolestatus.classList.add("member-status"); // user.presence.status for online status
