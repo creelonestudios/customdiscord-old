@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="icon-1IKc4C colorNormal-2GnAtv"
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg15"
+   sodipodi:docname="topdonator.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata19">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     id="namedview17"
+     showgrid="false"
+     inkscape:zoom="7.375"
+     inkscape:cx="14.237288"
+     inkscape:cy="16"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg15" />
+  <defs
+     id="defs5">
+    <clipPath
+       id="0c413c30-2d9d-4998-822a-53f1276de386">
+      <path
+         d="M31.63,15.73,16.27.37a.37.37,0,0,0-.52,0h0L.37,15.73a.37.37,0,0,0,0,.52h0L15.73,31.63a.37.37,0,0,0,.52,0h0L31.63,16.27a.37.37,0,0,0,0-.52ZM25,12.29l-3,5.79a.22.22,0,0,0,.12.28H24a.2.2,0,0,1,.18.22h0a.17.17,0,0,1-.07.14L16.2,24.45a.26.26,0,0,1-.24,0L8,18.74a.22.22,0,0,1,0-.3H8a.21.21,0,0,1,.13-.07H9.9a.22.22,0,0,0,.22-.22h0v-.07l-3-5.79a.22.22,0,0,1,.1-.29.17.17,0,0,1,.14,0l7.12,4.67a.65.65,0,0,1,.29.32l1.09,2.18a.18.18,0,0,0,.25.09h0a.22.22,0,0,0,.1-.09L17.27,17a.89.89,0,0,1,.29-.32L24.68,12a.21.21,0,0,1,.28.1h0A.19.19,0,0,1,25,12.29Z"
+         fill="none"
+         id="path2" />
+    </clipPath>
+  </defs>
+  <path
+     class="badgePolygon-349aCR"
+     d="M31.63,15.73,16.27.37a.37.37,0,0,0-.52,0h0L.37,15.73a.37.37,0,0,0,0,.52h0L15.73,31.63a.37.37,0,0,0,.52,0h0L31.63,16.27a.37.37,0,0,0,0-.52ZM25,12.29l-3,5.79a.22.22,0,0,0,.12.28H24a.2.2,0,0,1,.18.22h0a.17.17,0,0,1-.07.14L16.2,24.45a.26.26,0,0,1-.24,0L8,18.74a.22.22,0,0,1,0-.3H8a.21.21,0,0,1,.13-.07H9.9a.22.22,0,0,0,.22-.22h0v-.07l-3-5.79a.22.22,0,0,1,.1-.29.17.17,0,0,1,.14,0l7.12,4.67a.65.65,0,0,1,.29.32l1.09,2.18a.18.18,0,0,0,.25.09h0a.22.22,0,0,0,.1-.09L17.27,17a.89.89,0,0,1,.29-.32L24.68,12a.21.21,0,0,1,.28.1h0A.19.19,0,0,1,25,12.29Z"
+     id="path7"
+     style="fill:#ffd56c;fill-opacity:1" />
+  <g
+     clip-path="url(#0c413c30-2d9d-4998-822a-53f1276de386)"
+     id="g13">
+    <g
+       class="shineGroup-W8ZCiV"
+       id="g11">
+      <path
+         d="M-6.8-.86-39.66,32l.78.78L-6-.08Zm4.57-1.39L-36.55,32.07l2.25,2.25L0,0Z"
+         fill="#fff"
+         id="path9" />
+    </g>
+  </g>
+</svg>

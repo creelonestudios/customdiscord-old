@@ -351,3 +351,146 @@ class Message {
 		return this.#e;
 	}
 }
+
+class Badge {
+	constructor(type) {
+		// Tell me your code is inefficient without telling me your code is inefficient:
+		this.e = document.createElement("img");
+		switch(type) {
+			case "crown":
+				this.e.src = "../img/badge/crown.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-crown");
+				break;
+			case "earlysupporter":
+				this.e.src = "../img/badge/earlysupporter.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-earlysupporter");
+				break;
+			case "partner":
+				this.e.src = "../img/badge/partner.png";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-partner");
+				break;
+			case "staff":
+				this.e.src = "../img/badge/staffbadge.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-staffbadge");
+				break;
+			case "bot":
+				this.e.src = "../img/badge/bot/bot.png";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-bot");
+				break;
+			case "verifiedbot":
+				this.e.src = "../img/badge/bot/verifiedbot.png";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-verifiedbot");
+				break;
+			case "verifiedbotdev":
+				this.e.src = "../img/badge/bot/verifiedbotdev.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-verifiedbotdev");
+				break;
+			case "bughunter":
+				this.e.src = "../img/badge/bughunter/bughunter.png";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-bughunter");
+				break;
+			case "goldbughunter":
+				this.e.src = "../img/badge/bughunter/goldbughunter.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-goldbughunter");
+				break;
+			case "balance":
+				this.e.src = "../img/badge/hypesquad/balance.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-balance");
+				break;
+			case "bravery":
+				this.e.src = "../img/badge/hypesquad/bravery.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-bravery");
+				break;
+			case "brillance":
+				this.e.src = "../img/badge/hypesquad/brillance.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-brillance");
+				break;
+			case "goldbalance":
+				this.e.src = "../img/badge/hypesquad/goldbalance.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-goldbalance");
+				break;
+			case "events":
+				this.e.src = "../img/badge/hypesquad/events.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-events");
+				break;
+			case "balancecrown":
+				this.e.src = "../img/badge/hypesquad/balancecrown";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-balancecrown");
+				break;
+			case "boost1":
+				this.e.src = "../img/badge/nitro/boost1.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-boost");
+				this.e.classList.add("badge-boost-1");
+				break;
+			case "boost2":
+				this.e.src = "../img/badge/nitro/boost2.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-boost");
+				this.e.classList.add("badge-boost-2");
+				break;
+			case "boost3":
+				this.e.src = "../img/badge/nitro/boost3.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-boost");
+				this.e.classList.add("badge-boost-3");
+				break;
+			case "boost4":
+				this.e.src = "../img/badge/nitro/boost4.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-boost");
+				this.e.classList.add("badge-boost-4");
+				break;
+			case "boost5":
+				this.e.src = "../img/badge/nitro/boost5.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-boost");
+				this.e.classList.add("badge-boost-5");
+				break;
+			case "boost6":
+				this.e.src = "../img/badge/nitro/boost6.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-boost");
+				this.e.classList.add("badge-boost-6");
+				break;
+			case "boost7":
+				this.e.src = "../img/badge/nitro/boost7.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-boost");
+				this.e.classList.add("badge-boost-7");
+				break;
+			case "boost8":
+				this.e.src = "../img/badge/nitro/boost8.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-boost");
+				this.e.classList.add("badge-boost-8");
+				break;
+			case "boost9":
+				this.e.src = "../img/badge/nitro/boost9.svg";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-boost");
+				this.e.classList.add("badge-boost-9");
+				break;
+			case "nitro":
+				this.e.src = "../img/badge/nitro/nitro.png";
+				this.e.classList.add("badge");
+				this.e.classList.add("badge-nitro");
+				break;
+		}// What have I done
+	}
+}
