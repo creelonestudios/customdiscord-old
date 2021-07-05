@@ -1,306 +1,308 @@
 html, body, #client {
-	height: 100%;
+    height: 100%;
 }
 
 body {
-	margin: 0px;
-	background-color: var(--background-primary);
-	color: var(--text-normal);
-	font-size: 18px;
+    margin: 0px;
+    background-color: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 18px;
 }
 
 * {
-	border-spacing: 0px;
+    border-spacing: 0px;
 }
 
 a, a:visited {
-	color: var(--text-link);
+    color: var(--text-link);
 }
 
 textarea {
-	resize: none;
-	outline: none;
-	overflow: hidden;
+    resize: none;
+    outline: none;
+    overflow: hidden;
 }
 
 #client {
-	display: flex;
-	overflow: hidden;
-	flex-direction: row;
-	background: var(--background-primary);
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+    background: var(--background-primary);
 }
 
 #client > * {
-	flex: 0 0 auto;
+    flex: 0 0 auto;
 }
 
 #guild-region {
-	display: flex;
-	width: 70px;
-	background: var(--background-tertiary);
-	padding: 5px 0px 5px 0px;
+    display: flex;
+    width: 70px;
+    background: var(--background-tertiary);
+    padding: 5px 0px 5px 0px;
 }
 
 #channel-region {
-	display: flex;
-	flex-direction: column;
-	width: 250px;
-	overflow: hidden;
-	background: var(--background-secondary);
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    overflow: hidden;
+    background: var(--background-secondary);
 }
 
 #chat-region {
-	display: flex;
-	overflow: hidden;
-	flex-direction: column;
-	flex: 1 1 auto;
-	background: var(--background-primary);
-	padding-right: 3pt;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    flex: 1 1 auto;
+    background: var(--background-primary);
+    padding-right: 3pt;
 }
 
 #member-region {
-	display: flex;
-	width: 250px;
-	background: var(--background-secondary);
+    display: flex;
+    width: 250px;
+    background: var(--background-secondary);
+    overflow: hidden;
+    flex-direction: column;
 }
 
 #guild-list {
-	overflow: hidden scroll;
-	display: flex;
-	flex-direction: column;
+    overflow: hidden scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 #channel-list {
-	flex: 1 1 auto;
-	overflow: hidden scroll;
-	padding-right: 3pt;
-	margin-right: 3pt;
+    flex: 1 1 auto;
+    overflow: hidden scroll;
+    padding-right: 3pt;
+    margin-right: 3pt;
 }
 
 #user-region {
-	display: flex;
-	background: var(--background-secondary-alt);
-	height: 60px;
+    display: flex;
+    background: var(--background-secondary-alt);
+    height: 60px;
 }
 
 #chat-history {
-	flex: 1 1 auto;
-	overflow: hidden scroll;
-	padding-right: 3pt;
-	padding-bottom: 24px;
+    flex: 1 1 auto;
+    overflow: hidden scroll;
+    padding-right: 3pt;
+    padding-bottom: 24px;
 }
 
 .guild {
-	border-radius: 25px;
-	display: flex;
-	margin: 5px 10px 5px 10px;
-	overflow: hidden;
-	transition: 0.3s;
-	cursor: pointer;
+    border-radius: 25px;
+    display: flex;
+    margin: 5px 10px 5px 10px;
+    overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .guild:hover, .guild.guild-active:hover {
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
 }
 
 .guild img {
-	width: 50px;
-	height: 50px;
+    width: 50px;
+    height: 50px;
 }
 
 .guild.guild-active {
-	background: var(--channel-active);
-	border-radius: 15px;
+    background: var(--channel-active);
+    border-radius: 15px;
 }
 
 .category {
-	padding: 10px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
 }
 
 .category-name {
-	cursor: pointer;
-	padding: 2px 10px 2px 10px;
+    cursor: pointer;
+    padding: 2px 10px 2px 10px;
 }
 
 .channel {
-	cursor: pointer;
-	vertical-align: top;
-	text-align: left;
-	padding: 2px 10px 2px 10px;
-	overflow-wrap: anywhere;
+    cursor: pointer;
+    vertical-align: top;
+    text-align: left;
+    padding: 2px 10px 2px 10px;
+    overflow-wrap: anywhere;
 }
 
 .category .channel {
-	display: none;
+    display: none;
 }
 
 .channel:hover {
-	background: var(--interactive-hover);
+    background: var(--interactive-hover);
 }
 
 .channel.channel-active {
-	background: var(--channel-active);
-	display: block;
+    background: var(--channel-active);
+    display: block;
 }
 
 .category-showchans .channel {
-	display: block;
+    display: block;
 }
 
 #user-region-avatar {
-	width: 40px;
-	height: 40px;
-	background-repeat: no-repeat;
-	background-size: contain;
-	display: flex;
-	align-self: center;
-	margin: 0px 10px 0px 10px;
-	overflow: hidden;
-	border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    align-self: center;
+    margin: 0px 10px 0px 10px;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 #user-region-main {
-	align-self: center;
-	width: 145px;
-	overflow: hidden;
+    align-self: center;
+    width: 145px;
+    overflow: hidden;
 }
 
 #user-region-settings {
-	position: absolute;
-	margin: 15px 0px 0px 215px;
-	display: inline-block;
-	width: 30px;
-	height: 30px;
-	cursor: pointer;
-	border-radius: 3px;
+    position: absolute;
+    margin: 15px 0px 0px 215px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 3px;
 }
 
 #user-region-settings:hover {
-	background-color: var(--interactive-hover);
+    background-color: var(--interactive-hover);
 }
 
 #user-region-settings div {
-	background-image: url("../img/gear.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	width: 20px;
-	height: 20px;
-	margin: 5px;
+    background-image: url("../img/gear.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
 }
 
 .message {
-	padding: 10px;
-	font-size: 18px;
+    padding: 10px;
+    font-size: 18px;
 }
 
 .message:hover {
-	background: var(--message-hover);
+    background: var(--message-hover);
 }
 
 .message-author {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .message-author-name {
-	font-weight: bold;
-	font-family: Consolas, monospace, Arial;
-	display: flex;
-	align-self: center;
-	padding-left: 10px;
+    font-weight: bold;
+    font-family: Consolas, monospace, Arial;
+    display: flex;
+    align-self: center;
+    padding-left: 10px;
 }
 
 .message-content {
-	overflow-wrap: anywhere;
-	padding: 2px;
+    overflow-wrap: anywhere;
+    padding: 2px;
 }
 
 .message-author-avatar {
-	border-radius: 32px;
-	overflow: hidden;
-	width: 64px;
-	height: 64px;
-	display: flex;
+    border-radius: 32px;
+    overflow: hidden;
+    width: 64px;
+    height: 64px;
+    display: flex;
 }
 
 #loading {
-  	position: absolute;
-  	top: 50%;
-  	left: 50%;
-	transform: translate(-50%, -50%);
-	color: #7289DA;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #7289DA;
 }
 
 #loading div {
-	text-align: center;
+    text-align: center;
 }
 
 #inputbox {
-	display: flex;
-	flex: 0 1 auto;
-	flex-direction: column;
-	color: var(--text-normal);
-	background: var(--background-primary);
-	/* min-height: 40px; */
-	/* height: -webkit-fill-available; */
-	/* max-height: 180px; */
-	padding: 0px 10px 0px 10px;
-	/* overflow: auto; */
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    color: var(--text-normal);
+    background: var(--background-primary);
+    /* min-height: 40px; */
+    /* height: -webkit-fill-available; */
+    /* max-height: 180px; */
+    padding: 0px 10px 0px 10px;
+    /* overflow: auto; */
 }
 
 #inputbox-inner {
-	flex: 0 0 auto;
-	color: var(--text-normal);
-	background: var(--textarea-background);
-	border-radius: 8px;
-	padding: 10px;
-	border-color: transparent;
-	min-height: 14px;
-	max-height: 250px;
-	font: 400 13.3333px Consolas;
-	outline: none;
-	overflow-wrap: anywhere;
-	overflow: hidden scroll;
+    flex: 0 0 auto;
+    color: var(--text-normal);
+    background: var(--textarea-background);
+    border-radius: 8px;
+    padding: 10px;
+    border-color: transparent;
+    min-height: 14px;
+    max-height: 250px;
+    font: 400 13.3333px Consolas;
+    outline: none;
+    overflow-wrap: anywhere;
+    overflow: hidden scroll;
 }
 
 #inputbox-placeholder {
-	position: absolute;
-	color: var(--text-muted);
-	font: 400 13.3333px Consolas;
-	padding: 10px;
-	pointer-events: none; 
+    position: absolute;
+    color: var(--text-muted);
+    font: 400 13.3333px Consolas;
+    padding: 10px;
+    pointer-events: none;
 }
 
 #typing {
-	position: flex;
-	font-size: 14px;
-	color: #c0c0c0;
-	padding: 2px;
-	height: 20px;
+    position: flex;
+    font-size: 14px;
+    color: #c0c0c0;
+    padding: 2px;
+    height: 20px;
 }
 
 #previewbox {
-	display: flex;
-	flex: 0 1 auto;
-	color: var(--text-normal);
-	background: var(--background-primary);
-	padding: 0px 10px 10px 10px;
+    display: flex;
+    flex: 0 1 auto;
+    color: var(--text-normal);
+    background: var(--background-primary);
+    padding: 0px 10px 10px 10px;
 }
 
 #previewbox-inner {
-	flex: 0 0 auto;
-	color: var(--text-normal);
-	background: var(--textarea-background);
-	border-radius: 8px;
-	padding: 10px;
-	border-color: transparent;
-	min-height: 14px;
-	max-height: 250px;
-	font-size: 13.3333px;
-	overflow-wrap: anywhere;
-	overflow: hidden scroll;
+    flex: 0 0 auto;
+    color: var(--text-normal);
+    background: var(--textarea-background);
+    border-radius: 8px;
+    padding: 10px;
+    border-color: transparent;
+    min-height: 14px;
+    max-height: 250px;
+    font-size: 13.3333px;
+    overflow-wrap: anywhere;
+    overflow: hidden scroll;
 }
 
 /* width */
@@ -309,224 +311,231 @@ textarea {
 }
 
 #guild-list::-webkit-scrollbar {
-	width: 0px;
+    width: 0px;
 }
 
-#channel-list::-webkit-scrollbar {
-	width: 6px;
+#channel-list::-webkit-scrollbar, #memberlist::-webkit-scrollbar {
+    width: 6px;
+}
+
+#channel-list::-webkit-scrollbar-thumb, #memberlist::-webkit-scrollbar-thumb {
+    background: none;
+}
+
+#channel-list:hover::-webkit-scrollbar-thumb, #memberlist:hover::-webkit-scrollbar-thumb {
+    background: var(--blurple);
 }
 
 code {
-	background-color: #222222;
-	border: 1px solid transparent;
-	border-radius: 5px;
-	font-family: Consolas, monospace, Arial;
-	padding: 1px;
-	font-size: 16px;
+    background-color: #222222;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-family: Consolas, monospace, Arial;
+    padding: 1px;
+    font-size: 16px;
 }
 
 .cb {
-	background-color: #333336;
-	color: gray;
-	border: 1px solid #121212;
-	padding: 5px;
-	/*margin-top: 4px;*/
-	display: block;
+    background-color: #333336;
+    color: gray;
+    border: 1px solid #121212;
+    padding: 5px;
+    /*margin-top: 4px;*/
+    display: block;
 }
 
 .quote {
-	border-left: 3px solid #909090;
-	padding-left: 10px;
-	margin-left: 3px;
-	/*display: inline-block;*/
+    border-left: 3px solid #909090;
+    padding-left: 10px;
+    margin-left: 3px;
+    /*display: inline-block;*/
 }
 
 .mention {
-	background-color: #7289da40;
-	border: 1px solid transparent;
-	display: inline-block;
-	color: #7289DA;
-	border-radius: 3px;
+    background-color: #7289da40;
+    border: 1px solid transparent;
+    display: inline-block;
+    color: #7289DA;
+    border-radius: 3px;
 }
 
 .mention:hover {
-	background-color: #7289daff;
-	color: white;
+    background-color: #7289daff;
+    color: white;
 }
 
 #popups {
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	position: fixed;
-	z-index: 1;
-	display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1;
+    display: none;
 }
 
 #popups.darken {
-	background: #000000c0;
+    background: #000000c0;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-	border-radius: 10px;
-	margin-bottom: 5px;
-	margin-top: 5px;
-	margin-right: 5px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: #7289DA; 
-	border-radius: 10px;
-	/* border: 1px solid var(--background-primary); */
+    background: var(--blurple);
+    border-radius: 10px;
+    /* border: 1px solid var(--background-primary); */
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #5e77ba; 
+    background: #5e77ba;
 }
 
 ::-webkit-scrollbar-thumb:active {
-	background: #5a73b6;
+    background: #5a73b6;
 }
 
 .popup {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	border-radius: 5px;
-	background-color: var(--background-primary);
-	overflow: hidden;
-	transform: translate(-50%, -50%);
-	border: 1px solid var(--background-tertiary);
-	animation-name: popIn;
-	animation-duration: 0.25s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 5px;
+    background-color: var(--background-primary);
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--background-tertiary);
+    animation-name: popIn;
+    animation-duration: 0.25s;
 }
 
 @keyframes popIn {
-	from {
-		filter: brightness(0);
-		transform: translate(-50%,-50%) scale(0);
-	}
-	to {
-		filter: brightness(1);
-		transform: translate(-50%,-50%) scale(1);
-	}
+    from {
+        filter: brightness(0);
+        transform: translate(-50%,-50%) scale(0);
+    }
+
+    to {
+        filter: brightness(1);
+        transform: translate(-50%,-50%) scale(1);
+    }
 }
 
 .popup-title {
-	color: var(--text-normal);
-	text-align: center;
-	padding: 20px;
-	font-weight: bold;
-	font-family: Consolas, monospace, Arial;
-	overflow: hidden;
-	background-color: var(--background-secondary);
+    color: var(--text-normal);
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    font-family: Consolas, monospace, Arial;
+    overflow: hidden;
+    background-color: var(--background-secondary);
 }
 
 .popup-content {
-	padding: 15px;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	overflow-wrap: anywhere;
-	background-color: var(--background-primary);
-	margin: 2px;
+    padding: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
+    background-color: var(--background-primary);
+    margin: 2px;
 }
 
 .popup-json-field {
-	padding: 10px;
+    padding: 10px;
 }
 
 .popup-json-field-desc {
-	
 }
 
 .popup-json-item {
-	display: block;
+    display: block;
 }
 
 .popup-json-item[type=text] {
-	width: 200px;
+    width: 200px;
 }
 
 .popup-json-item[type=number] {
-	width: 100px;
+    width: 100px;
 }
 
 .popup-json-field text {
-	padding-right: 5px;
+    padding-right: 5px;
 }
 
 .popup-json-field select, .popup-json-field input {
-	outline: none;
+    outline: none;
 }
 
 .popup-json-addbutton {
-	display: block;
-	width: 20px;
-	height: 20px;
-	border-radius: 2px;
-	font-weight: bold;
-	padding: 0px;
-	text-align: center;
-	border-color: transparent;
-	margin-top: 2px;
-	font-size: 16px;
-	outline: none;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    font-weight: bold;
+    padding: 0px;
+    text-align: center;
+    border-color: transparent;
+    margin-top: 2px;
+    font-size: 16px;
+    outline: none;
 }
 
 .popup-json-addbutton:active {
-	background-color: #b0b0b0;
+    background-color: #b0b0b0;
 }
 
 .popup-json-submit {
-	padding: 10px 15px 10px 15px;
-	min-width: 60px;
-	min-height: 30px;
-	margin: 10px;
-	background: #7289da;
-	border: none;
-	border-radius: 5px;
-	color: white;
-	outline: none;
-	cursor: pointer;
+    padding: 10px 15px 10px 15px;
+    min-width: 60px;
+    min-height: 30px;
+    margin: 10px;
+    background: #7289da;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    cursor: pointer;
 }
 
 .popup-json-submit:hover {
-	background: #677bc4;
+    background: #677bc4;
 }
 
 .popup-json-submit:active {
-	background: #5b6eae;
+    background: #5b6eae;
 }
 
 .popup-image {
-	max-width: 512px;
-	max-height: 768px;
+    max-width: 512px;
+    max-height: 768px;
 }
 
 .popup-image-button {
-	border: none;
-	outline: none;
-	background: transparent;
-	color: #808080;
-	padding: 10px;
-	cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #808080;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .popup-image-button:hover, .popup-image-button:active {
-	color: #a0a0a0;
-	text-decoration: underline;
+    color: #a0a0a0;
+    text-decoration: underline;
 }
 
 .embed {
-	
 }
 
 .embed-img {
-	max-width: 300px;
-	max-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .embed-video {
@@ -535,17 +544,114 @@ code {
 }
 
 .embed-errtxt {
-	color: red;
-	font-family: Consolas, monospace, Arial;
-	font-size: 14px;
+    color: red;
+    font-family: Consolas, monospace, Arial;
+    font-size: 14px;
 }
 
 .attachment {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .badge .bot {
-	background-color: #7289DA;
-	border-radius: 10px;
-	
+    background-color: #7289DA;
+    border-radius: 10px;
+}
+
+#memberlist {
+    overflow: hidden scroll;
+    /* color: red; */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 100vh;
+    margin-right: 3pt;
+    margin-left: 10px;
+}
+
+.role {
+    padding: 0px 0px 10px 0px
+}
+
+.rolename {
+    margin: 5px;
+    color: #8E908A;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: block;
+}
+
+.rolemember {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.rolemember:hover {
+    background: var(--message-hover); /* change later */
+}
+
+.member-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding-left: 10px;
+    justify-content: center;
+}
+
+.member-status {
+    overflow: hidden;
+    font-size: 12px;
+    color: var(--text-muted)
+}
+
+.member-username {
+	overflow: hidden;
+	font-size: 14px;
+}
+
+#member-region.minimized {
+    width: 65px;
+}
+
+#member-region.minimized .member-info, #member-region.minimized .rolename {
+    display: none;
+}
+
+#memberlist-controls {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+#memberlist-controls div {
+    height: 20px;
+    width: 20px;
+    margin: 0px 1px 0px 1px;
+}
+
+#memberlist-controls div:hover {
+    background: var(--message-hover); /* change later */
+}
+
+.crown {
+	width: 15px;
+	margin-left: 5px;
+	vertical-align: middle; /* I have never heard of this property before */
+}
+
+.botBadge {
+    background-color: #7289DA;
+    color: white;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }

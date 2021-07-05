@@ -14,6 +14,7 @@
 	--message-hover: #c0c0c0;
 	--textarea-background: #e0e4e8;
 	--other: #ff0000;
+	--blurple: #7289da;
 }
 
 .theme-dark {
@@ -32,4 +33,5 @@
 	--message-hover: #404040;
 	--textarea-background: #40444b;
 	--other: #ff0000;
+	--blurple: #7289da;
 }

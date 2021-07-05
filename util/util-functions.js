@@ -116,3 +116,25 @@ function decrypt(salt, encoded) {
 	  .map((charCode) => String.fromCharCode(charCode))
 	  .join("");
 }
+
+
+// from https://dirask.com/posts/JavaScript-how-to-escape-html-special-characters-aDWdQp
+function escapeHTML(html) {
+	var rules = [
+		{ expression: /&/g, replacement: '&amp;'  }, // keep this rule at first position
+		{ expression: /</g, replacement: '&lt;'   },
+		{ expression: />/g, replacement: '&gt;'   },
+		{ expression: /"/g, replacement: '&quot;' },
+		{ expression: /'/g, replacement: '&#039;' }
+	];
+
+	var result = html;
+
+	for (var i = 0; i < rules.length; ++i) {
+		var rule = rules[i];
+
+		result = result.replace(rule.expression, rule.replacement);
+	}
+
+	return result;
+}

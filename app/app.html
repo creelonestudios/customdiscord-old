@@ -55,14 +55,34 @@
 			<!--<input type="button" id="send" value="Send" onclick="sendMsg()">-->
 		</div>
 		<div id="member-region">
-			<div style="margin-left: 10px">
+			<div style="margin-left: 10px;position: relative; display:none">
 				<!--<a href="settings" target="_blank">Settings</a><br>-->
-				<b>CustomDiscord Dev</b><br>
+				<!-- <b>CustomDiscord Dev</b><br> -->
 				<!--<button onclick="setTheme('theme-dark')">🌙 Switch to Dark Theme</button><br>
 				<button onclick="setTheme('theme-default')">🌞 Switch to Light Theme</button><br>
 				<button onclick="setTheme('')">🚫 Remove Theme</button>
 				<button id="btnstatuschange">Change Status</button>-->
+				
+				
+				
+
 			</div>
+			<div id="memberlist-controls">
+				<div id="memberlist-controls-popout"></div>
+				<div id="memberlist-controls-minimize"></div>
+			</div>
+			<div id="memberlist">
+					<div class="role">
+						<span class="rolename">online</span>
+						<div class="rolemember">
+							<div class="message-author">
+								<img class="message-author-avatar role-avatar" src="https://cdn.discordapp.com/avatars/318394797822050315/2fa77b5d206a2fff02a98e039ec78cc0.webp">
+								<div class="message-author-name role-username">cfp#7174</div>
+								<div class="role-status">Coding</div>
+							</div>
+						</div>
+					</div>
+				</div>
 		</div>
 	</div>
 	<!--

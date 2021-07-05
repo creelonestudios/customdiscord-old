@@ -162,6 +162,7 @@ class Guild {
 				this.#cache.current = this.#id;
 				reloadChannelList();
 				loadMessageHistory();
+				reloadMemberList();
 			});
 			this.#e.top.appendChild(this.#e.icon);
 		}

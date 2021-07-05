@@ -67,6 +67,7 @@ function setStatus() {
 		}
 		setTimeout(function() {
 			updateUserRegion();
+			reloadMemberList();
 		}, 100);
 	};
 }
@@ -163,6 +164,89 @@ function reloadChannelList() {
 	console.log(guild);
 	while(channelsDiv.firstChild) channelsDiv.removeChild(channelsDiv.lastChild);
 	channelsDiv.appendChild(guild.channellist);
+}
+
+function reloadMemberList() {
+	var memberDiv = $("memberlist");
+	var guildId = cache.getGuild(cache.current).id;
+	var guild = client.guilds.cache.get(guildId);
+	while(memberDiv.firstChild) memberDiv.removeChild(memberDiv.lastChild);
+
+	var status = ["online", "idle", "dnd", "offline"];
+	console.log(status);
+
+	status.forEach(s => {
+		console.log(s);
+		var users = guild.members.cache.filter(m => m.presence.status === s);
+		if(users.size !== 0) {
+			var role = document.createElement("div");
+			role.classList.add("role");
+
+			var roleName = document.createElement("span");
+			roleName.classList.add("rolename");
+			roleName.innerText = s;
+			role.appendChild(roleName);
+			
+			for (let value of users) {
+				console.log("Adding " + value[1].user.tag);
+				console.log(value[1]);
+				var user = value[1].user;
+				
+				var rolemember = document.createElement("div");
+				rolemember.classList.add("rolemember");
+				if(s === "offline") {
+					rolemember.style.filter = "grayscale(100%)";
+				}
+				role.appendChild(rolemember);
+				var avatar = document.createElement("img");
+				avatar.classList.add("member-avatar");
+				avatar.src = user.displayAvatarURL();
+				rolemember.appendChild(avatar);
+
+				var memberInfo = document.createElement("div");
+				memberInfo.classList.add("member-info");
+				rolemember.appendChild(memberInfo);
+				
+				var username = document.createElement("div");
+				username.classList.add("member-username");
+				username.innerText = guild.member(user).displayName;
+				if(guild.owner.user.tag === user.tag) { // TODO: Add option for displaying discrim after username (requires settings)
+					username.innerHTML = escapeHTML(username.innerText) + "<img class='crown' src='../img/crown.svg'>";
+					if(user.bot) {
+						username.innerHTML = username.innerText + ' <span class="botBadge">BOT</span>';
+					}
+				} else {
+					if(user.bot) {
+						username.innerHTML = escapeHTML(username.innerText) + ' <span class="botBadge">BOT</span>';
+					}
+				}
+				
+				memberInfo.appendChild(username);
+				var rolestatus = document.createElement("div");
+				rolestatus.classList.add("member-status"); // user.presence.status for online status
+				if(user.presence.activities[0]) {
+					// rolestatus.innerText = user.presence.activities[0].name;
+
+					var status = user.presence.activities[0].name;
+					var prefix = "\u2753"; // question mark
+					if(user.presence.activities[0].type == "PLAYING") prefix = "\u{1F3AE}"; // game controller
+					if(user.presence.activities[0].type == "WATCHING") prefix = "\u{1F5A5}"; // monitor
+					if(user.presence.activities[0].type == "LISTENING") prefix = "\u{1F3A7}"; // headphones
+					if(user.presence.activities[0].type == "STREAMING") prefix = "\u{1F3A5}"; // video camera
+					rolestatus.innerText = prefix + " " + status;
+				} else {
+					rolestatus.innerText = "";
+				}
+				memberInfo.appendChild(rolestatus);
+				
+				// var user.displayAvatarURL());
+			}
+
+			memberDiv.appendChild(role);
+		} else {
+			console.log("Role empty " + s + ", skipping");
+		}
+	});
 }
 
 function updateUserRegion() {
@@ -331,6 +415,18 @@ function onLoaded() {
 	reloadChannelList();
 	loadMessageHistory();
 	updateUserRegion();
+	reloadMemberList();
+	
+	var b0 = $("memberlist-controls-popout");
+	var b1 = $("memberlist-controls-minimize");
+	if(b0 && b1) {
+		b0.addEventListener("click", () => alert("Coming soon™️"));
+		b1.addEventListener("click", () => {
+			var reg = $("member-region")
+			reg.classList.toggle("minimized");
+		});
+	}
+	
 	console.log("Loaded CustomDC!");
 }
 

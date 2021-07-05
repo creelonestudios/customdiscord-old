@@ -123,3 +123,6 @@ function loadMessageHistory() {
 function reloadChannelList() {
 	if(isAppOpen()) clientWindow.reloadChannelList();
 }
+function reloadMemberList() {
+	if(isAppOpen()) clientWindow.reloadMemberList();
+}
