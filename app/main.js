@@ -328,11 +328,12 @@ function onLoaded() {
 			{type: 3, name: "Radio", list: {length: 4, names: ["A", "B", "C"], radio: true}}
 		]
 	}));*/
-	statemanager.state = "main";
+	statemanager.state = "settings"; // dev
 	reloadGuildList();
 	reloadChannelList();
 	loadMessageHistory();
 	updateUserRegion();
+	generateSettingsView();
 	console.log("Loaded CustomDC!");
 }
 

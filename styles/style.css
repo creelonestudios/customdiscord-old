@@ -254,10 +254,6 @@ textarea {
 	text-align: center;
 }
 
-#settings {
-	display: none;
-}
-
 #inputbox {
 	display: flex;
 	flex: 0 1 auto;
@@ -564,4 +560,33 @@ code {
 	background-color: #7289DA;
 	border-radius: 10px;
 	
+}
+
+#settings {
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#settings-list {
+	background-color: var(--background-secondary);
+	width: 250px;
+	height: 100vh;
+	padding: 50px 10px 50px 10px;
+}
+
+#settings-title {
+	font-weight: bold;
+	padding: 5px;
+}
+
+.settings-tabname {
+	padding: 5px;
+	border-radius: 5px;
+}
+
+
+.settings-tabname:hover {
+	background-color: var(--message-hover);
 }
