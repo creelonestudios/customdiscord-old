@@ -3,16 +3,12 @@ function generateSettingsView() {
 	var list = e("div");
 	list.id = "settings-list";
 	
-	var listTitle = e("div");
-	listTitle.id = "settings-title";
-	listTitle.innerText = "User Settings";
-	list.appendChild(listTitle);
-	
 	for(var i = 0; i < settingsTabs.length; i++) {
 		var section = settingsTabs[i];
-		for(var j = 0; j < section.tabs.length; j++) {
-			list.appendChild(section.tabs[j].labelE);
-		}
+		list.appendChild(section.e);
+		var separator = e("div");
+		separator.className = "settings-separator";
+		list.appendChild(separator);
 	}
 	
 	settings.appendChild(list);
@@ -51,6 +47,16 @@ class SettingsSection {
 	
 	validate() {
 		this.#e = e("div");
+		this.#e.className = "settings-section";
+		if(this.name) {
+			var label = e("div");
+			label.className = "settings-section-name";
+			label.innerText = this.name;
+			this.#e.appendChild(label);
+		}
+		for(var i = 0; i < this.tabs.length; i++) {
+			this.#e.appendChild(this.tabs[i].labelE);
+		}
 	}
 }
 
@@ -59,5 +65,21 @@ var settingsTabs = [
 		new SettingsTab("Accounts"),
 		new SettingsTab("User Profile"),
 		new SettingsTab("Privacy & Safety")
+	]),
+	new SettingsSection("App Settings", [
+		new SettingsTab("Appearance"),
+		new SettingsTab("Accessibility"),
+		new SettingsTab("Voice & Video"),
+		new SettingsTab("Text & Images"),
+		new SettingsTab("Notifications"),
+		new SettingsTab("Keybinds"),
+		new SettingsTab("Language"),
+		new SettingsTab("Streamer Mode"),
+		new SettingsTab("Developer Mode"),
+	]),
+	new SettingsSection("Custom Discord", [
+		new SettingsTab("Plugins"),
+		new SettingsTab("Themes"),
+		new SettingsTab("Soundpacks")
 	])
 ];

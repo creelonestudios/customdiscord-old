@@ -17,8 +17,8 @@
 }
 
 .theme-dark {
-	--header-primary: #000000;
-	--header-secondary: #000000;
+	--header-primary: #ffffff;
+	--header-secondary: #b9bbbe;
 	--text-normal: #FFFFFF;
 	--text-muted: #808080;
 	--text-link: #00b0f4;

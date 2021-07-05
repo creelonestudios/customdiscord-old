@@ -576,15 +576,27 @@ code {
 	padding: 50px 10px 50px 10px;
 }
 
-#settings-title {
+.settings-section {
+	padding: 5px;
+}
+
+.settings-section-name {
 	font-weight: bold;
 	font-size: 14px;
-	padding: 5px;
+	padding: 5px 0px 5px 0px;
 	text-transform: uppercase;
+	color: var(--header-secondary);
+}
+
+.settings-separator {
+	background-color: #ffffff0f;
+	width: 200px;
+	height: 1px;
+	margin: 5px 20px 5px 20px;
 }
 
 .settings-tabname {
-	padding: 5px;
+	padding: 4px 0px 4px 0px;
 	border-radius: 5px;
 }
 
