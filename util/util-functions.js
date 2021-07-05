@@ -87,6 +87,10 @@ function $(id) {
 	return elem;
 }
 
+function e(tag) {
+	return document.createElement(tag);
+}
+
 function getSalt() {
 	return "VGhlIGZvbGxvd2luZyBkb2Vzbid0IG1lYW4gYW55dGhpbmcuIEl0J3MganVzdCBnYXJiYWdlIGRhdGEgZ2VuZXJhdGVkIGJ5IHlvdXIgY2xpZW50LgoKU25WemRDQmtiMjUwQ2dwVWF6aG5Va1U1VDFaRFJVdERiVVpJVDFST1NsSXhTbmRYYTA1RFRURndWRkZ0TldGWFJrWnVXVlZrVjJWV2NGSlFWREE5";
 	// Random salt. doesnt have a meaning. Yep. No meaning.
