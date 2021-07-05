@@ -329,7 +329,7 @@ textarea {
 	width: 0px;
 }
 
-#channel-list::-webkit-scrollbar {
+#channel-list::-webkit-scrollbar, #settings-list::-webkit-scrollbar {
 	width: 6px;
 }
 
@@ -572,18 +572,19 @@ code {
 #settings-list {
 	background-color: var(--background-secondary);
 	width: 250px;
-	height: 100vh;
+	height: calc(100vh - 100px);
 	padding: 50px 10px 50px 10px;
+	overflow: hidden scroll;
 }
 
 .settings-section {
-	padding: 5px;
+	padding: 5px 0px 5px 0px;
 }
 
 .settings-section-name {
 	font-weight: bold;
 	font-size: 14px;
-	padding: 5px 0px 5px 0px;
+	padding: 5px;
 	text-transform: uppercase;
 	color: var(--header-secondary);
 }
@@ -592,11 +593,11 @@ code {
 	background-color: #ffffff0f;
 	width: 200px;
 	height: 1px;
-	margin: 5px 20px 5px 20px;
+	margin: 5px 25px 5px 25px;
 }
 
 .settings-tabname {
-	padding: 4px 0px 4px 0px;
+	padding: 5px;
 	border-radius: 5px;
 }
 
