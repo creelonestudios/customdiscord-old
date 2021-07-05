@@ -24,6 +24,7 @@ function createChannelDiv(channel) {
 		if(channel.type == "text") {
 			div1.innerText = "# " + channel.name;
 			div.addEventListener("click", () => {
+				console.log("EVENT LISTENER");
 				switchChannel(channel.id);
 			});
 		} else if(channel.type == "voice") {

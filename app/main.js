@@ -173,16 +173,18 @@ function reloadMemberList() {
 	while(memberDiv.firstChild) memberDiv.removeChild(memberDiv.lastChild);
 
 	var status = ["online", "idle", "dnd", "offline"];
+	console.log(status);
 
-	for(s in status) {
-		var users = guild.members.cache.filter(m => m.presence.status === status[s]);
+	status.forEach(s => {
+		console.log(s);
+		var users = guild.members.cache.filter(m => m.presence.status === s);
 		if(users.size !== 0) {
 			var role = document.createElement("div");
 			role.classList.add("role");
 
 			var roleName = document.createElement("span");
 			roleName.classList.add("rolename");
-			roleName.innerText = status[s];
+			roleName.innerText = s;
 			role.appendChild(roleName);
 			
 			for (let value of users) {
@@ -192,7 +194,7 @@ function reloadMemberList() {
 				
 				var rolemember = document.createElement("div");
 				rolemember.classList.add("rolemember");
-				if(status[s] === "offline") {
+				if(s === "offline") {
 					rolemember.style.filter = "grayscale(100%)";
 				}
 				role.appendChild(rolemember);
@@ -210,6 +212,10 @@ function reloadMemberList() {
 				username.innerText = guild.member(user).displayName;
 				if(guild.owner.user.tag === user.tag) { // TODO: Add option for displaying discrim after username (requires settings)
 					username.innerHTML = escapeHTML(username.innerText) + "<img class='crown' src='../img/crown.svg'>";
+				}
+				console.log(user.bot);
+				if(user.bot) {
+					username.innerHTML = username.innerText + ' <span class="botBadge">BOT</span>';
 				}
 				memberInfo.appendChild(username);
 				var rolestatus = document.createElement("div");
@@ -234,9 +240,9 @@ function reloadMemberList() {
 
 			memberDiv.appendChild(role);
 		} else {
-			console.log("Role empty, skipping");
+			console.log("Role empty " + s + ", skipping");
 		}
-	}
+	});
 }
 
 function updateUserRegion() {
