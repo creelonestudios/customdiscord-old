@@ -53,17 +53,19 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
 	if(message.author.id != client.user.id) {
-		var audio = new Audio('../sounds/discord-notification.mp3');
-		audio.play();
-		
-		chrome.notifications.create('', {
-			  "title": message.author.username,
-			  "message": message.content,
-			  "iconUrl": "../img/icon_128.png",
-			  "type": "basic",
-			  "silent": true,
-			  "contextMessage": "CustomDiscord"
-			});
+		if(client.user.presence.status !== "dnd") {
+			var audio = new Audio('../sounds/discord-notification.mp3');
+			audio.play();
+			
+			chrome.notifications.create('', {
+				"title": message.author.username,
+				"message": message.content,
+				"iconUrl": "../img/icon_128.png",
+				"type": "basic",
+				"silent": true,
+				"contextMessage": "CustomDiscord"
+				});
+		}
 	}
 	return; // DEBUG
 	if(message.channel.id == current_channel) {
