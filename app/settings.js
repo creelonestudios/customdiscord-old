@@ -11,10 +11,7 @@ function generateSettingsView() {
 	for(var i = 0; i < settingsTabs.length; i++) {
 		var section = settingsTabs[i];
 		for(var j = 0; j < section.tabs.length; j++) {
-			var tab = e("div");
-			tab.className = "settings-tabname";
-			tab.innerText = section.tabs[j].name;
-			list.appendChild(tab);
+			list.appendChild(section.tabs[j].labelE);
 		}
 	}
 	
@@ -25,25 +22,35 @@ class SettingsTab {
 	#e;
 	constructor(name) {
 		this.name = name;
+		this.#e = {};
 	}
 	
 	get labelE() {
-		if(this.#e.label) validateLabel();
+		if(!this.#e.label) this.validateLabel();
 		return this.#e.label;
 	}
 	
-	function validateLabel() {
-		e("div");
-		tab.className = "settings-tabname";
-		tab.innerText = section.tabs[j].name;
-		list.appendChild(tab);
+	validateLabel() {
+		this.#e.label = e("div");
+		this.#e.label.className = "settings-tabname";
+		this.#e.label.innerText = this.name;
 	}
 }
 
 class SettingsSection {
+	#e;
 	constructor(name, tabs) {
 		this.name = name;
 		this.tabs = tabs;
+	}
+	
+	get e() {
+		if(!this.#e) this.validate();
+		return this.#e;
+	}
+	
+	validate() {
+		this.#e = e("div");
 	}
 }
 
