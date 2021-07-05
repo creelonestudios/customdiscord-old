@@ -12,12 +12,20 @@ function generateSettingsView() {
 	}
 	
 	settings.appendChild(list);
+	
+	var main = e("div");
+	main.id = "settings-main";
+	
+	main.appendChild(settingsTabs[0].tabs[0].contentE);
+	
+	settings.appendChild(main);
 }
 
 class SettingsTab {
 	#e;
-	constructor(name) {
+	constructor(name, content) {
 		this.name = name;
+		this.content = content;
 		this.#e = {};
 	}
 	
@@ -26,10 +34,22 @@ class SettingsTab {
 		return this.#e.label;
 	}
 	
+	get contentE() {
+		if(!this.#e.content) this.validateContent();
+		return this.#e.content;
+	}
+	
 	validateLabel() {
-		this.#e.label = e("div");
+		if(!this.#e.label) this.#e.label = e("div");
 		this.#e.label.className = "settings-tabname";
 		this.#e.label.innerText = this.name;
+	}
+	
+	validateContent() {
+		if(!this.#e.content) this.#e.content = e("div");
+		this.#e.content.className = "settings-tab";
+		while(this.#e.content.childElementCount > 0) this.#e.content.removeChild(this.#e.content.children[0]);
+		addJSONFields(this.#e.content, this.content);
 	}
 }
 
@@ -46,7 +66,7 @@ class SettingsSection {
 	}
 	
 	validate() {
-		this.#e = e("div");
+		if(!this.#e) this.#e = e("div");
 		this.#e.className = "settings-section";
 		if(this.name) {
 			var label = e("div");
@@ -62,7 +82,10 @@ class SettingsSection {
 
 var settingsTabs = [
 	new SettingsSection("User Settings", [
-		new SettingsTab("Accounts"),
+		new SettingsTab("Accounts", [{type: 0, name: "Erstelle dein Embed."},
+						{type: 1, name: "Titel: ", length: -1},
+						{type: 1, name: "Beschreibung: ", length: -1},
+						{type: 1, name: "Footer", length: -1}]),
 		new SettingsTab("User Profile"),
 		new SettingsTab("Privacy & Safety")
 	]),

@@ -577,6 +577,10 @@ code {
 	overflow: hidden scroll;
 }
 
+#settings-main {
+	flex: 1 0 auto;
+}
+
 .settings-section {
 	padding: 5px 0px 5px 0px;
 }
@@ -604,4 +608,8 @@ code {
 
 .settings-tabname:hover {
 	background-color: var(--message-hover);
+}
+
+.settings-tab {
+	
 }
