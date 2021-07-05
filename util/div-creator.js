@@ -84,6 +84,10 @@ function createMessageDiv(message) {
 	div.appendChild(embeds_div);
 	author_div.appendChild(avatar_div);
 	author_div.appendChild(name_div);
+
+	const badge = new Badge("verifiedbot");
+	author_div.appendChild(badge.e);
+
 	div.className = "message";
 	author_div.className = "message-author";
 	avatar_div.className = "message-author-avatar";
