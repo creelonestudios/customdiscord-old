@@ -544,3 +544,9 @@ code {
 	border-radius: 10px;
 	
 }
+
+.badge {
+	height: 20px;
+	align-self: center;
+	margin-left: 5px;
+}
